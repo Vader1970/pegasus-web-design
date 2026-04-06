@@ -31,8 +31,8 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  // Configured to dynamically hold index '0' open on component initialization
-  const [openIndex, setOpenIndex] = useState(0);
+  // All items closed by default
+  const [openIndex, setOpenIndex] = useState(-1);
 
   const toggleItem = (index) => {
     // Toggles closed if clicking the currently open item, otherwise opens the requested item

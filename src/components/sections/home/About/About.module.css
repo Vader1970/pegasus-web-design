@@ -1,6 +1,8 @@
 .section {
+  scroll-margin-top: 0px;
   width: 100%;
-  background-color: var(--color-bg-secondary, #F9FAFB); /* Very light background matching ref */
+  background-color: var(--color-bg-secondary, #F8F9FB);
+  /* Very light background matching ref */
   padding: var(--spacing-120) 0;
 }
 
@@ -16,7 +18,7 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-80);
   /* CRITICAL: align-items stretch structurally matches column heights */
-  align-items: stretch; 
+  align-items: stretch;
 }
 
 /* -------------------
@@ -25,15 +27,16 @@
 .imageColumn {
   position: relative;
   width: 100%;
-  height: 100%; /* Strictly bind to the grid track height, disabling intrinsic footprint overreach */
-  border-radius: var(--radius-lg);
+  height: 100%;
+  /* Strictly bind to the grid track height, disabling intrinsic footprint overreach */
+  border-radius: var(--radius-sm);
   overflow: hidden;
   background-color: #EAEAEA;
 }
 
 .image {
   object-fit: cover;
-  object-position: center 20%; 
+  object-position: center 20%;
 }
 
 /* -------------------
@@ -42,8 +45,10 @@
 .contentColumn {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Removed center-pushing that offsets visual matching */
-  padding: 0; /* Removed manual vertical paddings to ensure flush geometric syncing */
+  justify-content: flex-start;
+  /* Removed center-pushing that offsets visual matching */
+  padding: 0;
+  /* Removed manual vertical paddings to ensure flush geometric syncing */
 }
 
 .heading {
@@ -99,8 +104,9 @@
    Qualifications Panel
 --------------------*/
 .panel {
-  background-color: var(--color-bg-primary, #FFFFFF); /* High contrast pop off the subtle background */
-  border-radius: var(--radius-md);
+  background-color: var(--color-bg-primary, #FFFFFF);
+  /* High contrast pop off the subtle background */
+  border-radius: var(--radius-sm);
   padding: var(--spacing-40);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
   border: 1px solid var(--color-border-light);
@@ -148,7 +154,8 @@
 
 .knowledgeIconWrapper {
   flex-shrink: 0;
-  margin-top: 3px; /* visual bump for single-line centering alignment */
+  margin-top: 3px;
+  /* visual bump for single-line centering alignment */
 }
 
 .qualificationText {
@@ -164,15 +171,19 @@
   .section {
     padding: var(--spacing-96) 0;
   }
+
   .container {
     padding: 0 32px;
   }
+
   .grid {
     gap: var(--spacing-48);
   }
+
   .panel {
     padding: var(--spacing-32);
   }
+
   .panelColumns {
     gap: var(--spacing-24);
   }
@@ -182,9 +193,11 @@
   .grid {
     grid-template-columns: 1fr;
   }
+
   .imageColumn {
     height: auto;
-    aspect-ratio: 16 / 10; /* Lock aspect ratio on table/mobile explicitly */
+    aspect-ratio: 16 / 10;
+    /* Lock aspect ratio on table/mobile explicitly */
   }
 }
 
@@ -192,21 +205,28 @@
   .section {
     padding: var(--spacing-64) 0;
   }
+
   .container {
     padding: 0 24px;
   }
+
   .imageColumn {
-    aspect-ratio: 4 / 3; /* Slight crop for vertical phone screens */
+    aspect-ratio: 4 / 3;
+    /* Slight crop for vertical phone screens */
   }
+
   .contentColumn {
     padding: 0;
   }
+
   .heading {
     font-size: clamp(32px, 8vw, 36px);
   }
+
   .panel {
     padding: var(--spacing-24);
   }
+
   .panelColumns {
     grid-template-columns: 1fr;
     gap: var(--spacing-32);

@@ -1,7 +1,9 @@
 .section {
   width: 100%;
-  background-color: #F8F9FC; /* Soft, premium purple-tinted bg matching reference logic */
+  background-color: #F4F5FD;
+  /* Soft, premium purple-tinted bg matching reference logic */
   padding: var(--spacing-120) 0;
+  scroll-margin-top: 0px;
 }
 
 .container {
@@ -14,7 +16,7 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-80);
+  gap: var(--spacing-40);
 }
 
 .introColumn {
@@ -34,7 +36,8 @@
   font-size: 20px;
   line-height: 160%;
   color: var(--color-text-body);
-  max-width: 500px; /* Constrain line length to keep editorial feel */
+  max-width: 500px;
+  /* Constrain line length to keep editorial feel */
 }
 
 /* -------------------
@@ -48,11 +51,12 @@
 .formPanel {
   background-color: var(--color-bg-primary, #FFFFFF);
   border: 1px solid var(--color-border-light, #EAEAEA);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   padding: var(--spacing-48);
   width: 100%;
-  max-width: 600px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04); /* Subtly elevates off the tinted background */
+  /* max-width: 600px; */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  /* Subtly elevates off the tinted background */
 }
 
 .formIntro {
@@ -72,7 +76,8 @@
 .fieldGroup {
   display: flex;
   flex-direction: column;
-  gap: 8px; /* Clean tracking between label and its native input */
+  gap: 8px;
+  /* Clean tracking between label and its native input */
 }
 
 .label {
@@ -89,7 +94,8 @@
 .textarea {
   width: 100%;
   background-color: var(--color-bg-primary, #FFFFFF);
-  border: 1px solid #CBD5E1; /* Accessible modern grey contrast */
+  border: 1px solid #CBD5E1;
+  /* Accessible modern grey contrast */
   border-radius: 8px;
   padding: 14px 16px;
   font-size: 16px;
@@ -103,7 +109,8 @@
 .textarea:focus {
   outline: none;
   border-color: var(--color-brand-primary, #8B5CF6);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1); /* Accessible focus ring */
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  /* Accessible focus ring */
 }
 
 .select {
@@ -118,7 +125,8 @@
 }
 
 .textarea {
-  resize: vertical; /* Allows users to drag the height comfortably */
+  resize: vertical;
+  /* Allows users to drag the height comfortably */
   min-height: 100px;
 }
 
@@ -126,7 +134,8 @@
 .select:invalid,
 .textarea::placeholder {
   color: #94A3B8;
-  opacity: 1; /* Normalizes Firefox placeholder fading */
+  opacity: 1;
+  /* Normalizes Firefox placeholder fading */
 }
 
 /* -------------------
@@ -140,7 +149,8 @@
 }
 
 .stars {
-  color: #F59E0B; /* Strict star gold */
+  color: #F59E0B;
+  /* Strict star gold */
   margin-right: 8px;
   letter-spacing: 2px;
 }
@@ -170,11 +180,12 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: var(--color-brand-primary, #8B5CF6); 
+  background-color: var(--color-brand-primary, #8B5CF6);
   color: #FFFFFF;
   font-size: 16px;
   font-weight: 600;
-  padding: 18px 32px; /* Thick, premium target size */
+  padding: 18px 32px;
+  /* Thick, premium target size */
   border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
@@ -183,7 +194,8 @@
 }
 
 .submitButton:hover {
-  opacity: 0.9; /* Universal brand hover state logic */
+  opacity: 0.9;
+  /* Universal brand hover state logic */
 }
 
 .arrow {
@@ -202,9 +214,11 @@
   .section {
     padding: var(--spacing-96) 0;
   }
+
   .container {
     padding: 0 32px;
   }
+
   .grid {
     gap: var(--spacing-48);
   }
@@ -214,13 +228,16 @@
   .grid {
     grid-template-columns: 1fr;
   }
+
   .introColumn {
     padding-right: 0;
     margin-bottom: var(--spacing-24);
   }
+
   .formColumn {
     justify-content: flex-start;
   }
+
   .formPanel {
     max-width: 100%;
   }
@@ -230,17 +247,22 @@
   .section {
     padding: var(--spacing-64) 0;
   }
+
   .container {
     padding: 0 24px;
   }
+
   .heading {
     font-size: clamp(36px, 10vw, 48px);
     margin-bottom: var(--spacing-16);
   }
+
   .formPanel {
     padding: var(--spacing-32) var(--spacing-24);
   }
+
   .submitButton {
-    width: 100%; /* Fully responsive stacked target */
+    width: 100%;
+    /* Fully responsive stacked target */
   }
 }

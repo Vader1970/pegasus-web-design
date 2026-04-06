@@ -32,13 +32,13 @@ export default function Process() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        
+
         <div className={styles.header}>
           <h2 className={styles.heading}>
-            From first conversation to<br className={styles.desktopBreak} /> live website in 3 to 6 weeks.
+            From first conversation to live website in 3 to 6 weeks.
           </h2>
         </div>
-        
+
         <div className={styles.grid}>
           {steps.map((step, index) => (
             <div key={index} className={styles.step}>

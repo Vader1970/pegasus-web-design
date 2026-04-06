@@ -10,7 +10,7 @@ export default function CTA() {
           <p className={styles.paragraph}>
             We’ll review your situation and send a written proposal within 48 hours - at no cost and with no obligation to proceed.
           </p>
-          <Link href="/contact" className={styles.link}>
+          <Link href="#contact" className={styles.link}>
             Get your free proposal <span className={styles.arrow}>&rarr;</span>
           </Link>
         </div>

@@ -42,7 +42,7 @@ export default function Problem() {
           <p className={styles.paragraph}>
             Most businesses we work with aren't struggling because of their service, they're struggling because their website doesn't represent it properly.
           </p>
-          <Link href="#contact" className={styles.ctaLink}>
+          <Link href="#services" className={styles.ctaLink}>
             See how we fix it <span className={styles.arrow}>&rarr;</span>
           </Link>
         </div>

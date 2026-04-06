@@ -6,10 +6,10 @@ export default function Hero() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        
+
         {/* Left: Content */}
         <div className={styles.content}>
-          
+
           {/* Trust Line */}
           <div className={styles.trustLine}>
             <div className={styles.trustRow}>
@@ -24,9 +24,9 @@ export default function Hero() {
           </h1>
 
           <p className={styles.paragraph}>
-            Your site will load fast, look sharp, and bring in real work.
-            <br className={styles.desktopBreak} />
-            No jargon. No templates. No surprises.
+            Your site will load fast, look sharp, and bring in real work. No jargon. No templates. No surprises.
+            {/* <br className={styles.desktopBreak} />
+            No jargon. No templates. No surprises. */}
           </p>
 
           <div className={styles.ctaGroup}>
@@ -38,14 +38,14 @@ export default function Hero() {
               Free. Written. Delivered within 48 hours.
             </p>
           </div>
-          
+
         </div>
 
         {/* Right: Image */}
         <div className={styles.imageColumn}>
           <div className={styles.glow}></div>
           <div className={styles.imageWrapper}>
-            <Image 
+            <Image
               src="/images/home/hero/hero-transparent.png"
               alt="Pegasus Web Design Mockup"
               fill
