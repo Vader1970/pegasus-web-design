@@ -275,6 +275,11 @@
 }
 
 @media (max-width: 500px) {
+
+  .section {
+    padding: var(--spacing-24) 0;
+  }
+
   .imageWrapper {
     max-width: 100%;
   }
