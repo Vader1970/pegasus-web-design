@@ -1,0 +1,184 @@
+.section {
+  width: 100%;
+  background-color: var(--color-bg-secondary, #F9FAFB);
+  /* Clean, slightly off-white section flow */
+  padding: var(--spacing-120) 0;
+}
+
+.container {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-80);
+  align-items: center;
+}
+
+/* -------------------
+   Left Content
+--------------------*/
+.contentColumn {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.heading {
+  font-size: clamp(36px, 4vw, 48px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text-heading);
+  margin-bottom: var(--spacing-24);
+}
+
+.paragraph {
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-text-body);
+  margin-bottom: var(--spacing-40);
+  max-width: 520px;
+}
+
+/* CTA Link */
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-brand-primary);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  /* Brand-aligned text effect */
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+}
+
+.ctaLink:hover {
+  opacity: 0.85;
+  color: var(--color-brand-accent);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ctaLink:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* -------------------
+   Right Grid
+--------------------*/
+.gridColumn {
+  width: 100%;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-32);
+}
+
+/* The Cards */
+.card {
+  background-color: var(--color-bg-primary);
+  /* pure white surfaces */
+  padding: var(--spacing-40) var(--spacing-32);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Very subtle enhancement on hover, kept restrained per instructions */
+.card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.iconWrapper {
+  margin-bottom: var(--spacing-24);
+}
+
+.icon {
+  object-fit: contain;
+  object-position: left;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: var(--spacing-12);
+}
+
+.cardText {
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--color-text-body);
+  margin: 0;
+}
+
+/* -------------------
+   Responsive Rules
+--------------------*/
+@media (max-width: 1200px) {
+  .section {
+    padding: var(--spacing-96) 0;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-64);
+    padding: 0 32px;
+  }
+
+  .contentColumn {
+    max-width: 100%;
+  }
+
+  .heading {
+    max-width: 700px;
+  }
+
+  .paragraph {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-64) 0;
+  }
+
+  .container {
+    padding: 0 24px;
+    gap: var(--spacing-48);
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    /* Stacks to a single column on phones */
+    gap: var(--spacing-24);
+  }
+
+  .heading {
+    font-size: clamp(32px, 8vw, 36px);
+  }
+
+  .paragraph {
+    font-size: 16px;
+  }
+
+  .card {
+    padding: var(--spacing-32) var(--spacing-24);
+  }
+
+  .ctaLink {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,206 @@
+.section {
+  width: 100%;
+  background-color: var(--color-bg-primary); /* Assuming pure white for alternating visual contrast */
+  padding: var(--spacing-120) 0;
+}
+
+.container {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-80);
+}
+
+/* -------------------
+   Left Content
+--------------------*/
+.contentColumn {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.heading {
+  font-size: clamp(40px, 4vw, 56px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text-heading);
+  margin-bottom: var(--spacing-32);
+}
+
+.paragraph {
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-text-body);
+  margin-bottom: var(--spacing-24);
+}
+
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-brand-primary);
+  font-size: 22px; /* Match standard previously scaled */
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: var(--spacing-16);
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.ctaLink:hover {
+  opacity: 0.85;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ctaLink:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* -------------------
+   Accordion Layer
+--------------------*/
+.accordionColumn {
+  width: 100%;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.accordionItem {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.accordionHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-32) 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.headerContent {
+  flex: 1;
+  padding-right: var(--spacing-24);
+}
+
+.accordionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.accordionHeader:hover .accordionTitle {
+  color: var(--color-brand-primary);
+}
+
+/* SVG Chevron interaction indicator */
+.chevron {
+  color: var(--color-text-secondary);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accordionItem.open .chevron {
+  transform: rotate(180deg);
+  color: var(--color-brand-primary);
+}
+
+/* 
+  Utilizing advanced CSS Grid transition physics 
+  for high performance layout animation vs JS calc 
+*/
+.accordionBodyWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordionItem.open .accordionBodyWrapper {
+  grid-template-rows: 1fr;
+}
+
+.accordionBody {
+  overflow: hidden;
+}
+
+.accordionContentPadding {
+  padding-bottom: var(--spacing-32);
+}
+
+.accordionSubtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-brand-primary);
+  margin: 0 0 8px 0;
+}
+
+.accordionText {
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--color-text-body);
+  margin: 0;
+}
+
+/* -------------------
+   Responsive Rules
+--------------------*/
+@media (max-width: 1200px) {
+  .section {
+    padding: var(--spacing-96) 0;
+  }
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-64);
+    padding: 0 32px;
+  }
+  .contentColumn {
+    max-width: 100%;
+  }
+  .heading {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-64) 0;
+  }
+  .container {
+    padding: 0 24px;
+    gap: var(--spacing-48);
+  }
+  .heading {
+    font-size: clamp(36px, 8vw, 44px);
+  }
+  .accordionTitle {
+    font-size: 20px;
+  }
+  .accordionHeader {
+    padding: var(--spacing-24) 0;
+  }
+  .accordionContentPadding {
+    padding-bottom: var(--spacing-24);
+  }
+  .ctaLink {
+     font-size: 18px;
+  }
+}

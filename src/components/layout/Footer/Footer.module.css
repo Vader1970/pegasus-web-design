@@ -1,0 +1,111 @@
+.footer {
+  width: 100%;
+  background-color: var(--color-bg-dark, #0F172A);
+  padding: var(--spacing-120) 0 var(--spacing-64) 0;
+}
+
+.container {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: var(--spacing-80);
+}
+
+.logoWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  height: 180px; /* Strictly enforces visual restraint rule across all proportions */
+  margin-bottom: var(--spacing-48);
+}
+
+.logo {
+  object-fit: contain;
+  object-position: center;
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-48);
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.link {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-inverse, #FFFFFF);
+  text-decoration: none;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.link:hover {
+  opacity: 0.8;
+  color: var(--color-brand-accent, #A78BFA); /* Subtle, purely aesthetic brand reflection */
+}
+
+.divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15); /* Soft, barely-there structural line */
+  margin: 0 0 var(--spacing-40) 0;
+}
+
+.copyright {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+/* -------------------
+   Responsive Overrides
+--------------------*/
+@media (max-width: 1200px) {
+  .footer {
+    padding: var(--spacing-96) 0 var(--spacing-48) 0;
+  }
+  .container {
+    padding: 0 32px;
+  }
+  .content {
+    margin-bottom: var(--spacing-64);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: var(--spacing-64) 0 var(--spacing-32) 0;
+  }
+  .container {
+    padding: 0 24px;
+  }
+  .logoWrapper {
+    max-width: 140px; /* Collapse size for elegant mobile experience */
+    height: 120px;
+    margin-bottom: var(--spacing-40);
+  }
+  .nav {
+    gap: var(--spacing-32);
+    flex-direction: column; /* Stacked layout explicitly handles scaling safely on phones */
+  }
+  .link {
+    font-size: 16px;
+  }
+  .content {
+    margin-bottom: var(--spacing-48);
+  }
+}

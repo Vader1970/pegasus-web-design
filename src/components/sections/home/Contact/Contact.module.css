@@ -1,0 +1,246 @@
+.section {
+  width: 100%;
+  background-color: #F8F9FC; /* Soft, premium purple-tinted bg matching reference logic */
+  padding: var(--spacing-120) 0;
+}
+
+.container {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-80);
+}
+
+.introColumn {
+  padding-right: var(--spacing-40);
+}
+
+.heading {
+  font-size: clamp(48px, 5vw, 64px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text-heading);
+  margin-bottom: var(--spacing-24);
+}
+
+.paragraph {
+  font-size: 20px;
+  line-height: 160%;
+  color: var(--color-text-body);
+  max-width: 500px; /* Constrain line length to keep editorial feel */
+}
+
+/* -------------------
+   Form Panel Layout
+--------------------*/
+.formColumn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.formPanel {
+  background-color: var(--color-bg-primary, #FFFFFF);
+  border: 1px solid var(--color-border-light, #EAEAEA);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-48);
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04); /* Subtly elevates off the tinted background */
+}
+
+.formIntro {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-body);
+  margin-bottom: var(--spacing-40);
+  line-height: 150%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Clean tracking between label and its native input */
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-body);
+}
+
+/* -------------------
+   Input Mechanics
+--------------------*/
+.input,
+.select,
+.textarea {
+  width: 100%;
+  background-color: var(--color-bg-primary, #FFFFFF);
+  border: 1px solid #CBD5E1; /* Accessible modern grey contrast */
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 16px;
+  color: var(--color-text-heading);
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-brand-primary, #8B5CF6);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1); /* Accessible focus ring */
+}
+
+.select {
+  appearance: none;
+  /* Native inline chevron SVG avoids external asset paths */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 48px;
+  cursor: pointer;
+}
+
+.textarea {
+  resize: vertical; /* Allows users to drag the height comfortably */
+  min-height: 100px;
+}
+
+.input::placeholder,
+.select:invalid,
+.textarea::placeholder {
+  color: #94A3B8;
+  opacity: 1; /* Normalizes Firefox placeholder fading */
+}
+
+/* -------------------
+   Testimonial & Submit block
+--------------------*/
+.testimonialBlock {
+  margin-top: var(--spacing-16);
+  font-size: 14px;
+  line-height: 150%;
+  color: var(--color-text-body);
+}
+
+.stars {
+  color: #F59E0B; /* Strict star gold */
+  margin-right: 8px;
+  letter-spacing: 2px;
+}
+
+.testimonialText {
+  display: inline;
+  color: var(--color-text-body);
+}
+
+.testimonialAuthor {
+  display: block;
+  margin-top: 6px;
+  opacity: 0.8;
+}
+
+.supportLine {
+  font-size: 14px;
+  color: var(--color-text-body);
+  margin-bottom: var(--spacing-16);
+}
+
+/* -------------------
+   Submit Button
+--------------------*/
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-brand-primary, #8B5CF6); 
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 18px 32px; /* Thick, premium target size */
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  width: max-content;
+}
+
+.submitButton:hover {
+  opacity: 0.9; /* Universal brand hover state logic */
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.submitButton:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* -------------------
+   Responsive Overrides
+--------------------*/
+@media (max-width: 1200px) {
+  .section {
+    padding: var(--spacing-96) 0;
+  }
+  .container {
+    padding: 0 32px;
+  }
+  .grid {
+    gap: var(--spacing-48);
+  }
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .introColumn {
+    padding-right: 0;
+    margin-bottom: var(--spacing-24);
+  }
+  .formColumn {
+    justify-content: flex-start;
+  }
+  .formPanel {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-64) 0;
+  }
+  .container {
+    padding: 0 24px;
+  }
+  .heading {
+    font-size: clamp(36px, 10vw, 48px);
+    margin-bottom: var(--spacing-16);
+  }
+  .formPanel {
+    padding: var(--spacing-32) var(--spacing-24);
+  }
+  .submitButton {
+    width: 100%; /* Fully responsive stacked target */
+  }
+}

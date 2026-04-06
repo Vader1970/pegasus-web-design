@@ -1,0 +1,140 @@
+.section {
+  width: 100%;
+  background-color: var(--color-bg-secondary, #F9FAFB); /* Clean alternating flow restoring structure */
+  padding: var(--spacing-120) 0;
+}
+
+.container {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.content {
+  max-width: 800px; /* Anchors the FAQ width securely for maximum readability */
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-size: clamp(40px, 4vw, 56px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text-heading);
+  margin-bottom: var(--spacing-64);
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  /* Applies subtle border strictly closing off the bottom layer */
+  border-bottom: 1px solid var(--color-border-light, #EAEAEA);
+}
+
+.item {
+  border-top: 1px solid var(--color-border-light, #EAEAEA);
+  display: flex;
+  flex-direction: column;
+}
+
+.questionButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-32) 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: var(--spacing-24);
+}
+
+.questionText {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-heading);
+  line-height: 140%;
+  transition: color 0.3s ease;
+  padding-right: var(--spacing-16);
+}
+
+.questionButton:hover .questionText {
+  color: var(--color-brand-primary);
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--color-text-body);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.open .chevron {
+  /* Understated premium directional feedback */
+  transform: rotate(-180deg);
+  color: var(--color-brand-primary);
+}
+
+/* -------------------
+   High-performance Accordion Engine
+   Reusing zero-JS structural grid animation from Services logic
+--------------------*/
+.answerWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.open .answerWrapper {
+  grid-template-rows: 1fr;
+}
+
+.answerInner {
+  overflow: hidden;
+}
+
+.answerText {
+  font-size: 16px;
+  line-height: 160%;
+  color: var(--color-text-body);
+  /* Explicitly margin-bottom pushes the invisible grid bounds down gracefully */
+  margin: 0 0 var(--spacing-32) 0;
+  max-width: 700px;
+}
+
+/* -------------------
+   Responsive Scaling
+--------------------*/
+@media (max-width: 1200px) {
+  .section {
+    padding: var(--spacing-96) 0;
+  }
+  .container {
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-64) 0;
+  }
+  .container {
+    padding: 0 24px;
+  }
+  .heading {
+    font-size: clamp(32px, 8vw, 40px);
+    margin-bottom: var(--spacing-48);
+  }
+  .questionButton {
+    padding: var(--spacing-24) 0;
+  }
+  .questionText {
+    font-size: 18px;
+  }
+  .answerText {
+    font-size: 16px;
+    margin-bottom: var(--spacing-24);
+  }
+}

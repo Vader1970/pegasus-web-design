@@ -1,0 +1,245 @@
+.section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-primary);
+  min-height: calc(100svh - 89px);
+  /* Full viewport minus navbar */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: var(--spacing-64) 0;
+}
+
+.container {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-48);
+  align-items: center;
+}
+
+/* -------------------
+   Left Content Column
+--------------------*/
+.content {
+  display: flex;
+  flex-direction: column;
+  max-width: 640px;
+  z-index: 2;
+}
+
+/* Trust Line */
+.trustLine {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: var(--spacing-32);
+}
+
+.trustRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stars {
+  color: #FBBF24;
+  /* Premium gold */
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.trustText {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.author {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* Typography */
+.heading {
+  font-size: clamp(56px, 6vw, 64px);
+  line-height: 0.98;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-text-heading);
+  margin-bottom: var(--spacing-24);
+}
+
+.paragraph {
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-text-body);
+  margin-bottom: var(--spacing-40);
+  max-width: 500px;
+}
+
+.desktopBreak {
+  display: block;
+}
+
+/* CTA Group */
+.ctaGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+}
+
+.ctaButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-brand-primary);
+  font-size: 22px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ctaButton:hover .arrow {
+  transform: translateX(6px);
+}
+
+.ctaButton:hover {
+  opacity: 0.8;
+}
+
+.smallText {
+  font-size: 14px;
+  line-height: 150%;
+  color: var(--color-text-secondary);
+}
+
+/* -------------------
+   Right Image Column
+--------------------*/
+.imageColumn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  z-index: 1;
+}
+
+/* Very subtle brand-aligned radial glow behind the mockup */
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(79, 82, 201, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 115%;
+  /* Allow it to feel dominant and scale smoothly */
+  height: 100%;
+  aspect-ratio: 16 / 11;
+  /* Close match to Apple laptop/device mockups */
+  z-index: 2;
+  margin-right: -10%;
+  /* Creates a premium bleed off to the right side on large screens */
+}
+
+.heroImage {
+  object-fit: contain;
+  object-position: center;
+}
+
+/* -------------------
+   Responsive Rules
+--------------------*/
+@media (max-width: 1280px) {
+  .heading {
+    font-size: clamp(48px, 5vw, 64px);
+  }
+
+  .imageWrapper {
+    width: 110%;
+    margin-right: -5%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .section {
+    min-height: auto;
+    padding: var(--spacing-80) 0 var(--spacing-64) 0;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    padding: 0 32px;
+    gap: var(--spacing-64);
+  }
+
+  .content {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .desktopBreak {
+    display: inline;
+  }
+
+  .imageColumn {
+    min-height: auto;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-48) 0;
+  }
+
+  .container {
+    padding: 0 24px;
+    gap: var(--spacing-48);
+  }
+
+  .heading {
+    font-size: clamp(40px, 10vw, 48px);
+    margin-bottom: var(--spacing-20);
+  }
+
+  .paragraph {
+    font-size: 16px;
+    margin-bottom: var(--spacing-32);
+  }
+
+  .ctaButton {
+    font-size: 18px;
+  }
+
+  .trustRow {
+    gap: 8px;
+  }
+}

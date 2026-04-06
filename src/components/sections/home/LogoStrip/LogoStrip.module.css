@@ -1,0 +1,88 @@
+.section {
+  width: 100%;
+  background-color: var(--color-bg-primary); /* Keeps visual rhythm clean following Process section */
+  padding: var(--spacing-120) 0;
+}
+
+.container {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-80);
+}
+
+.heading {
+  font-size: clamp(32px, 3vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-heading);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-64) var(--spacing-32);
+}
+
+/* Bounding Container Rule */
+.logoItem {
+  position: relative;
+  /* This drives the entire visual height constraint */
+  height: 48px; 
+  width: 100%;
+}
+
+.logoImage {
+  object-fit: contain;
+  /* Removed aggressive 0.4 opacity, it was over-fading natively light-colored client assets into pure white */
+  filter: grayscale(100%); 
+  transition: opacity 0.3s ease;
+}
+
+.logoItem:hover .logoImage {
+  opacity: 0.6;
+}
+
+/* Responsive Rules */
+@media (max-width: 1024px) {
+  .section {
+    padding: var(--spacing-96) 0;
+  }
+  .container {
+    padding: 0 32px;
+  }
+  .header {
+    margin-bottom: var(--spacing-64);
+  }
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-48) var(--spacing-24);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-64) 0;
+  }
+  .container {
+    padding: 0 24px;
+  }
+  .header {
+    margin-bottom: var(--spacing-48);
+  }
+  .heading {
+    font-size: clamp(24px, 6vw, 28px);
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-40) var(--spacing-16);
+  }
+  .logoItem {
+    height: 36px; /* Scales visual boundaries down gracefully */
+  }
+}

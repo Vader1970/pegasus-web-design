@@ -1,0 +1,89 @@
+.section {
+  width: 100%;
+  background-color: var(--color-bg-dark, #0F172A); /* Deep modern inverted background */
+  padding: var(--spacing-120) 0;
+}
+
+.container {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.content {
+  max-width: 700px; /* Constrains line length for optimal readability and drives layout to the left */
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-size: clamp(48px, 5vw, 64px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text-inverse, #FFFFFF);
+  margin-bottom: var(--spacing-24);
+}
+
+.paragraph {
+  font-size: 20px;
+  line-height: 160%;
+  color: rgba(255, 255, 255, 0.7); /* Muted off-white exactly preserving hierarchy rules */
+  margin-bottom: var(--spacing-48);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-brand-accent, var(--color-brand-primary, #A78BFA)); /* Brightest iteration of brand purple suitable for dark modes */
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  align-self: flex-start;
+}
+
+.link:hover {
+  opacity: 0.8;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.link:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Responsive Overrides */
+@media (max-width: 1200px) {
+  .section {
+    padding: var(--spacing-96) 0;
+  }
+  .container {
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-80) 0;
+  }
+  .container {
+    padding: 0 24px;
+  }
+  .heading {
+    font-size: clamp(36px, 10vw, 48px);
+    margin-bottom: var(--spacing-16);
+  }
+  .paragraph {
+    font-size: 18px;
+    margin-bottom: var(--spacing-40);
+  }
+  .link {
+    font-size: 18px;
+  }
+}
