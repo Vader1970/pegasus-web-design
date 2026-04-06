@@ -28,15 +28,15 @@ const servicesOptions = [
 ];
 
 export default function Services() {
-  // First item open by default
-  const [openIndex, setOpenIndex] = useState(0);
+  // All items closed by default
+  const [openIndex, setOpenIndex] = useState(-1);
 
   const toggleAccordion = (index) => {
     setOpenIndex((prevIndex) => (prevIndex === index ? -1 : index));
   };
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="services">
       <div className={styles.container}>
         
         {/* Left Column: Content */}

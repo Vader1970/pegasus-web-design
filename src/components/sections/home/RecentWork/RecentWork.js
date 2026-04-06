@@ -65,7 +65,7 @@ export default function RecentWork() {
   return (
     <section className={styles.section} id="work">
       <div className={styles.container}>
-        
+
         {/* Part 1: Heading Area */}
         <div className={styles.header}>
           <h2 className={styles.heading}>Recent work</h2>
@@ -77,7 +77,7 @@ export default function RecentWork() {
         {/* Part 2: Featured Project Row */}
         <div className={styles.featuredRow}>
           <div className={styles.featuredImageWrapper}>
-            <Image 
+            <Image
               src="/images/home/projects/mac-auto-mock-up.webp"
               alt="Mac Auto Services Website"
               fill
@@ -92,7 +92,7 @@ export default function RecentWork() {
               Conversion-focused website for an automotive workshop.
             </p>
             <Link href="/work/mac-auto-services" className={styles.projectLink}>
-              View case study <span className={styles.arrow}>&rarr;</span>
+              View site <span className={styles.arrow}>&rarr;</span>
             </Link>
           </div>
         </div>
@@ -102,7 +102,7 @@ export default function RecentWork() {
           {secondaryProjects.map((project, index) => (
             <div key={index} className={styles.projectCard}>
               <div className={styles.cardImageWrapper}>
-                <Image 
+                <Image
                   src={project.image}
                   alt={project.title}
                   fill

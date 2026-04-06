@@ -1,4 +1,5 @@
 .section {
+  scroll-margin-top: 0px;
   position: relative;
   width: 100%;
   background-color: var(--color-bg-primary);
@@ -7,7 +8,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: var(--spacing-64) 0;
+  padding: var(--spacing-32) 0;
 }
 
 .container {
@@ -36,7 +37,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin-bottom: var(--spacing-32);
+  margin-bottom: var(--spacing-16);
 }
 
 .trustRow {
@@ -79,7 +80,7 @@
   font-size: 18px;
   line-height: 150%;
   color: var(--color-text-body);
-  margin-bottom: var(--spacing-40);
+  margin-bottom: var(--spacing-32);
   max-width: 500px;
 }
 
@@ -92,7 +93,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--spacing-16);
+  gap: var(--spacing-8);
 }
 
 .ctaButton {
@@ -187,13 +188,37 @@
 @media (max-width: 1200px) {
   .section {
     min-height: auto;
-    padding: var(--spacing-80) 0 var(--spacing-64) 0;
+    padding: var(--spacing-64) 0;
+    align-items: stretch;
+  }
+
+  .container {
+    /* Keep 2 columns, just reduce paddings */
+    padding: 0 48px;
+    gap: var(--spacing-40);
+  }
+
+  .imageColumn {
+    min-height: auto;
+    height: auto;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .section {
+    padding: var(--spacing-48) 0;
   }
 
   .container {
     grid-template-columns: 1fr;
     padding: 0 32px;
-    gap: var(--spacing-64);
+    gap: var(--spacing-48);
   }
 
   .content {
@@ -211,7 +236,8 @@
 
   .imageWrapper {
     width: 100%;
-    margin-right: 0;
+    max-width: 550px;
+    margin: 0 auto;
   }
 }
 
@@ -222,17 +248,21 @@
 
   .container {
     padding: 0 24px;
-    gap: var(--spacing-48);
+    gap: var(--spacing-32);
+  }
+
+  .imageWrapper {
+    max-width: 450px;
   }
 
   .heading {
-    font-size: clamp(40px, 10vw, 48px);
+    font-size: clamp(32px, 10vw, 48px);
     margin-bottom: var(--spacing-20);
   }
 
   .paragraph {
     font-size: 16px;
-    margin-bottom: var(--spacing-32);
+    margin-bottom: var(--spacing-20);
   }
 
   .ctaButton {
@@ -241,5 +271,15 @@
 
   .trustRow {
     gap: 8px;
+  }
+}
+
+@media (max-width: 500px) {
+  .imageWrapper {
+    max-width: 100%;
+  }
+
+  .stars {
+    font-size: 14px;
   }
 }

@@ -1,6 +1,8 @@
 .section {
+  scroll-margin-top: 0px;
   width: 100%;
-  background-color: var(--color-bg-secondary, #F9FAFB); /* Swapped to secondary to lift the new white cards */
+  background-color: var(--color-bg-secondary, #FFFFFF);
+  /* Swapped to secondary to lift the new white cards */
   padding: var(--spacing-120) 0;
 }
 
@@ -25,14 +27,14 @@
   grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-64);
   /* Ensures each vertical column exactly matches visual height for symmetrical alignment */
-  align-items: stretch; 
+  align-items: stretch;
 }
 
 .column {
   display: flex;
   flex-direction: column;
   background-color: var(--color-bg-primary, #FFFFFF);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   padding: var(--spacing-40);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
   border: 1px solid var(--color-border-light, #EAEAEA);
@@ -42,22 +44,26 @@
 .logoWrapper {
   position: relative;
   width: 100%;
-  height: 48px; /* Fixed structural scale for all natively-different client logos */
+  height: 48px;
+  /* Fixed structural scale for all natively-different client logos */
   margin-bottom: var(--spacing-48);
 }
 
 .logo {
   object-fit: contain;
-  object-position: left center; /* Guarantees they hug the left indent exactly like the typography */
+  object-position: left center;
+  /* Guarantees they hug the left indent exactly like the typography */
 }
 
 .quote {
   font-size: 18px;
   line-height: 160%;
-  font-style: italic; /* Softens the impact giving it visual cadence */
+  font-style: italic;
+  /* Softens the impact giving it visual cadence */
   color: var(--color-text-body);
   margin: 0 0 var(--spacing-32) 0;
-  flex-grow: 1; /* Structurally forces clientInfo and dividers firmly to the bottom symmetrically */
+  flex-grow: 1;
+  /* Structurally forces clientInfo and dividers firmly to the bottom symmetrically */
 }
 
 .clientInfo {
@@ -115,7 +121,8 @@
 .resultText {
   font-size: 14px;
   font-weight: 700;
-  color: var(--color-brand-primary); /* Maps directly into predefined Brand parameters */
+  color: var(--color-brand-primary);
+  /* Maps directly into predefined Brand parameters */
   line-height: 140%;
 }
 
@@ -126,9 +133,11 @@
   .section {
     padding: var(--spacing-96) 0;
   }
+
   .container {
     padding: 0 32px;
   }
+
   .grid {
     gap: var(--spacing-48);
   }
@@ -144,21 +153,26 @@
   .section {
     padding: var(--spacing-64) 0;
   }
+
   .container {
     padding: 0 24px;
   }
+
   .heading {
     font-size: clamp(32px, 8vw, 40px);
     margin-bottom: var(--spacing-48);
   }
+
   .grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-64);
   }
+
   .logoWrapper {
     height: 40px;
     margin-bottom: var(--spacing-32);
   }
+
   .quote {
     font-size: 16px;
   }

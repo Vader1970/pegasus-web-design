@@ -1,6 +1,8 @@
 .section {
+  scroll-margin-top: 0px;
   width: 100%;
-  background-color: var(--color-bg-secondary, #F9FAFB); /* Premium soft flow separation */
+  background-color: var(--color-bg-secondary, #F1F3F7);
+  /* Premium soft flow separation */
   padding: var(--spacing-120) 0;
 }
 
@@ -16,12 +18,13 @@
 }
 
 .heading {
-  font-size: clamp(40px, 4vw, 56px); /* High impact */
+  font-size: clamp(40px, 4vw, 56px);
+  /* High impact */
   line-height: 1.1;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--color-text-heading);
-  max-width: 800px;
+  max-width: 600px;
 }
 
 .desktopBreak {
@@ -42,8 +45,8 @@
 .number {
   font-size: 36px;
   font-weight: 700;
-  color: var(--color-brand-primary);
-  opacity: 0.45; /* Soft, understated muted brand purple */
+  color: #4F52C9;
+  /* Deep, high-contrast brand purple */
   margin-bottom: var(--spacing-16);
   letter-spacing: -0.02em;
 }
@@ -67,12 +70,15 @@
   .section {
     padding: var(--spacing-96) 0;
   }
+
   .container {
     padding: 0 32px;
   }
+
   .header {
     margin-bottom: var(--spacing-64);
   }
+
   /* Collapse to a 3/2 split row architecture to avoid squeezing */
   .grid {
     grid-template-columns: repeat(3, 1fr);
@@ -85,24 +91,32 @@
   .section {
     padding: var(--spacing-64) 0;
   }
+
   .container {
     padding: 0 24px;
   }
+
   .header {
     margin-bottom: var(--spacing-48);
   }
+
   .heading {
     font-size: clamp(36px, 8vw, 44px);
   }
+
   .desktopBreak {
-    display: inline; /* Unwrap manual line break for mobile flow */
+    display: inline;
+    /* Unwrap manual line break for mobile flow */
   }
+
   .grid {
     grid-template-columns: 1fr;
     row-gap: var(--spacing-40);
   }
+
   .number {
     font-size: 32px;
-    margin-bottom: var(--spacing-8); /* Tighter spacing vertically */
+    margin-bottom: var(--spacing-8);
+    /* Tighter spacing vertically */
   }
 }

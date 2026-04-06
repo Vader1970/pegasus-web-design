@@ -6,7 +6,7 @@ export default function About() {
     <section className={styles.section} id="about">
       <div className={styles.container}>
         <div className={styles.grid}>
-          
+
           {/* Left: Image Column */}
           <div className={styles.imageColumn}>
             <Image
@@ -23,7 +23,7 @@ export default function About() {
             <h2 className={styles.heading}>
               We design and build high-performing websites for service businesses.
             </h2>
-            
+
             <p className={styles.paragraph}>
               We kept seeing the same thing - great trades and service businesses losing work online. Not because they weren’t good, but because their website didn’t show it. Michele and Daniel bring formal qualifications in web design, graphic design, and UX to every project. And we work exclusively in your world - trades, services, the businesses that make NZ run.
             </p>
@@ -38,11 +38,11 @@ export default function About() {
               ].map((benefit, index) => (
                 <li key={index} className={styles.benefitsItem}>
                   <div className={styles.checkIconWrapper}>
-                    <Image 
-                      src="/images/home/team/checked-purple-dark.png" 
-                      alt="Check Icon" 
-                      width={20} 
-                      height={20} 
+                    <Image
+                      src="/images/home/team/checked-purple-dark.png"
+                      alt="Check Icon"
+                      width={20}
+                      height={20}
                       className={styles.icon}
                     />
                   </div>
@@ -54,7 +54,7 @@ export default function About() {
             {/* Qualifications Panel */}
             <div className={styles.panel}>
               <h3 className={styles.panelHeading}>Qualifications</h3>
-              
+
               <div className={styles.panelColumns}>
                 {/* Daniel */}
                 <div className={styles.personColumn}>
@@ -68,11 +68,11 @@ export default function About() {
                     ].map((qual, idx) => (
                       <li key={idx} className={styles.qualificationItem}>
                         <div className={styles.knowledgeIconWrapper}>
-                          <Image 
-                            src="/images/home/team/knowledge-purple-dark.png" 
-                            alt="Qualification Icon" 
-                            width={16} 
-                            height={16} 
+                          <Image
+                            src="/images/home/team/knowledge-purple-dark.png"
+                            alt="Qualification Icon"
+                            width={20}
+                            height={20}
                             className={styles.icon}
                           />
                         </div>
@@ -92,11 +92,11 @@ export default function About() {
                     ].map((qual, idx) => (
                       <li key={idx} className={styles.qualificationItem}>
                         <div className={styles.knowledgeIconWrapper}>
-                          <Image 
-                            src="/images/home/team/knowledge-purple-dark.png" 
-                            alt="Qualification Icon" 
-                            width={16} 
-                            height={16} 
+                          <Image
+                            src="/images/home/team/knowledge-purple-dark.png"
+                            alt="Qualification Icon"
+                            width={20}
+                            height={20}
                             className={styles.icon}
                           />
                         </div>

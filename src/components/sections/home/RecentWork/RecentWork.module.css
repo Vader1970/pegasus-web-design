@@ -1,6 +1,8 @@
 .section {
+  scroll-margin-top: 0px;
   width: 100%;
-  background-color: var(--color-bg-secondary, #F9FAFB); /* Distinct from LogoStrip background */
+  background-color: var(--color-bg-secondary, #F1F3F7);
+  /* Distinct from LogoStrip background */
   padding: var(--spacing-120) 0;
 }
 
@@ -40,7 +42,8 @@
 --------------------*/
 .featuredRow {
   display: grid;
-  grid-template-columns: 1.25fr 1fr; /* Strong visual dominance for horizontal image footprint */
+  grid-template-columns: 1.25fr 1fr;
+  /* Strong visual dominance for horizontal image footprint */
   gap: var(--spacing-80);
   align-items: center;
   margin-bottom: var(--spacing-96);
@@ -50,7 +53,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   background-color: var(--color-border-light, #EAEAEA);
 }
@@ -96,7 +99,7 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   margin-bottom: var(--spacing-24);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   background-color: var(--color-border-light, #EAEAEA);
 }
@@ -127,17 +130,18 @@
 --------------------*/
 .typeLabel {
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
+  /* Increased weight for better readability */
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-brand-primary);
-  opacity: 0.75;
+  color: #4F52C9;
+  /* Deep, high-contrast brand purple */
   margin-bottom: var(--spacing-12);
   display: inline-block;
 }
 
 .projectImage {
-  object-fit: cover; 
+  object-fit: cover;
   /* Prevents image skewing by covering the native container boundary intelligently */
 }
 
@@ -150,7 +154,8 @@
   font-weight: 600;
   text-decoration: none;
   transition: opacity 0.3s ease;
-  margin-top: auto; /* Push to bottom if content heights vary */
+  margin-top: auto;
+  /* Push to bottom if content heights vary */
 }
 
 .projectLink:hover {
@@ -173,16 +178,20 @@
   .section {
     padding: var(--spacing-96) 0;
   }
+
   .container {
     padding: 0 32px;
   }
+
   .featuredRow {
     gap: var(--spacing-48);
     grid-template-columns: 1fr 1fr;
   }
+
   .featuredTitle {
     font-size: 32px;
   }
+
   .secondaryGrid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -192,24 +201,31 @@
   .section {
     padding: var(--spacing-64) 0;
   }
+
   .container {
     padding: 0 24px;
   }
+
   .heading {
     font-size: clamp(32px, 8vw, 40px);
   }
+
   .featuredRow {
     grid-template-columns: 1fr;
     gap: var(--spacing-40);
     margin-bottom: var(--spacing-64);
   }
+
   .secondaryGrid {
     grid-template-columns: 1fr;
     gap: var(--spacing-48);
   }
-  .featuredImageWrapper, .cardImageWrapper {
+
+  .featuredImageWrapper,
+  .cardImageWrapper {
     aspect-ratio: 16 / 10;
   }
+
   .featuredTitle {
     font-size: 28px;
   }

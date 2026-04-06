@@ -9,6 +9,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isNavigating, setIsNavigating] = useState(false);
 
   // Close mobile menu on resize to desktop dimensions
   useEffect(() => {
@@ -38,7 +39,12 @@ export default function Navbar() {
     const handleScroll = () => {
       if (typeof window !== 'undefined') {
         const currentScrollY = window.scrollY;
-        
+
+        if (isNavigating) {
+          setLastScrollY(currentScrollY);
+          return;
+        }
+
         // Hide if scrolling down and scrolled past a tiny threshold
         if (currentScrollY > lastScrollY && currentScrollY > 80) {
           setIsVisible(false);
@@ -46,19 +52,19 @@ export default function Navbar() {
           // Show if scrolling up or at the top
           setIsVisible(true);
         }
-        
+
         // Always show the navbar if the mobile menu is open
         if (isOpen) {
           setIsVisible(true);
         }
-        
+
         setLastScrollY(currentScrollY);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY, isOpen]);
+  }, [lastScrollY, isOpen, isNavigating]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -68,71 +74,80 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
+  const handleNavClick = () => {
+    setIsVisible(false);
+    setIsNavigating(true);
+    setIsOpen(false);
+    setTimeout(() => {
+      setIsNavigating(false);
+    }, 1000);
+  };
+
   return (
     <>
       <header className={`${styles.header} ${(!isVisible && !isOpen) ? styles.hidden : ''}`}>
         <div className={styles.container}>
-        {/* Left: Logo */}
-        <div className={styles.logo}>
-          <Link href="/" onClick={closeMenu}>
-            <div className={styles.logoWrapper}>
-              <Image 
-                src="/images/shared/pegasus-logo-nav.png" 
-                alt="Pegasus Web Design Logo"
-                fill
-                sizes="(max-width: 768px) 130px, 160px"
-                className={styles.logoImage}
-                priority
-              />
-            </div>
-          </Link>
-        </div>
+          {/* Left: Logo */}
+          <div className={styles.logo}>
+            <Link href="/" onClick={closeMenu}>
+              <div className={styles.logoWrapper}>
+                <Image
+                  src="/images/shared/pegasus-logo-nav.png"
+                  alt="Pegasus Web Design Logo"
+                  fill
+                  sizes="(max-width: 768px) 130px, 160px"
+                  className={styles.logoImage}
+                  priority
+                />
+              </div>
+            </Link>
+          </div>
 
-        {/* Center: Desktop Nav Links */}
-        <nav className={styles.desktopNav}>
-          <Link href="/work" className={styles.navLink}>Work</Link>
-          <Link href="/what-we-do" className={styles.navLink}>What We Do</Link>
-          <Link href="/about" className={styles.navLink}>About</Link>
-        </nav>
+          {/* Center: Desktop Nav Links */}
+          <nav className={styles.desktopNav}>
+            <Link href="#services" className={styles.navLink} onClick={handleNavClick}>What We Do</Link>
+            <Link href="#work" className={styles.navLink} onClick={handleNavClick}>Work</Link>
+            <Link href="#about" className={styles.navLink} onClick={handleNavClick}>About</Link>
+          </nav>
 
-        {/* Right: Desktop CTA */}
-        <div className={styles.ctaWrapper}>
-          <button className={styles.ctaButton}>
-            Get your free proposal
-            <span className={styles.arrow}>&rarr;</span>
+          {/* Right: Desktop CTA */}
+          <div className={styles.ctaWrapper}>
+            <Link href="#contact" className={styles.ctaButton} onClick={handleNavClick}>
+              Get your free proposal
+              <span className={styles.arrow}>&rarr;</span>
+            </Link>
+          </div>
+
+          {/* Mobile: Hamburger Button */}
+          <button
+            className={styles.mobileToggle}
+            onClick={toggleMenu}
+            data-open={isOpen}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
+            <div className={styles.bar}></div>
+            <div className={styles.bar}></div>
+            <div className={styles.bar}></div>
           </button>
         </div>
 
-        {/* Mobile: Hamburger Button */}
-        <button 
-          className={styles.mobileToggle} 
-          onClick={toggleMenu} 
-          data-open={isOpen}
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-        >
-          <div className={styles.bar}></div>
-          <div className={styles.bar}></div>
-          <div className={styles.bar}></div>
-        </button>
-      </div>
+        {/* Mobile: Fullscreen Menu Dropdown */}
+        <div className={styles.mobileMenu} data-open={isOpen}>
+          <nav className={styles.mobileNavLinks}>
+            <Link href="#services" className={styles.mobileNavLink} onClick={handleNavClick}>What We Do</Link>
+            <Link href="#work" className={styles.mobileNavLink} onClick={handleNavClick}>Work</Link>
+            <Link href="#about" className={styles.mobileNavLink} onClick={handleNavClick}>About</Link>
+          </nav>
 
-      {/* Mobile: Fullscreen Menu Dropdown */}
-      <div className={styles.mobileMenu} data-open={isOpen}>
-        <nav className={styles.mobileNavLinks}>
-          <Link href="/work" className={styles.mobileNavLink} onClick={closeMenu}>Work</Link>
-          <Link href="/what-we-do" className={styles.mobileNavLink} onClick={closeMenu}>What We Do</Link>
-          <Link href="/about" className={styles.mobileNavLink} onClick={closeMenu}>About</Link>
-        </nav>
-        
-        <div className={styles.mobileCtaWrapper}>
-          <button className={styles.ctaButton} onClick={closeMenu}>
-            Get your free proposal
-            <span className={styles.arrow}>&rarr;</span>
-          </button>
+          <div className={styles.mobileCtaWrapper}>
+            <Link href="#contact" className={styles.ctaButton} onClick={handleNavClick}>
+              Get your free proposal
+              <span className={styles.arrow}>&rarr;</span>
+            </Link>
+          </div>
         </div>
-      </div>
-    </header>
-    <div className={styles.spacer}></div>
+      </header>
+      <div className={styles.spacer}></div>
     </>
   );
 }
