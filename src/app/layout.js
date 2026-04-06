@@ -6,6 +6,9 @@ import Footer from '@/components/layout/Footer/Footer';
 export const metadata = {
   title: 'Pegasus Web Design',
   description: 'Premium Web Design',
+  icons: {
+    icon: '/images/pegasus-favicon.png',
+  },
 };
 
 export default function RootLayout({ children }) {
