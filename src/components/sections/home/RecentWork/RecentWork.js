@@ -7,56 +7,56 @@ const secondaryProjects = [
     type: "WEBSITE",
     title: "Burst Digital",
     description: "Modern brand website for a digital services company.",
-    link: "#",
+    link: "https://www.burstdigital.co.nz/",
     image: "/images/home/projects/burst-digital-mock-up.png"
   },
   {
     type: "WEBSITE",
     title: "Autistic Innovations",
     description: "Purpose-driven website with accessibility focus.",
-    link: "#",
+    link: "https://www.autisticinnovations.co.nz/",
     image: "/images/home/projects/autistic-innovations-maoc-up.png"
   },
   {
     type: "WEBSITE",
     title: "Cleghorn Roofing",
     description: "Professional website for a roofing business.",
-    link: "#",
+    link: "https://cleghorn-roofing.vercel.app/",
     image: "/images/home/projects/cleghorn-mock-up.png"
   },
   {
     type: "LANDING PAGE",
     title: "Tilyard Plumbing",
     description: "Custom-coded landing page built inside of Wix.",
-    link: "#",
+    link: "https://www.tilyardplumbing.co.nz/landing-page",
     image: "/images/home/projects/tilyard-plumbing-mock-up.png"
   },
   {
     type: "LANDING PAGE",
     title: "Filtration Station",
     description: "Service landing page within a Shopify store.",
-    link: "#",
+    link: "https://www.filtrationstation.co.nz/pages/installation-services",
     image: "/images/home/projects/filtration-station-mock-up.png"
   },
   {
     type: "LANDING PAGE",
     title: "Innlist Holiday Homes",
     description: "Custom-coded page built within platform constraints.",
-    link: "#",
+    link: "https://www.innlist.co.nz/landing-page/",
     image: "/images/home/projects/innlist-mock-up.png"
   },
   {
     type: "LANDING PAGE",
     title: "Master Kerb",
     description: "High-converting landing page for a service business.",
-    link: "#",
+    link: "https://www.masterkerb.co.nz/landing-page",
     image: "/images/home/projects/master-kerb-mock-up.png"
   },
   {
     type: "LANDING PAGE",
     title: "Gee Quiz",
     description: "Clean landing page designed to drive engagement.",
-    link: "#",
+    link: "https://www.geequiz.co.nz/landing-page",
     image: "/images/home/projects/gee-quiz-mock-up.png"
   }
 ];
@@ -91,7 +91,12 @@ export default function RecentWork() {
             <p className={styles.featuredDescription}>
               Conversion-focused website for an automotive workshop.
             </p>
-            <Link href="/work/mac-auto-services" className={styles.projectLink}>
+            <Link
+              href="https://www.macautoservices.co.nz/"
+              className={styles.projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               View site <span className={styles.arrow}>&rarr;</span>
             </Link>
           </div>
@@ -114,7 +119,12 @@ export default function RecentWork() {
                 <span className={styles.typeLabel}>{project.type}</span>
                 <h4 className={styles.cardTitle}>{project.title}</h4>
                 <p className={styles.cardDescription}>{project.description}</p>
-                <Link href={project.link} className={styles.projectLink}>
+                <Link 
+                  href={project.link} 
+                  className={styles.projectLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   View site <span className={styles.arrow}>&rarr;</span>
                 </Link>
               </div>
