@@ -15,26 +15,19 @@ export default function Hero() {
 
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    // 1. Image reveal
-    tl.from(".gsap-hero-image", {
-      scale: 1.05,
-      opacity: 0,
-      duration: 1.5,
-      ease: "power2.out"
-    })
-    // 2. Smoothly stagger all left-side content
-    .from([
+    // All elements have the same animation as the image
+    tl.from([
+      ".gsap-hero-image",
       ".gsap-hero-trust",
       ".gsap-hero-heading-line",
       ".gsap-hero-text",
       ".gsap-hero-cta"
     ], {
+      scale: 1.05,
       opacity: 0,
-      y: 15,
-      duration: 1.2,
-      stagger: 0.15,
-      ease: "power3.out"
-    }, "-=1.1");
+      duration: 1.5,
+      ease: "power2.out"
+    });
   }, { scope: container });
 
   return (

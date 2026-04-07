@@ -36,9 +36,11 @@ export default function CTA() {
           <p className={`gsap-cta-text ${styles.paragraph}`}>
             We’ll review your situation and send a written proposal within 48 hours - at no cost and with no obligation to proceed.
           </p>
-          <Link href="#contact" className={`gsap-cta-text ${styles.link}`}>
-            Get your free proposal <span className={styles.arrow}>&rarr;</span>
-          </Link>
+          <div className="gsap-cta-text">
+            <Link href="#contact" className={styles.link}>
+              Get your free proposal <span className={styles.arrow}>&rarr;</span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
