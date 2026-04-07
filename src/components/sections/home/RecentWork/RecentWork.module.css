@@ -211,6 +211,10 @@
     padding: 0 24px;
   }
 
+  .header {
+    margin-bottom: 48px;
+  }
+
   .heading {
     font-size: clamp(32px, 8vw, 40px);
   }

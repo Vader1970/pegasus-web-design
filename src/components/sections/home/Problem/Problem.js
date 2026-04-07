@@ -79,9 +79,11 @@ export default function Problem() {
           <p className={`gsap-problem-text ${styles.paragraph}`}>
             Most businesses we work with aren't struggling because of their service, they're struggling because their website doesn't represent it properly.
           </p>
-          <Link href="#services" className={`gsap-problem-text ${styles.ctaLink}`}>
-            See how we fix it <ArrowRight size={20} className={styles.arrow} />
-          </Link>
+          <div className="gsap-problem-text">
+            <Link href="#services" className={styles.ctaLink}>
+              See how we fix it <ArrowRight size={20} className={styles.arrow} />
+            </Link>
+          </div>
         </div>
 
         {/* Right Cards Grid */}
