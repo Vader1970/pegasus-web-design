@@ -1,5 +1,15 @@
+"use client";
+
+import { useRef } from 'react';
 import Image from 'next/image';
 import styles from './Testimonials.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 const testimonials = [
   {
@@ -32,14 +42,39 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 85%",
+      }
+    });
+
+    tl.from(".gsap-test-heading", {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      ease: "power3.out"
+    })
+    .from(".gsap-test-col", {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: "power3.out"
+    }, "-=0.4");
+  }, { scope: container });
+
   return (
-    <section className={styles.section} id="testimonials">
+    <section ref={container} className={styles.section} id="testimonials">
       <div className={styles.container}>
-        <h2 className={styles.heading}>Results our clients see</h2>
+        <h2 className={`gsap-test-heading ${styles.heading}`}>Results our clients see</h2>
         
         <div className={styles.grid}>
           {testimonials.map((item, index) => (
-            <div key={index} className={styles.column}>
+            <div key={index} className={`gsap-test-col ${styles.column}`}>
               
               <div className={styles.logoWrapper}>
                 <Image 

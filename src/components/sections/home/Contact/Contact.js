@@ -1,39 +1,79 @@
 'use client';
 
+import { useRef } from 'react';
 import styles from './Contact.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 export default function Contact() {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 85%",
+      }
+    });
+
+    tl.from(".gsap-contact-text", {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power3.out"
+    })
+    .from(".gsap-contact-panel", {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      ease: "power3.out"
+    }, "-=0.6")
+    .from(".gsap-contact-field", {
+      opacity: 0,
+      y: 15,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power3.out"
+    }, "-=0.4");
+  }, { scope: container });
+
   return (
-    <section className={styles.section} id="contact">
+    <section ref={container} className={styles.section} id="contact">
       <div className={styles.container}>
         <div className={styles.grid}>
           {/* Left Column: Intro */}
           <div className={styles.introColumn}>
-            <h2 className={styles.heading}>Get more work</h2>
-            <p className={styles.paragraph}>
+            <h2 className={`gsap-contact-text ${styles.heading}`}>Get more work</h2>
+            <p className={`gsap-contact-text ${styles.paragraph}`}>
               If your current website doesn't feel right - or you don't have one at all — we can help you build something that does.
             </p>
           </div>
 
           {/* Right Column: Form Panel */}
           <div className={styles.formColumn}>
-            <div className={styles.formPanel}>
-              <p className={styles.formIntro}>
+            <div className={`gsap-contact-panel ${styles.formPanel}`}>
+              <p className={`gsap-contact-field ${styles.formIntro}`}>
                 Tell us about your project and timeline. No obligation — just a conversation.
               </p>
 
               <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
-                <div className={styles.fieldGroup}>
+                <div className={`gsap-contact-field ${styles.fieldGroup}`}>
                   <label htmlFor="name" className={styles.label}>Name</label>
                   <input type="text" id="name" name="name" className={styles.input} />
                 </div>
 
-                <div className={styles.fieldGroup}>
+                <div className={`gsap-contact-field ${styles.fieldGroup}`}>
                   <label htmlFor="email" className={styles.label}>Email</label>
                   <input type="email" id="email" name="email" className={styles.input} />
                 </div>
 
-                <div className={styles.fieldGroup}>
+                <div className={`gsap-contact-field ${styles.fieldGroup}`}>
                   <label htmlFor="projectType" className={styles.label}>Project type</label>
                   <select id="projectType" name="projectType" className={styles.select} defaultValue="">
                     <option value="" disabled>Select a project type</option>
@@ -45,7 +85,7 @@ export default function Contact() {
                   </select>
                 </div>
 
-                <div className={styles.fieldGroup}>
+                <div className={`gsap-contact-field ${styles.fieldGroup}`}>
                   <label htmlFor="help" className={styles.label}>What do you need help with?</label>
                   <textarea 
                     id="help" 
@@ -56,7 +96,7 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
-                <div className={styles.testimonialBlock}>
+                <div className={`gsap-contact-field ${styles.testimonialBlock}`}>
                   <span className={styles.stars}>★★★★★</span>
                   <p className={styles.testimonialText}>
                     “They genuinely cared about getting everything right”<br />
@@ -64,13 +104,15 @@ export default function Contact() {
                   </p>
                 </div>
 
-                <p className={styles.supportLine}>
+                <p className={`gsap-contact-field ${styles.supportLine}`}>
                   We’ll send your written proposal within 48 hours. No obligation.
                 </p>
 
-                <button type="submit" className={styles.submitButton}>
-                  Get My Proposal <span className={styles.arrow}>&rarr;</span>
-                </button>
+                <div className="gsap-contact-field">
+                  <button type="submit" className={styles.submitButton}>
+                    Get My Proposal <span className={styles.arrow}>&rarr;</span>
+                  </button>
+                </div>
               </form>
             </div>
           </div>

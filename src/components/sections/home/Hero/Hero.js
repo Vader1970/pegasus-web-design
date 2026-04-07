@@ -1,17 +1,51 @@
+"use client";
+
+import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Hero.module.css';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 export default function Hero() {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    gsap.set(container.current, { visibility: "visible" });
+
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    // 1. Image reveal
+    tl.from(".gsap-hero-image", {
+      scale: 1.05,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power2.out"
+    })
+    // 2. Smoothly stagger all left-side content
+    .from([
+      ".gsap-hero-trust",
+      ".gsap-hero-heading-line",
+      ".gsap-hero-text",
+      ".gsap-hero-cta"
+    ], {
+      opacity: 0,
+      y: 15,
+      duration: 1.2,
+      stagger: 0.15,
+      ease: "power3.out"
+    }, "-=1.1");
+  }, { scope: container });
+
   return (
-    <section className={styles.section}>
+    <section ref={container} className={styles.section} style={{ visibility: 'hidden' }}>
       <div className={styles.container}>
 
         {/* Left: Content */}
         <div className={styles.content}>
 
           {/* Trust Line */}
-          <div className={styles.trustLine}>
+          <div className={`gsap-hero-trust ${styles.trustLine}`}>
             <div className={styles.trustRow}>
               <span className={styles.stars}>★★★★★</span>
               <span className={styles.trustText}>+15 new clients in the first month of going live.</span>
@@ -20,16 +54,15 @@ export default function Hero() {
           </div>
 
           <h1 className={styles.heading}>
-            Your Web Studio for Trades & Service Businesses.
+            <span className="gsap-hero-heading-line" style={{ display: 'inline-block' }}>Your Web Studio for</span>{' '}
+            <span className="gsap-hero-heading-line" style={{ display: 'inline-block' }}>Trades & Service Businesses.</span>
           </h1>
 
-          <p className={styles.paragraph}>
+          <p className={`gsap-hero-text ${styles.paragraph}`}>
             Your site will load fast, look sharp, and bring in real work. No jargon. No templates. No surprises.
-            {/* <br className={styles.desktopBreak} />
-            No jargon. No templates. No surprises. */}
           </p>
 
-          <div className={styles.ctaGroup}>
+          <div className={`gsap-hero-cta ${styles.ctaGroup}`}>
             <Link href="#contact" className={styles.ctaButton}>
               Get your free proposal
               <span className={styles.arrow}>&rarr;</span>
@@ -42,7 +75,7 @@ export default function Hero() {
         </div>
 
         {/* Right: Image */}
-        <div className={styles.imageColumn}>
+        <div className={`gsap-hero-image ${styles.imageColumn}`}>
           <div className={styles.glow}></div>
           <div className={styles.imageWrapper}>
             <Image

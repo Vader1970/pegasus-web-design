@@ -1,15 +1,27 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Navbar.module.css';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isNavigating, setIsNavigating] = useState(false);
+  const navRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.set(navRef.current, { visibility: "visible" });
+    gsap.from(navRef.current, {
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    });
+  }, { scope: navRef });
 
   // Close mobile menu on resize to desktop dimensions
   useEffect(() => {
@@ -83,9 +95,22 @@ export default function Navbar() {
     }, 1000);
   };
 
+  useEffect(() => {
+    const handleProgrammaticNav = () => {
+      setIsVisible(false);
+      setIsNavigating(true);
+      setTimeout(() => {
+        setIsNavigating(false);
+      }, 1000);
+    };
+
+    window.addEventListener('programmaticNav', handleProgrammaticNav);
+    return () => window.removeEventListener('programmaticNav', handleProgrammaticNav);
+  }, []);
+
   return (
     <>
-      <header className={`${styles.header} ${(!isVisible && !isOpen) ? styles.hidden : ''}`}>
+      <header ref={navRef} className={`${styles.header} ${(!isVisible && !isOpen) ? styles.hidden : ''}`} style={{ visibility: 'hidden' }}>
         <div className={styles.container}>
           {/* Left: Logo */}
           <div className={styles.logo}>
