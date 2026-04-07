@@ -5,6 +5,7 @@ import styles from './Contact.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { ArrowRight } from 'lucide-react';
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -110,7 +111,7 @@ export default function Contact() {
 
                 <div className="gsap-contact-field">
                   <button type="submit" className={styles.submitButton}>
-                    Get My Proposal <span className={styles.arrow}>&rarr;</span>
+                    Get My Proposal <ArrowRight size={20} className={styles.arrow} />
                   </button>
                 </div>
               </form>

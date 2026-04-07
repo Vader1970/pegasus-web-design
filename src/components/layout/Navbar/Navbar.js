@@ -6,6 +6,7 @@ import Image from 'next/image';
 import styles from './Navbar.module.css';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -139,7 +140,7 @@ export default function Navbar() {
           <div className={styles.ctaWrapper}>
             <Link href="#contact" className={styles.ctaButton} onClick={handleNavClick}>
               Get your free proposal
-              <span className={styles.arrow}>&rarr;</span>
+              <ArrowRight size={20} className={styles.arrow} />
             </Link>
           </div>
 
@@ -167,7 +168,7 @@ export default function Navbar() {
           <div className={styles.mobileCtaWrapper}>
             <Link href="#contact" className={styles.ctaButton} onClick={handleNavClick}>
               Get your free proposal
-              <span className={styles.arrow}>&rarr;</span>
+              <ArrowRight size={20} className={styles.arrow} />
             </Link>
           </div>
         </div>

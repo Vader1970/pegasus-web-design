@@ -7,6 +7,7 @@ import styles from './Problem.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { ArrowRight } from 'lucide-react';
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -79,7 +80,7 @@ export default function Problem() {
             Most businesses we work with aren't struggling because of their service, they're struggling because their website doesn't represent it properly.
           </p>
           <Link href="#services" className={`gsap-problem-text ${styles.ctaLink}`}>
-            See how we fix it <span className={styles.arrow}>&rarr;</span>
+            See how we fix it <ArrowRight size={20} className={styles.arrow} />
           </Link>
         </div>
 
