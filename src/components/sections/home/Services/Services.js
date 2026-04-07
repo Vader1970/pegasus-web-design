@@ -81,9 +81,11 @@ export default function Services() {
           <p className={`gsap-services-text ${styles.paragraph}`}>
             Whether you need more work, a clearer message, or a complete rebuild, we focus on what will actually move your business forward.
           </p>
-          <Link href="#work" className={`gsap-services-text ${styles.ctaLink}`}>
-            View our work <ArrowRight size={20} className={styles.arrow} />
-          </Link>
+          <div className="gsap-services-text">
+            <Link href="#work" className={styles.ctaLink}>
+              View our work <ArrowRight size={20} className={styles.arrow} />
+            </Link>
+          </div>
         </div>
 
         {/* Right Column: Accordion */}
