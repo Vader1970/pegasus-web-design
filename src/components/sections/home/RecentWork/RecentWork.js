@@ -7,6 +7,7 @@ import styles from './RecentWork.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { ArrowRight } from 'lucide-react';
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -89,25 +90,25 @@ export default function RecentWork() {
       stagger: 0.2,
       ease: "power3.out"
     })
-    .from(".gsap-work-featured-img", {
-      opacity: 0,
-      scale: 0.95,
-      duration: 1.2,
-      ease: "power3.out"
-    }, "-=0.4")
-    .from(".gsap-work-featured-text", {
-      opacity: 0,
-      x: -20,
-      duration: 0.8,
-      ease: "power3.out"
-    }, "-=0.8")
-    .from(".gsap-work-card", {
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-      stagger: 0.15,
-      ease: "power3.out"
-    }, "-=0.4");
+      .from(".gsap-work-featured-img", {
+        opacity: 0,
+        scale: 0.95,
+        duration: 1.2,
+        ease: "power3.out"
+      }, "-=0.4")
+      .from(".gsap-work-featured-text", {
+        opacity: 0,
+        x: -20,
+        duration: 0.8,
+        ease: "power3.out"
+      }, "-=0.8")
+      .from(".gsap-work-card", {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out"
+      }, "-=0.4");
   }, { scope: container });
 
   return (
@@ -145,7 +146,7 @@ export default function RecentWork() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              View site <span className={styles.arrow}>&rarr;</span>
+              View site <ArrowRight size={20} className={styles.arrow} />
             </Link>
           </div>
         </div>
@@ -167,13 +168,13 @@ export default function RecentWork() {
                 <span className={styles.typeLabel}>{project.type}</span>
                 <h4 className={styles.cardTitle}>{project.title}</h4>
                 <p className={styles.cardDescription}>{project.description}</p>
-                <Link 
-                  href={project.link} 
+                <Link
+                  href={project.link}
                   className={styles.projectLink}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  View site <span className={styles.arrow}>&rarr;</span>
+                  View site <ArrowRight size={20} className={styles.arrow} />
                 </Link>
               </div>
             </div>

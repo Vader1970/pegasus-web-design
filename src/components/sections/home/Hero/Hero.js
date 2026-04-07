@@ -6,6 +6,7 @@ import Link from 'next/link';
 import styles from './Hero.module.css';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   const container = useRef(null);
@@ -58,7 +59,7 @@ export default function Hero() {
           <div className={`gsap-hero-cta ${styles.ctaGroup}`}>
             <Link href="#contact" className={styles.ctaButton}>
               Get your free proposal
-              <span className={styles.arrow}>&rarr;</span>
+              <ArrowRight size={20} className={styles.arrow} />
             </Link>
             <p className={styles.smallText}>
               Free. Written. Delivered within 48 hours.

@@ -6,6 +6,7 @@ import styles from './Services.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { ArrowRight } from 'lucide-react';
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -81,7 +82,7 @@ export default function Services() {
             Whether you need more work, a clearer message, or a complete rebuild, we focus on what will actually move your business forward.
           </p>
           <Link href="#work" className={`gsap-services-text ${styles.ctaLink}`}>
-            View our work <span className={styles.arrow}>&rarr;</span>
+            View our work <ArrowRight size={20} className={styles.arrow} />
           </Link>
         </div>
 

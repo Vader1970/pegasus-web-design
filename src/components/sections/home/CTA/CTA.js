@@ -6,6 +6,7 @@ import styles from './CTA.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { ArrowRight } from 'lucide-react';
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -38,7 +39,7 @@ export default function CTA() {
           </p>
           <div className="gsap-cta-text">
             <Link href="#contact" className={styles.link}>
-              Get your free proposal <span className={styles.arrow}>&rarr;</span>
+              Get your free proposal <ArrowRight size={20} className={styles.arrow} />
             </Link>
           </div>
         </div>
