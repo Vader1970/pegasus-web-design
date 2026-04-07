@@ -1,7 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import styles from './FAQ.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 const faqs = [
   {
@@ -31,8 +38,32 @@ const faqs = [
 ];
 
 export default function FAQ() {
+  const container = useRef(null);
   // All items closed by default
   const [openIndex, setOpenIndex] = useState(-1);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 85%",
+      }
+    });
+
+    tl.from(".gsap-faq-heading", {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      ease: "power3.out"
+    })
+    .from(".gsap-faq-item", {
+      opacity: 0,
+      y: 20,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: "power3.out"
+    }, "-=0.4");
+  }, { scope: container });
 
   const toggleItem = (index) => {
     // Toggles closed if clicking the currently open item, otherwise opens the requested item
@@ -40,10 +71,10 @@ export default function FAQ() {
   };
 
   return (
-    <section className={styles.section} id="faq">
+    <section ref={container} className={styles.section} id="faq">
       <div className={styles.container}>
         <div className={styles.content}>
-          <h2 className={styles.heading}>Frequently asked questions</h2>
+          <h2 className={`gsap-faq-heading ${styles.heading}`}>Frequently asked questions</h2>
           
           <div className={styles.accordion}>
             {faqs.map((faq, index) => {
@@ -51,7 +82,7 @@ export default function FAQ() {
               return (
                 <div 
                   key={index} 
-                  className={`${styles.item} ${isOpen ? styles.open : ''}`}
+                  className={`gsap-faq-item ${styles.item} ${isOpen ? styles.open : ''}`}
                 >
                   <button 
                     className={styles.questionButton} 

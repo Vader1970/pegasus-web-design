@@ -1,14 +1,62 @@
+"use client";
+
+import { useRef } from 'react';
 import Image from 'next/image';
 import styles from './About.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 export default function About() {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 85%",
+      }
+    });
+
+    tl.from(".gsap-about-img", {
+      opacity: 0,
+      scale: 0.95,
+      duration: 1.2,
+      ease: "power3.out"
+    })
+    .from(".gsap-about-text", {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power3.out"
+    }, "-=0.8")
+    .from(".gsap-about-benefit", {
+      opacity: 0,
+      x: -20,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power3.out"
+    }, "-=0.4")
+    .from(".gsap-about-panel", {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      ease: "power3.out"
+    }, "-=0.2");
+  }, { scope: container });
+
   return (
-    <section className={styles.section} id="about">
+    <section ref={container} className={styles.section} id="about">
       <div className={styles.container}>
         <div className={styles.grid}>
 
           {/* Left: Image Column */}
-          <div className={styles.imageColumn}>
+          <div className={`gsap-about-img ${styles.imageColumn}`}>
             <Image
               src="/images/home/team/michele-and-daniel.png"
               alt="Michele and Daniel from Pegasus Web Design"
@@ -20,11 +68,11 @@ export default function About() {
 
           {/* Right: Content Column */}
           <div className={styles.contentColumn}>
-            <h2 className={styles.heading}>
+            <h2 className={`gsap-about-text ${styles.heading}`}>
               We design and build high-performing websites for service businesses.
             </h2>
 
-            <p className={styles.paragraph}>
+            <p className={`gsap-about-text ${styles.paragraph}`}>
               We kept seeing the same thing - great trades and service businesses losing work online. Not because they weren’t good, but because their website didn’t show it. Michele and Daniel bring formal qualifications in web design, graphic design, and UX to every project. And we work exclusively in your world - trades, services, the businesses that make NZ run.
             </p>
 
@@ -36,7 +84,7 @@ export default function About() {
                 "1 month support included after launch",
                 "We recommend the right platform for your needs"
               ].map((benefit, index) => (
-                <li key={index} className={styles.benefitsItem}>
+                <li key={index} className={`gsap-about-benefit ${styles.benefitsItem}`}>
                   <div className={styles.checkIconWrapper}>
                     <Image
                       src="/images/home/team/checked-purple-dark.png"
@@ -52,7 +100,7 @@ export default function About() {
             </ul>
 
             {/* Qualifications Panel */}
-            <div className={styles.panel}>
+            <div className={`gsap-about-panel ${styles.panel}`}>
               <h3 className={styles.panelHeading}>Qualifications</h3>
 
               <div className={styles.panelColumns}>

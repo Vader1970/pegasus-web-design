@@ -1,5 +1,15 @@
+"use client";
+
+import { useRef } from 'react';
 import Image from 'next/image';
 import styles from './LogoStrip.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 const logos = [
   { src: "/images/home/logos/tilyards.jpg", alt: "Tilyards" },
@@ -13,17 +23,42 @@ const logos = [
 ];
 
 export default function LogoStrip() {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 90%",
+      }
+    });
+
+    tl.from(".gsap-logo-heading", {
+      opacity: 0,
+      y: 20,
+      duration: 0.8,
+      ease: "power3.out"
+    })
+    .from(".gsap-logo-item", {
+      opacity: 0,
+      y: 20,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: "power3.out"
+    }, "-=0.4");
+  }, { scope: container });
+
   return (
-    <section className={styles.section}>
+    <section ref={container} className={styles.section}>
       <div className={styles.container}>
         
         <div className={styles.header}>
-          <h2 className={styles.heading}>Businesses we've worked with</h2>
+          <h2 className={`gsap-logo-heading ${styles.heading}`}>Businesses we've worked with</h2>
         </div>
         
         <div className={styles.grid}>
           {logos.map((logo, index) => (
-            <div key={index} className={styles.logoItem}>
+            <div key={index} className={`gsap-logo-item ${styles.logoItem}`}>
               <Image 
                 src={logo.src}
                 alt={logo.alt}

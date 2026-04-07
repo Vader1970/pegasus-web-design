@@ -1,6 +1,16 @@
+"use client";
+
+import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Problem.module.css';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 const cards = [
   {
@@ -30,19 +40,45 @@ const cards = [
 ];
 
 export default function Problem() {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 85%",
+      }
+    });
+
+    tl.from(".gsap-problem-text", {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power3.out"
+    })
+    .from(".gsap-problem-card", {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: "power3.out"
+    }, "-=0.4");
+  }, { scope: container });
+
   return (
-    <section className={styles.section}>
+    <section ref={container} className={styles.section}>
       <div className={styles.container}>
 
         {/* Left Content */}
         <div className={styles.contentColumn}>
-          <h2 className={styles.heading}>
+          <h2 className={`gsap-problem-text ${styles.heading}`}>
             If your website doesn't reflect how good your business actually is, it's costing you.
           </h2>
-          <p className={styles.paragraph}>
+          <p className={`gsap-problem-text ${styles.paragraph}`}>
             Most businesses we work with aren't struggling because of their service, they're struggling because their website doesn't represent it properly.
           </p>
-          <Link href="#services" className={styles.ctaLink}>
+          <Link href="#services" className={`gsap-problem-text ${styles.ctaLink}`}>
             See how we fix it <span className={styles.arrow}>&rarr;</span>
           </Link>
         </div>
@@ -51,7 +87,7 @@ export default function Problem() {
         <div className={styles.gridColumn}>
           <div className={styles.cardsGrid}>
             {cards.map((card, index) => (
-              <div key={index} className={styles.card}>
+              <div key={index} className={`gsap-problem-card ${styles.card}`}>
                 <div className={styles.iconWrapper}>
                   <Image
                     src={card.icon}
