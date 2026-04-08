@@ -1,18 +1,19 @@
 .section {
   scroll-margin-top: 0px;
   width: 100%;
-  background-color: var(--color-bg-primary); /* Assuming pure white for alternating visual contrast */
-  padding: var(--spacing-120) 0;
+  background-color: var(--color-bg-primary);
+  padding: var(--section-py) 0;
 }
 
 .container {
-  max-width: 1700px;
+  max-width: 1312px;
   width: 100%;
   margin: 0 auto;
   padding: 0 64px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-80);
+  align-items: start; /* Anchors both columns to the top line perfectly */
 }
 
 /* -------------------
@@ -25,19 +26,20 @@
 }
 
 .heading {
-  font-size: clamp(40px, 4vw, 56px);
-  line-height: 1.1;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading-loose);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ls-heading);
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-32);
+  margin-bottom: var(--gap-heading-body);
 }
 
 .paragraph {
-  font-size: 18px;
-  line-height: 150%;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
   color: var(--color-text-body);
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-20);
+  max-width: var(--max-w-prose);
 }
 
 .ctaLink {
@@ -45,10 +47,10 @@
   align-items: center;
   gap: 8px;
   color: var(--color-brand-primary);
-  font-size: 22px; /* Match standard previously scaled */
+  font-size: clamp(1.1rem, 1.5vw, 1.375rem);
   font-weight: 600;
   text-decoration: none;
-  margin-top: var(--spacing-16);
+  margin-top: var(--spacing-12);
   transition: opacity 0.3s ease, color 0.3s ease;
 }
 
@@ -80,6 +82,13 @@
 
 .accordionItem {
   border-bottom: 1px solid var(--color-border-light);
+  border-left: 1px solid transparent; /* Elegant, thin border accent */
+  transition: background-color 0.4s ease, border-left-color 0.4s ease;
+}
+
+.accordionItem.open {
+  background-color: rgba(100, 103, 242, 0.015); /* Extremely soft, barely-there tint */
+  border-left-color: var(--color-brand-primary);
 }
 
 .accordionHeader {
@@ -87,11 +96,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-32) 0;
+  padding: 18px var(--spacing-24); /* Tighter vertical padding to group with content */
   background: none;
   border: none;
   cursor: pointer;
   text-align: left;
+  transition: opacity 0.3s ease;
+}
+
+.accordionHeader:hover {
+  opacity: 0.85;
 }
 
 .headerContent {
@@ -100,7 +114,7 @@
 }
 
 .accordionTitle {
-  font-size: 24px;
+  font-size: var(--fs-h3);
   font-weight: 700;
   color: var(--color-text-heading);
   margin: 0;
@@ -111,10 +125,13 @@
   color: var(--color-brand-primary);
 }
 
-/* SVG Chevron interaction indicator */
+.accordionItem.open .accordionTitle {
+  color: var(--color-brand-primary);
+}
+
 .chevron {
   color: var(--color-text-secondary);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease; /* Ultra-smooth, elegant easing */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,10 +142,6 @@
   color: var(--color-brand-primary);
 }
 
-/* 
-  Utilizing advanced CSS Grid transition physics 
-  for high performance layout animation vs JS calc 
-*/
 .accordionBodyWrapper {
   display: grid;
   grid-template-rows: 0fr;
@@ -144,21 +157,23 @@
 }
 
 .accordionContentPadding {
-  padding-bottom: var(--spacing-32);
+  padding: 0 var(--spacing-24) 20px; /* Tighter padding-bottom to keep the unit cohesive */
 }
 
 .accordionSubtitle {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--color-brand-primary);
-  margin: 0 0 8px 0;
+  font-size: 0.95rem; /* slightly smaller than title */
+  font-weight: 500; /* medium weight */
+  color: var(--color-text-heading); /* same colour as heading */
+  margin: 0 0 2px 0; /* tight vertical spacing to description */
 }
 
 .accordionText {
-  font-size: 16px;
-  line-height: 150%;
+  font-size: 0.95rem; /* lighter body text scale */
+  line-height: var(--lh-body);
   color: var(--color-text-body);
   margin: 0;
+  opacity: 0.9;
+  max-width: var(--max-w-prose);
 }
 
 /* -------------------
@@ -166,42 +181,52 @@
 --------------------*/
 @media (max-width: 1200px) {
   .section {
-    padding: var(--spacing-96) 0;
+    padding: var(--section-py-md) 0;
   }
+
   .container {
     grid-template-columns: 1fr;
-    gap: var(--spacing-64);
+    gap: var(--spacing-48);
     padding: 0 32px;
   }
+
   .contentColumn {
     max-width: 100%;
   }
+
   .heading {
-    max-width: 700px;
+    max-width: var(--max-w-heading-sm);
   }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: var(--spacing-64) 0;
+    padding: var(--section-py-sm) 0;
   }
+
   .container {
-    padding: 0 24px;
-    gap: var(--spacing-48);
+    padding: 0 20px;
+    gap: var(--spacing-32);
   }
+
   .heading {
-    font-size: clamp(36px, 8vw, 44px);
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    max-width: none;
   }
+
   .accordionTitle {
-    font-size: 20px;
+    font-size: 1.05rem;
   }
+
   .accordionHeader {
-    padding: var(--spacing-24) 0;
+    padding: 16px 16px;
   }
+
   .accordionContentPadding {
-    padding-bottom: var(--spacing-24);
+    padding: 0 16px 16px;
   }
+
   .ctaLink {
-     font-size: 18px;
+    font-size: 1.05rem;
   }
 }

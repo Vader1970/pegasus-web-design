@@ -8,12 +8,17 @@
 
 html {
   scroll-behavior: smooth;
+  /* Prevent iOS text size inflation on orientation change */
+  -webkit-text-size-adjust: 100%;
 }
 
-html, body {
+html,
+body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: 'Inter Tight', Inter, Arial, sans-serif;
+  font-family: 'Inter Tight', Inter, system-ui, Arial, sans-serif;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   background-color: var(--color-bg-primary);
   color: var(--color-text-body);
 }
@@ -21,4 +26,54 @@ html, body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* =========================
+   GLOBAL TYPE SCALE
+   Applied site-wide so every
+   heading inherits the fluid
+   clamp scale from variables.css
+========================= */
+
+h1 {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading-tight);
+  font-weight: 800;
+  color: var(--color-text-heading);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading-loose);
+  letter-spacing: var(--ls-heading);
+  font-weight: 800;
+  color: var(--color-text-heading);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-heading-loose);
+  letter-spacing: var(--ls-heading);
+  font-weight: 700;
+  color: var(--color-text-heading);
+}
+
+h4, h5, h6 {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-heading-loose);
+  letter-spacing: var(--ls-heading);
+  font-weight: 700;
+  color: var(--color-text-heading);
+}
+
+p {
+  line-height: var(--lh-body);
+  max-width: var(--max-w-prose);
+}
+
+/* By default paragraphs constrain their width; reset in layout contexts where full width is correct */
+p.full-width,
+.no-prose p {
+  max-width: none;
 }

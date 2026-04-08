@@ -1,10 +1,15 @@
+/* ================================================
+   HERO SECTION
+   Layout: 2-column grid (content | image) → stacked on ≤991px
+   Breakpoints: 1920 · 1280 · 1200 · 1024 · 991 · 768 · 500 · 375
+================================================ */
+
 .section {
   scroll-margin-top: 0px;
   position: relative;
   width: 100%;
   background-color: var(--color-bg-primary);
   min-height: calc(100svh - 89px);
-  /* Full viewport minus navbar */
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -12,99 +17,123 @@
 }
 
 .container {
-  max-width: 1700px;
+  /* Reduced from 1700px: tightens the gap between columns
+     at ultra-wide screens where 1fr 1fr creates too much dead air */
+  max-width: 1500px;
   width: 100%;
   margin: 0 auto;
   padding: 0 64px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Slight asymmetry: content column gets a touch more weight,
+     helps anchor the left side visually at large widths */
+  grid-template-columns: 1.05fr 1fr;
   gap: var(--spacing-48);
   align-items: center;
 }
 
-/* -------------------
-   Left Content Column
---------------------*/
+/* ------------------------------------------------
+   LEFT CONTENT COLUMN
+------------------------------------------------ */
 .content {
   display: flex;
   flex-direction: column;
-  max-width: 640px;
+  max-width: 580px;
   z-index: 2;
 }
 
-/* Trust Line */
+/* ------------------------------------------------
+   TRUST LINE
+   Desktop: stars + text inline, author below
+------------------------------------------------ */
 .trustLine {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-bottom: var(--spacing-16);
+  gap: 3px;
+  margin-bottom: 14px;
 }
 
 .trustRow {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  /* Allow wrap but prefer single line on desktop */
   flex-wrap: wrap;
 }
 
 .stars {
   color: #FBBF24;
-  /* Premium gold */
-  font-size: 18px;
+  font-size: 15px;
   letter-spacing: 2px;
+  /* Prevent stars wrapping onto two lines */
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .trustText {
-  font-size: 14px;
+  font-size: var(--fs-small);
   color: var(--color-text-secondary);
   font-weight: 500;
+  max-width: none;
 }
 
 .author {
-  font-size: 14px;
+  font-size: var(--fs-small);
   color: var(--color-text-secondary);
   font-weight: 500;
+  max-width: none;
 }
 
-/* Typography */
+/* ------------------------------------------------
+   HEADING
+   Fluid scale: controlled at desktop, tighter at
+   each breakpoint for smooth visual progression.
+   max-width: 22ch guides natural wrapping — no forced breaks.
+------------------------------------------------ */
 .heading {
-  font-size: clamp(56px, 6vw, 64px);
-  line-height: 0.98;
+  font-size: clamp(2rem, 4.2vw, 4rem);
+  line-height: 1.03;
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-24);
+  margin-bottom: 0.65rem;
+  /* Natural wrapping guide — wide enough to let the browser
+     choose breaks, narrow enough to prevent very long single lines
+     at large widths. The text is ~10 words so 22ch keeps it
+     to 2–3 balanced lines without forcing a specific break point. */
+  max-width: 22ch;
 }
 
+/* ------------------------------------------------
+   PARAGRAPH
+------------------------------------------------ */
 .paragraph {
-  font-size: 18px;
-  line-height: 150%;
+  font-size: var(--fs-body-lg);
+  line-height: 1.6;
   color: var(--color-text-body);
-  margin-bottom: var(--spacing-32);
-  max-width: 500px;
+  margin-bottom: 1.25rem;
+  max-width: 52ch;
 }
 
-.desktopBreak {
-  display: block;
-}
-
-/* CTA Group */
+/* ------------------------------------------------
+   CTA GROUP
+------------------------------------------------ */
 .ctaGroup {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--spacing-8);
+  gap: 5px;
 }
 
 .ctaButton {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   color: var(--color-brand-primary);
-  font-size: 22px;
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
   font-weight: 600;
   text-decoration: none;
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 2px;
 }
 
 .arrow {
@@ -120,15 +149,28 @@
   opacity: 0.8;
 }
 
+/* "Free. Written. Delivered within 48 hours." */
 .smallText {
-  font-size: 14px;
-  line-height: 150%;
+  font-size: var(--fs-small);
+  line-height: 1.4;
   color: var(--color-text-secondary);
+  max-width: none;
 }
 
-/* -------------------
-   Right Image Column
---------------------*/
+/* "No obligation. No pressure." — quieter */
+.microText {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+  opacity: 0.65;
+  max-width: none;
+}
+
+/* ------------------------------------------------
+   RIGHT IMAGE COLUMN
+   width: 105% + bleed at desktop
+   Steps down intentionally at each breakpoint
+------------------------------------------------ */
 .imageColumn {
   position: relative;
   display: flex;
@@ -136,19 +178,18 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  min-height: 500px;
+  min-height: 440px;
   z-index: 1;
 }
 
-/* Very subtle brand-aligned radial glow behind the mockup */
 .glow {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
-  background: radial-gradient(circle, rgba(79, 82, 201, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  width: 75%;
+  height: 75%;
+  background: radial-gradient(circle, rgba(79, 82, 201, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
   pointer-events: none;
   z-index: 1;
   border-radius: 50%;
@@ -156,14 +197,11 @@
 
 .imageWrapper {
   position: relative;
-  width: 115%;
-  /* Allow it to feel dominant and scale smoothly */
+  width: 105%;
   height: 100%;
   aspect-ratio: 16 / 11;
-  /* Close match to Apple laptop/device mockups */
   z-index: 2;
-  margin-right: -10%;
-  /* Creates a premium bleed off to the right side on large screens */
+  margin-right: -5%;
 }
 
 .heroImage {
@@ -171,20 +209,30 @@
   object-position: center;
 }
 
-/* -------------------
-   Responsive Rules
---------------------*/
+/* ================================================
+   RESPONSIVE BREAKPOINTS
+   1280 → 1200 → 1024 → 991 → 768 → 500
+================================================ */
+
+/* ------------------------------------------------
+   1280px — Wide laptop: tighten heading scale,
+   pull image back from bleed slightly
+------------------------------------------------ */
 @media (max-width: 1280px) {
   .heading {
-    font-size: clamp(48px, 5vw, 64px);
+    font-size: clamp(1.9rem, 4vw, 3.4rem);
   }
 
   .imageWrapper {
-    width: 110%;
-    margin-right: -5%;
+    width: 100%;
+    margin-right: -2%;
   }
 }
 
+/* ------------------------------------------------
+   1200px — Layout transitions from full-height
+   centred hero to natural-height stacked padding
+------------------------------------------------ */
 @media (max-width: 1200px) {
   .section {
     min-height: auto;
@@ -193,7 +241,6 @@
   }
 
   .container {
-    /* Keep 2 columns, just reduce paddings */
     padding: 0 48px;
     gap: var(--spacing-40);
   }
@@ -210,6 +257,68 @@
   }
 }
 
+/* ------------------------------------------------
+   1024px — TABLET LANDSCAPE
+   Still 2-column but more deliberate proportions.
+   Heading and paragraph tighten so copy doesn't
+   crowd the image; image gets a controlled cap so
+   it doesn't overflow or feel underdetermined.
+------------------------------------------------ */
+@media (max-width: 1024px) {
+  .section {
+    padding: var(--spacing-48) 0;
+  }
+
+  .container {
+    /* Shift ratio so content gets a bit more room */
+    grid-template-columns: 1.05fr 0.95fr;
+    padding: 0 40px;
+    gap: var(--spacing-32);
+    align-items: center;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .heading {
+    font-size: clamp(1.75rem, 3.6vw, 2.8rem);
+    /* At 1024px the column is narrower — natural wrap handles it */
+    max-width: none;
+    margin-bottom: 0.55rem;
+  }
+
+  .paragraph {
+    font-size: var(--fs-body);
+    margin-bottom: 1rem;
+    /* Slightly tighter at this width */
+    max-width: 44ch;
+  }
+
+  .ctaButton {
+    font-size: 1.05rem;
+  }
+
+  .imageColumn {
+    min-height: auto;
+    height: auto;
+  }
+
+  .imageWrapper {
+    /* Controlled size — not too dominant at 1024px */
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+    height: auto;
+  }
+}
+
+/* ------------------------------------------------
+   991px — STACKED LAYOUT
+   Grid collapses to single column.
+   Content above, image below.
+   Image centred and capped deliberately.
+------------------------------------------------ */
 @media (max-width: 991px) {
   .section {
     padding: var(--spacing-48) 0;
@@ -218,7 +327,8 @@
   .container {
     grid-template-columns: 1fr;
     padding: 0 32px;
-    gap: var(--spacing-48);
+    /* Gap controls the space between copy block and image */
+    gap: var(--spacing-28, 1.75rem);
   }
 
   .content {
@@ -226,8 +336,14 @@
     text-align: left;
   }
 
-  .desktopBreak {
-    display: inline;
+  .heading {
+    /* Single column — natural wrap at full width */
+    max-width: none;
+    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  }
+
+  .paragraph {
+    max-width: 56ch;
   }
 
   .imageColumn {
@@ -236,55 +352,159 @@
 
   .imageWrapper {
     width: 100%;
-    max-width: 550px;
+    /* Deliberate cap — image feels like a feature, not a remainder */
+    max-width: 520px;
     margin: 0 auto;
   }
 }
 
+/* ------------------------------------------------
+   768px — LARGE PHONE / PORTRAIT TABLET
+   Single column. Compact but not compressed.
+   Trust line stacked for clarity.
+   Image: generous enough to feel like a hero asset,
+   not so large it pushes the CTA off-screen.
+------------------------------------------------ */
 @media (max-width: 768px) {
   .section {
+    /* Moderate padding — keeps section from feeling too tall */
     padding: var(--spacing-48) 0;
   }
 
   .container {
     padding: 0 24px;
-    gap: var(--spacing-32);
+    /* 1.5rem gap: deliberate breathing room between copy and image */
+    gap: 1.5rem;
   }
 
-  .imageWrapper {
-    max-width: 450px;
-  }
-
-  .heading {
-    font-size: clamp(32px, 10vw, 48px);
-    margin-bottom: var(--spacing-20);
-  }
-
-  .paragraph {
-    font-size: 16px;
-    margin-bottom: var(--spacing-20);
-  }
-
-  .ctaButton {
-    font-size: 18px;
+  /* --- TRUST LINE: stacked for clarity --- */
+  .trustLine {
+    margin-bottom: 10px;
+    gap: 4px;
   }
 
   .trustRow {
-    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+  }
+
+  .stars {
+    font-size: 14px;
+    letter-spacing: 3px;
+  }
+
+  .trustText {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .author {
+    font-size: 0.8rem;
+  }
+
+  /* --- HEADING --- */
+  .heading {
+    font-size: clamp(1.75rem, 7.5vw, 2.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+    max-width: none;
+  }
+
+  /* --- PARAGRAPH --- */
+  .paragraph {
+    font-size: var(--fs-body);
+    line-height: 1.55;
+    margin-bottom: 1rem;
+    max-width: none;
+  }
+
+  /* --- CTA --- */
+  .ctaButton {
+    font-size: 1.05rem;
+  }
+
+  /* --- IMAGE ---
+     420px: wide enough to read detail in the mockup,
+     narrow enough that the CTA stays clearly above. */
+  .imageWrapper {
+    max-width: 420px;
   }
 }
 
+/* ------------------------------------------------
+   500px — SMALL PHONE
+   Compact but not cramped. Image fills width cleanly.
+------------------------------------------------ */
 @media (max-width: 500px) {
-
   .section {
-    padding: var(--spacing-24) 0;
+    padding: var(--spacing-32) 0;
+  }
+
+  .container {
+    padding: 0 20px;
+    gap: 1.25rem;
+  }
+
+  .trustRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .stars {
+    font-size: 13px;
+  }
+
+  .trustText,
+  .author {
+    font-size: 0.775rem;
+  }
+
+  .heading {
+    font-size: clamp(1.55rem, 7vw, 1.9rem);
+    margin-bottom: 0.4rem;
+  }
+
+  .paragraph {
+    font-size: 0.9375rem;
+    margin-bottom: 0.875rem;
   }
 
   .imageWrapper {
     max-width: 100%;
   }
+}
 
+/* ------------------------------------------------
+   375px — SMALL PHONE MICRO-STOP
+   Prevents heading from hitting the absolute minimum
+   of the 500px clamp too hard on very narrow devices.
+   Keeps padding slightly more generous than 320px.
+------------------------------------------------ */
+@media (max-width: 375px) {
+  .section {
+    padding: var(--spacing-24) 0;
+  }
+
+  .container {
+    padding: 0 16px;
+    gap: 1rem;
+  }
+
+  /* Stars slightly smaller — fits cleanly in 375px */
   .stars {
-    font-size: 14px;
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+
+  /* Keep heading readable but not oversized at 375px */
+  .heading {
+    font-size: clamp(1.45rem, 6.5vw, 1.7rem);
+  }
+
+  .paragraph {
+    font-size: 0.9rem;
   }
 }

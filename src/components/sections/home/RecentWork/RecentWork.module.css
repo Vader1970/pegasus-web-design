@@ -2,8 +2,7 @@
   scroll-margin-top: 0px;
   width: 100%;
   background-color: var(--color-bg-secondary, #F1F3F7);
-  /* Distinct from LogoStrip background */
-  padding: var(--spacing-120) 0;
+  padding: var(--section-py) 0;
 }
 
 .container {
@@ -17,24 +16,25 @@
    Part 1: Header Area
 --------------------*/
 .header {
-  margin-bottom: var(--spacing-80);
-  max-width: 800px;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  max-width: 760px;
 }
 
 .heading {
-  font-size: clamp(40px, 4vw, 56px);
-  line-height: 1.1;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading-loose);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ls-heading);
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-16);
+  margin-bottom: var(--gap-heading-body);
 }
 
 .intro {
-  font-size: 20px;
-  line-height: 150%;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
   color: var(--color-text-body);
   margin: 0;
+  max-width: var(--max-w-prose);
 }
 
 /* -------------------
@@ -43,10 +43,9 @@
 .featuredRow {
   display: grid;
   grid-template-columns: 1.25fr 1fr;
-  /* Strong visual dominance for horizontal image footprint */
   gap: var(--spacing-80);
   align-items: center;
-  margin-bottom: var(--spacing-96);
+  margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 
 .featuredImageWrapper {
@@ -65,19 +64,20 @@
 }
 
 .featuredTitle {
-  font-size: 40px;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ls-heading);
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-16);
+  margin-bottom: var(--gap-heading-body);
+  line-height: var(--lh-heading-loose);
 }
 
 .featuredDescription {
-  font-size: 18px;
-  line-height: 150%;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
   color: var(--color-text-body);
-  margin-bottom: var(--spacing-32);
-  max-width: 500px;
+  margin-bottom: var(--spacing-24);
+  max-width: 48ch;
 }
 
 /* -------------------
@@ -86,7 +86,7 @@
 .secondaryGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-64) var(--spacing-32);
+  gap: var(--spacing-48) var(--spacing-32);
 }
 
 .projectCard {
@@ -98,7 +98,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-20);
   border-radius: var(--radius-sm);
   overflow: hidden;
   background-color: var(--color-border-light, #EAEAEA);
@@ -111,33 +111,33 @@
 }
 
 .cardTitle {
-  font-size: 24px;
+  font-size: var(--fs-h3);
   font-weight: 700;
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-12);
-  letter-spacing: -0.01em;
+  margin-bottom: var(--spacing-8);
+  letter-spacing: var(--ls-heading);
 }
 
 .cardDescription {
-  font-size: 16px;
-  line-height: 150%;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--color-text-body);
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-16);
+  max-width: none;
 }
 
 /* -------------------
    Shared Global Tokens
 --------------------*/
 .typeLabel {
-  font-size: 12px;
+  font-size: var(--fs-xs);
   font-weight: 800;
-  /* Increased weight for better readability */
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #4F52C9;
-  /* Deep, high-contrast brand purple */
-  margin-bottom: var(--spacing-12);
+  margin-bottom: var(--spacing-8);
   display: inline-block;
+  max-width: none;
 }
 
 .projectImage {
@@ -153,14 +153,13 @@
 .projectLink {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: var(--color-brand-primary);
-  font-size: 16px;
+  font-size: var(--fs-body);
   font-weight: 600;
   text-decoration: none;
   transition: opacity 0.3s ease;
   margin-top: auto;
-  /* Push to bottom if content heights vary */
 }
 
 .projectLink:hover {
@@ -181,7 +180,7 @@
 --------------------*/
 @media (max-width: 1200px) {
   .section {
-    padding: var(--spacing-96) 0;
+    padding: var(--section-py-md) 0;
   }
 
   .container {
@@ -194,7 +193,7 @@
   }
 
   .featuredTitle {
-    font-size: 32px;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
   }
 
   .secondaryGrid {
@@ -204,30 +203,30 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: var(--spacing-64) 0;
+    padding: var(--section-py-sm) 0;
   }
 
   .container {
-    padding: 0 24px;
+    padding: 0 20px;
   }
 
   .header {
-    margin-bottom: 48px;
+    margin-bottom: var(--spacing-32);
   }
 
   .heading {
-    font-size: clamp(32px, 8vw, 40px);
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
   }
 
   .featuredRow {
     grid-template-columns: 1fr;
-    gap: var(--spacing-40);
-    margin-bottom: var(--spacing-64);
+    gap: var(--spacing-32);
+    margin-bottom: var(--spacing-48);
   }
 
   .secondaryGrid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-48);
+    gap: var(--spacing-40);
   }
 
   .featuredImageWrapper,
@@ -236,6 +235,10 @@
   }
 
   .featuredTitle {
-    font-size: 28px;
+    font-size: clamp(1.3rem, 6vw, 1.75rem);
+  }
+
+  .featuredDescription {
+    max-width: none;
   }
 }

@@ -15,30 +15,30 @@ if (typeof window !== "undefined") {
 const servicesOptions = [
   {
     title: "Landing Pages",
-    subtitle: "Turn more clicks into calls",
-    body: "Focused pages designed to clearly communicate your offer and turn traffic into real calls."
+    subtitle: "Turn clicks into actual enquiries",
+    body: "Focused pages designed to clearly explain your offer and guide visitors to take action — not just browse and leave."
   },
   {
     title: "Business Websites",
-    subtitle: "Build trust from the first visit",
-    body: "Professional websites built to make your business easy to understand, trust, and choose."
+    subtitle: "Make a strong first impression",
+    body: "Clear, professional websites that help people quickly understand what you do, trust you, and choose you over competitors."
   },
   {
     title: "Website Redesigns",
-    subtitle: "Fix what’s not working",
-    body: "We rebuild underperforming websites into something clearer, faster, and designed to win you more work."
+    subtitle: "Fix what’s costing you work",
+    body: "We rebuild underperforming websites into something clearer, faster, and designed to bring in consistent enquiries."
   },
   {
     title: "Platform Guidance",
-    subtitle: "Choose the right foundation",
-    body: "Not sure what platform to use? We’ll guide you toward the right setup based on your goals, budget, and long-term needs."
+    subtitle: "Get the right setup from the start",
+    body: "Not sure what platform to use? We’ll guide you toward the best option based on your goals, budget, and long-term needs."
   }
 ];
 
 export default function Services() {
   const container = useRef(null);
-  // All items closed by default
-  const [openIndex, setOpenIndex] = useState(-1);
+  // Website Redesigns open by default (index 2)
+  const [openIndex, setOpenIndex] = useState(2);
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -74,16 +74,16 @@ export default function Services() {
         
         {/* Left Column: Content */}
         <div className={styles.contentColumn}>
-          <h2 className={`gsap-services-text ${styles.heading}`}>What we can help you with</h2>
+          <h2 className={`gsap-services-text ${styles.heading}`}>What do you need help with?</h2>
           <p className={`gsap-services-text ${styles.paragraph}`}>
             No templates. Everything is built around what your business actually needs.
           </p>
           <p className={`gsap-services-text ${styles.paragraph}`}>
-            Whether you need more work, a clearer message, or a complete rebuild, we focus on what will actually move your business forward.
+            Whether you need more enquiries, a clearer message, or a complete rebuild, we focus on what will actually move your business forward.
           </p>
           <div className="gsap-services-text">
             <Link href="#work" className={styles.ctaLink}>
-              View our work <ArrowRight size={20} className={styles.arrow} />
+              See how we fix it <ArrowRight size={20} className={styles.arrow} />
             </Link>
           </div>
         </div>
