@@ -2,8 +2,7 @@
   scroll-margin-top: 0px;
   width: 100%;
   background-color: var(--color-bg-secondary, #FFFFFF);
-  /* Swapped to secondary to lift the new white cards */
-  padding: var(--spacing-120) 0;
+  padding: var(--section-py) 0;
 }
 
 .container {
@@ -14,19 +13,19 @@
 }
 
 .heading {
-  font-size: clamp(40px, 4vw, 56px);
-  line-height: 1.1;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading-loose);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ls-heading);
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-80);
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
+  max-width: var(--max-w-heading-sm);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-64);
-  /* Ensures each vertical column exactly matches visual height for symmetrical alignment */
+  gap: var(--spacing-48);
   align-items: stretch;
 }
 
@@ -35,7 +34,7 @@
   flex-direction: column;
   background-color: var(--color-bg-primary, #FFFFFF);
   border-radius: var(--radius-sm);
-  padding: var(--spacing-40);
+  padding: var(--card-py) var(--card-px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
   border: 1px solid var(--color-border-light, #EAEAEA);
   height: 100%;
@@ -44,58 +43,57 @@
 .logoWrapper {
   position: relative;
   width: 100%;
-  height: 48px;
-  /* Fixed structural scale for all natively-different client logos */
-  margin-bottom: var(--spacing-48);
+  height: 44px;
+  margin-bottom: var(--spacing-32);
 }
 
 .logo {
   object-fit: contain;
   object-position: left center;
-  /* Guarantees they hug the left indent exactly like the typography */
 }
 
 .quote {
-  font-size: 18px;
-  line-height: 160%;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
   font-style: italic;
-  /* Softens the impact giving it visual cadence */
   color: var(--color-text-body);
-  margin: 0 0 var(--spacing-32) 0;
+  margin: 0 0 var(--spacing-24) 0;
   flex-grow: 1;
-  /* Structurally forces clientInfo and dividers firmly to the bottom symmetrically */
+  max-width: none;
 }
 
 .clientInfo {
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-20);
 }
 
 .clientName {
-  font-size: 16px;
+  font-size: var(--fs-body);
   font-weight: 700;
   color: var(--color-text-heading);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
+  max-width: none;
 }
 
 .clientDetails {
-  font-size: 14px;
+  font-size: var(--fs-small);
   color: var(--color-text-body);
   opacity: 0.8;
+  max-width: none;
 }
 
 .divider {
   width: 100%;
   border: none;
   border-top: 1px solid var(--color-border-light, #EAEAEA);
-  margin: 0 0 var(--spacing-24) 0;
+  margin: 0 0 var(--spacing-20) 0;
 }
 
 .resultRow {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .resultIconWrapper {
@@ -111,19 +109,20 @@
 }
 
 .resultLabel {
-  font-size: 12px;
+  font-size: var(--fs-xs);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--ls-label);
   color: var(--color-text-body);
   margin-bottom: 2px;
+  max-width: none;
 }
 
 .resultText {
-  font-size: 14px;
+  font-size: var(--fs-small);
   font-weight: 700;
   color: var(--color-brand-primary);
-  /* Maps directly into predefined Brand parameters */
-  line-height: 140%;
+  line-height: var(--lh-body-tight);
+  max-width: none;
 }
 
 /* -------------------
@@ -131,7 +130,7 @@
 --------------------*/
 @media (max-width: 1200px) {
   .section {
-    padding: var(--spacing-96) 0;
+    padding: var(--section-py-md) 0;
   }
 
   .container {
@@ -139,7 +138,7 @@
   }
 
   .grid {
-    gap: var(--spacing-48);
+    gap: var(--spacing-32);
   }
 }
 
@@ -151,29 +150,34 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: var(--spacing-64) 0;
+    padding: var(--section-py-sm) 0;
   }
 
   .container {
-    padding: 0 24px;
+    padding: 0 20px;
   }
 
   .heading {
-    font-size: clamp(32px, 8vw, 40px);
-    margin-bottom: var(--spacing-48);
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    margin-bottom: var(--spacing-32);
+    max-width: none;
   }
 
   .grid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-64);
+    gap: var(--spacing-32);
   }
 
   .logoWrapper {
-    height: 40px;
-    margin-bottom: var(--spacing-32);
+    height: 36px;
+    margin-bottom: var(--spacing-24);
+  }
+
+  .column {
+    padding: var(--spacing-20) var(--spacing-16);
   }
 
   .quote {
-    font-size: 16px;
+    font-size: var(--fs-body);
   }
 }

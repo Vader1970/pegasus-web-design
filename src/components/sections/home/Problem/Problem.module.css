@@ -2,8 +2,7 @@
   scroll-margin-top: 0px;
   width: 100%;
   background-color: var(--color-bg-secondary, #F8F9FB);
-  /* Clean, slightly off-white section flow */
-  padding: var(--spacing-120) 0;
+  padding: var(--section-py) 0;
 }
 
 .container {
@@ -27,20 +26,20 @@
 }
 
 .heading {
-  font-size: clamp(36px, 4vw, 48px);
-  line-height: 1.1;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading-loose);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ls-heading);
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--gap-heading-body);
 }
 
 .paragraph {
-  font-size: 18px;
-  line-height: 150%;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
   color: var(--color-text-body);
-  margin-bottom: var(--spacing-40);
-  max-width: 520px;
+  margin-bottom: var(--spacing-32);
+  max-width: var(--max-w-prose);
 }
 
 /* CTA Link */
@@ -49,11 +48,10 @@
   align-items: center;
   gap: 8px;
   color: var(--color-brand-primary);
-  font-size: 22px;
+  font-size: clamp(1.1rem, 1.5vw, 1.375rem);
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  /* Brand-aligned text effect */
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
 }
 
@@ -81,14 +79,13 @@
 .cardsGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-32);
+  gap: var(--spacing-24);
 }
 
 /* The Cards */
 .card {
   background-color: var(--color-bg-primary);
-  /* pure white surfaces */
-  padding: var(--spacing-40) var(--spacing-32);
+  padding: var(--card-py) var(--card-px);
   border-radius: var(--radius-sm);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
   display: flex;
@@ -96,13 +93,12 @@
   transition: box-shadow 0.3s ease;
 }
 
-/* Very subtle enhancement on hover, kept restrained per instructions */
 .card:hover {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
 }
 
 .iconWrapper {
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-20);
 }
 
 .icon {
@@ -111,75 +107,177 @@
 }
 
 .cardTitle {
-  font-size: 20px;
+  font-size: var(--fs-h4);
   font-weight: 700;
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-12);
+  margin-bottom: var(--spacing-8);
 }
 
 .cardText {
-  font-size: 16px;
-  line-height: 150%;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--color-text-body);
   margin: 0;
+  max-width: none;
+  opacity: 0.7;
 }
 
-/* -------------------
-   Responsive Rules
---------------------*/
-@media (max-width: 1200px) {
+/* ================================================
+   RESPONSIVE — 3 DECISIVE STATES
+   Desktop (base) → 2-col tablet (1024) → stacked (900) → mobile (640)
+   No gradual degradation. Each state feels intentional.
+================================================ */
+
+/* ------------------------------------------------
+   1024px — TABLET / SMALL LAPTOP
+   Still 2-column. Push content column wider so the
+   heading has room without cramping the card grid.
+   Tighten type slightly to avoid 4+ line headings.
+------------------------------------------------ */
+@media (max-width: 1024px) {
   .section {
-    padding: var(--spacing-96) 0;
+    padding: var(--section-py-md) 0;
   }
 
   .container {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-64);
-    padding: 0 32px;
+    /* 55/45 split: content side gets meaningfully more room */
+    grid-template-columns: 55fr 45fr;
+    gap: var(--spacing-40);
+    padding: 0 48px;
+    /* Top-align: cards start at the same vertical position as the heading */
+    align-items: start;
   }
 
   .contentColumn {
     max-width: 100%;
+    /* Small top offset so heading baseline optically aligns with top card */
+    padding-top: var(--spacing-8);
   }
 
   .heading {
-    max-width: 700px;
+    /* Pulled back from desktop --fs-h2 to prevent 4+ line wrap */
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    line-height: 1.1;
+    margin-bottom: 0.65rem;
+    max-width: none;
   }
 
   .paragraph {
-    max-width: 700px;
+    font-size: var(--fs-body);
+    max-width: none;
+    margin-bottom: var(--spacing-24);
+  }
+
+  .ctaLink {
+    font-size: 1.05rem;
+  }
+
+  .cardsGrid {
+    gap: var(--spacing-16);
+  }
+
+  .card {
+    padding: var(--spacing-24) var(--spacing-20);
+  }
+
+  .iconWrapper {
+    margin-bottom: var(--spacing-16);
   }
 }
 
-@media (max-width: 768px) {
+/* ------------------------------------------------
+   900px — DECISIVE STACK
+   Below this point 2-column is always awkward.
+   Switch cleanly: content above, cards below.
+   Cards themselves stay 2-col — plenty of width.
+------------------------------------------------ */
+@media (max-width: 900px) {
   .section {
-    padding: var(--spacing-64) 0;
+    padding: var(--section-py-md) 0;
   }
 
   .container {
-    padding: 0 24px;
-    gap: var(--spacing-48);
+    grid-template-columns: 1fr;
+    gap: var(--spacing-40);
+    padding: 0 40px;
+    align-items: stretch;
+  }
+
+  .contentColumn {
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .heading {
+    font-size: clamp(1.65rem, 3.5vw, 2.2rem);
+    line-height: var(--lh-heading-loose);
+    max-width: none;
+    margin-bottom: var(--gap-heading-body);
+  }
+
+  .paragraph {
+    font-size: var(--fs-body-lg);
+    max-width: none;
+    margin-bottom: var(--spacing-32);
+  }
+
+  .ctaLink {
+    font-size: clamp(1.05rem, 1.5vw, 1.375rem);
+  }
+
+  /* Cards: restore 2-col now that full width is available */
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-20);
+  }
+
+  .card {
+    padding: var(--card-py) var(--card-px);
+  }
+
+  .iconWrapper {
+    margin-bottom: var(--spacing-20);
+  }
+}
+
+/* ------------------------------------------------
+   640px — MOBILE
+   Cards go single-column. Everything fully stacked.
+   Compact spacing, easy scan.
+------------------------------------------------ */
+@media (max-width: 640px) {
+  .section {
+    padding: var(--section-py-sm) 0;
+  }
+
+  .container {
+    padding: 0 20px;
+    gap: var(--spacing-32);
+  }
+
+  .heading {
+    font-size: clamp(1.5rem, 6.5vw, 2rem);
+  }
+
+  .paragraph {
+    font-size: var(--fs-body);
+    margin-bottom: var(--spacing-24);
   }
 
   .cardsGrid {
     grid-template-columns: 1fr;
-    /* Stacks to a single column on phones */
-    gap: var(--spacing-24);
-  }
-
-  .heading {
-    font-size: clamp(32px, 8vw, 36px);
-  }
-
-  .paragraph {
-    font-size: 16px;
+    gap: var(--spacing-20);
   }
 
   .card {
-    padding: var(--spacing-32) var(--spacing-24);
+    padding: var(--spacing-20) var(--spacing-16);
+  }
+
+  .iconWrapper {
+    margin-bottom: var(--spacing-16);
   }
 
   .ctaLink {
-    font-size: 18px;
+    font-size: 1.05rem;
   }
 }

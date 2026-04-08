@@ -1,8 +1,8 @@
 .section {
   scroll-margin-top: 0px;
   width: 100%;
-  background-color: var(--color-bg-dark, #0F172A); /* Deep modern inverted background */
-  padding: var(--spacing-120) 0;
+  background-color: var(--color-bg-dark, #0F172A);
+  padding: var(--section-py) 0;
 }
 
 .container {
@@ -13,34 +13,36 @@
 }
 
 .content {
-  max-width: 700px; /* Constrains line length for optimal readability and drives layout to the left */
+  max-width: 680px;
   display: flex;
   flex-direction: column;
 }
 
 .heading {
-  font-size: clamp(48px, 5vw, 64px);
-  line-height: 1.1;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: var(--lh-heading);
   font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--color-text-inverse, #FFFFFF);
-  margin-bottom: var(--spacing-24);
+  letter-spacing: var(--ls-heading-tight);
+  color: var(--color-text-on-dark, #FFFFFF);
+  margin-bottom: var(--gap-heading-body);
+  max-width: var(--max-w-heading-lg);
 }
 
 .paragraph {
-  font-size: 20px;
-  line-height: 160%;
-  color: rgba(255, 255, 255, 0.7); /* Muted off-white exactly preserving hierarchy rules */
-  margin-bottom: var(--spacing-48);
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--gap-body-cta);
+  max-width: var(--max-w-prose);
 }
 
 .link {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  font-size: 20px;
+  gap: 10px;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
   font-weight: 600;
-  color: var(--color-brand-accent, var(--color-brand-primary, #A78BFA)); /* Brightest iteration of brand purple suitable for dark modes */
+  color: var(--color-brand-accent, var(--color-brand-primary, #A78BFA));
   text-decoration: none;
   transition: opacity 0.3s ease;
   align-self: flex-start;
@@ -62,7 +64,7 @@
 /* Responsive Overrides */
 @media (max-width: 1200px) {
   .section {
-    padding: var(--spacing-96) 0;
+    padding: var(--section-py-md) 0;
   }
   .container {
     padding: 0 32px;
@@ -71,20 +73,22 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: var(--spacing-80) 0;
+    padding: var(--section-py-sm) 0;
   }
   .container {
-    padding: 0 24px;
+    padding: 0 20px;
   }
   .heading {
-    font-size: clamp(36px, 10vw, 48px);
+    font-size: clamp(1.9rem, 9vw, 2.8rem);
     margin-bottom: var(--spacing-16);
+    max-width: none;
   }
   .paragraph {
-    font-size: 18px;
-    margin-bottom: var(--spacing-40);
+    font-size: var(--fs-body);
+    margin-bottom: var(--spacing-24);
+    max-width: none;
   }
   .link {
-    font-size: 18px;
+    font-size: 1.05rem;
   }
 }

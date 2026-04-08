@@ -2,8 +2,7 @@
   scroll-margin-top: 0px;
   width: 100%;
   background-color: var(--color-bg-secondary, #F8F9FB);
-  /* Very light background matching ref */
-  padding: var(--spacing-120) 0;
+  padding: var(--section-py) 0;
 }
 
 .container {
@@ -17,7 +16,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-80);
-  /* CRITICAL: align-items stretch structurally matches column heights */
   align-items: stretch;
 }
 
@@ -28,7 +26,6 @@
   position: relative;
   width: 100%;
   height: 100%;
-  /* Strictly bind to the grid track height, disabling intrinsic footprint overreach */
   border-radius: var(--radius-sm);
   overflow: hidden;
   background-color: #EAEAEA;
@@ -46,25 +43,25 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* Removed center-pushing that offsets visual matching */
   padding: 0;
-  /* Removed manual vertical paddings to ensure flush geometric syncing */
 }
 
 .heading {
-  font-size: clamp(36px, 4vw, 48px);
-  line-height: 1.1;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading-loose);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ls-heading);
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--gap-heading-body);
+  max-width: var(--max-w-heading-sm);
 }
 
 .paragraph {
-  font-size: 18px;
-  line-height: 160%;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
   color: var(--color-text-body);
   margin-bottom: var(--spacing-32);
+  max-width: var(--max-w-prose);
 }
 
 /* -------------------
@@ -74,7 +71,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-16);
-  margin: 0 0 var(--spacing-40) 0;
+  margin: 0 0 var(--spacing-32) 0;
   padding: 0;
   list-style: none;
 }
@@ -82,7 +79,7 @@
 .benefitsItem {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 14px;
 }
 
 .checkIconWrapper {
@@ -94,10 +91,11 @@
 }
 
 .benefitText {
-  font-size: 16px;
-  line-height: 150%;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body-tight);
   font-weight: 500;
   color: var(--color-text-heading);
+  max-width: none;
 }
 
 /* -------------------
@@ -105,15 +103,14 @@
 --------------------*/
 .panel {
   background-color: var(--color-bg-primary, #FFFFFF);
-  /* High contrast pop off the subtle background */
   border-radius: var(--radius-sm);
-  padding: var(--spacing-40);
+  padding: var(--card-py) var(--card-px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
   border: 1px solid var(--color-border-light);
 }
 
 .panelHeading {
-  font-size: 20px;
+  font-size: var(--fs-h4);
   font-weight: 700;
   color: var(--color-text-heading);
   margin-bottom: var(--spacing-24);
@@ -122,7 +119,7 @@
 .panelColumns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-40);
+  gap: var(--spacing-32);
 }
 
 .personColumn {
@@ -131,10 +128,10 @@
 }
 
 .personName {
-  font-size: 16px;
+  font-size: var(--fs-body);
   font-weight: 700;
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-16);
+  margin-bottom: var(--spacing-12);
 }
 
 .qualificationList {
@@ -149,19 +146,19 @@
 .qualificationItem {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 10px;
 }
 
 .knowledgeIconWrapper {
   flex-shrink: 0;
   margin-top: 3px;
-  /* visual bump for single-line centering alignment */
 }
 
 .qualificationText {
-  font-size: 14px;
-  line-height: 140%;
+  font-size: var(--fs-small);
+  line-height: var(--lh-body-tight);
   color: var(--color-text-body);
+  max-width: none;
 }
 
 /* -------------------
@@ -169,7 +166,7 @@
 --------------------*/
 @media (max-width: 1200px) {
   .section {
-    padding: var(--spacing-96) 0;
+    padding: var(--section-py-md) 0;
   }
 
   .container {
@@ -181,7 +178,7 @@
   }
 
   .panel {
-    padding: var(--spacing-32);
+    padding: var(--spacing-24);
   }
 
   .panelColumns {
@@ -197,38 +194,41 @@
   .imageColumn {
     height: auto;
     aspect-ratio: 16 / 10;
-    /* Lock aspect ratio on table/mobile explicitly */
   }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: var(--spacing-64) 0;
+    padding: var(--section-py-sm) 0;
   }
 
   .container {
-    padding: 0 24px;
+    padding: 0 20px;
+  }
+
+  .heading {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    max-width: none;
+  }
+
+  .paragraph {
+    max-width: none;
   }
 
   .imageColumn {
     aspect-ratio: 4 / 3;
-    /* Slight crop for vertical phone screens */
   }
 
   .contentColumn {
     padding: 0;
   }
 
-  .heading {
-    font-size: clamp(32px, 8vw, 36px);
-  }
-
   .panel {
-    padding: var(--spacing-24);
+    padding: var(--spacing-20) var(--spacing-16);
   }
 
   .panelColumns {
     grid-template-columns: 1fr;
-    gap: var(--spacing-32);
+    gap: var(--spacing-24);
   }
 }

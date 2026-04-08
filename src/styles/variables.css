@@ -22,8 +22,44 @@
   --color-border-light: #E5E7EB;
   --color-border-medium: #DDE2EA;
 
-  /* Spacing */
-  --spacing-8: 8px;
+  /* =====================
+     TYPE SCALE
+     Fluid sizes via clamp(min, preferred, max)
+  ====================== */
+
+  /* Headings */
+  --fs-h1: clamp(2.2rem, 5vw, 4.5rem);         /* Hero / page-level titles */
+  --fs-h2: clamp(1.8rem, 3.5vw, 3rem);          /* Section headings */
+  --fs-h3: clamp(1.25rem, 2vw, 1.5rem);         /* Sub-section / card headings */
+  --fs-h4: clamp(1.05rem, 1.5vw, 1.2rem);       /* Labels, minor headings */
+
+  /* Body copy */
+  --fs-body-lg: clamp(1rem, 1.2vw, 1.125rem);  /* Lead paragraphs */
+  --fs-body: 1rem;                               /* Base body text */
+  --fs-small: 0.875rem;                          /* Meta, labels, captions */
+  --fs-xs: 0.75rem;                              /* Micro labels */
+
+  /* =====================
+     LINE HEIGHTS
+  ====================== */
+  --lh-heading: 1.02;       /* Tight, impactful for large display text */
+  --lh-heading-loose: 1.1;  /* Slightly looser for mid-size headings */
+  --lh-body: 1.6;           /* Comfortable reading line height */
+  --lh-body-tight: 1.45;    /* Slightly tighter for small UI text */
+
+  /* =====================
+     LETTER SPACING
+  ====================== */
+  --ls-heading: -0.02em;
+  --ls-heading-tight: -0.03em;
+  --ls-label: 0.06em;
+
+  /* =====================
+     SPACING TOKENS
+     Static values (px-based legacy, kept for compatibility)
+  ====================== */
+  --spacing-4:  4px;
+  --spacing-8:  8px;
   --spacing-12: 12px;
   --spacing-16: 16px;
   --spacing-20: 20px;
@@ -36,7 +72,37 @@
   --spacing-96: 96px;
   --spacing-120: 120px;
 
-  /* Radius */
+  /* =====================
+     FLUID SPACING TOKENS
+     Section, card, and rhythm spacing using clamp()
+  ====================== */
+
+  /* Section vertical padding (desktop → large) */
+  --section-py: clamp(4rem, 8vw, 7rem);
+
+  /* Section vertical padding (medium breakpoint) */
+  --section-py-md: clamp(3rem, 6vw, 5rem);
+
+  /* Section vertical padding (mobile) */
+  --section-py-sm: clamp(3rem, 6vw, 4rem);
+
+  /* Card internal padding */
+  --card-px: clamp(1.25rem, 2vw, 2rem);
+  --card-py: clamp(1.25rem, 2vw, 2rem);
+
+  /* Vertical rhythm within content blocks */
+  --gap-eyebrow-heading: 0.5rem;      /* Eyebrow label → heading */
+  --gap-heading-body: clamp(0.75rem, 1vw, 1rem);   /* Heading → paragraph */
+  --gap-body-cta: clamp(1rem, 1.5vw, 1.5rem);      /* Paragraph → CTA */
+
+  /* Text block max-widths for readability */
+  --max-w-prose: 62ch;               /* Body paragraphs */
+  --max-w-heading-lg: 18ch;          /* Large hero headings */
+  --max-w-heading-sm: 22ch;          /* Section headings */
+
+  /* =====================
+     BORDER RADIUS
+  ====================== */
   --radius-sm: 5px;
   --radius-md: 16px;
   --radius-lg: 20px;

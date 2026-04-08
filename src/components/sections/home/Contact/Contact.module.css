@@ -1,8 +1,7 @@
 .section {
   width: 100%;
   background-color: #F4F5FD;
-  /* Soft, premium purple-tinted bg matching reference logic */
-  padding: var(--spacing-120) 0;
+  padding: var(--section-py) 0;
   scroll-margin-top: 0px;
 }
 
@@ -24,20 +23,19 @@
 }
 
 .heading {
-  font-size: clamp(48px, 5vw, 64px);
-  line-height: 1.1;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: var(--lh-heading);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ls-heading-tight);
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--gap-heading-body);
 }
 
 .paragraph {
-  font-size: 20px;
-  line-height: 160%;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
   color: var(--color-text-body);
-  max-width: 500px;
-  /* Constrain line length to keep editorial feel */
+  max-width: 48ch;
 }
 
 /* -------------------
@@ -52,38 +50,37 @@
   background-color: var(--color-bg-primary, #FFFFFF);
   border: 1px solid var(--color-border-light, #EAEAEA);
   border-radius: var(--radius-sm);
-  padding: var(--spacing-48);
+  padding: var(--card-py) var(--card-px);
   width: 100%;
-  /* max-width: 600px; */
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-  /* Subtly elevates off the tinted background */
 }
 
 .formIntro {
-  font-size: 18px;
+  font-size: var(--fs-body-lg);
   font-weight: 600;
   color: var(--color-text-body);
-  margin-bottom: var(--spacing-40);
-  line-height: 150%;
+  margin-bottom: var(--spacing-32);
+  line-height: var(--lh-body);
+  max-width: none;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-24);
+  gap: var(--spacing-20);
 }
 
 .fieldGroup {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  /* Clean tracking between label and its native input */
+  gap: 6px;
 }
 
 .label {
-  font-size: 14px;
+  font-size: var(--fs-small);
   font-weight: 600;
   color: var(--color-text-body);
+  max-width: none;
 }
 
 /* -------------------
@@ -95,10 +92,9 @@
   width: 100%;
   background-color: var(--color-bg-primary, #FFFFFF);
   border: 1px solid #CBD5E1;
-  /* Accessible modern grey contrast */
   border-radius: 8px;
-  padding: 14px 16px;
-  font-size: 16px;
+  padding: 12px 14px;
+  font-size: var(--fs-body);
   color: var(--color-text-heading);
   font-family: inherit;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -109,25 +105,22 @@
 .textarea:focus {
   outline: none;
   border-color: var(--color-brand-primary, #8B5CF6);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
-  /* Accessible focus ring */
+  box-shadow: 0 0 0 3px rgba(79, 82, 201, 0.12);
 }
 
 .select {
   appearance: none;
-  /* Native inline chevron SVG avoids external asset paths */
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 14px center;
   background-size: 16px;
-  padding-right: 48px;
+  padding-right: 44px;
   cursor: pointer;
 }
 
 .textarea {
   resize: vertical;
-  /* Allows users to drag the height comfortably */
-  min-height: 100px;
+  min-height: 96px;
 }
 
 .input::placeholder,
@@ -135,23 +128,22 @@
 .textarea::placeholder {
   color: #94A3B8;
   opacity: 1;
-  /* Normalizes Firefox placeholder fading */
 }
 
 /* -------------------
    Testimonial & Submit block
 --------------------*/
 .testimonialBlock {
-  margin-top: var(--spacing-16);
-  font-size: 14px;
-  line-height: 150%;
+  margin-top: var(--spacing-12);
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
   color: var(--color-text-body);
+  max-width: none;
 }
 
 .stars {
   color: #F59E0B;
-  /* Strict star gold */
-  margin-right: 8px;
+  margin-right: 6px;
   letter-spacing: 2px;
 }
 
@@ -162,14 +154,15 @@
 
 .testimonialAuthor {
   display: block;
-  margin-top: 6px;
+  margin-top: 4px;
   opacity: 0.8;
 }
 
 .supportLine {
-  font-size: 14px;
+  font-size: var(--fs-small);
   color: var(--color-text-body);
-  margin-bottom: var(--spacing-16);
+  margin-bottom: var(--spacing-12);
+  max-width: none;
 }
 
 /* -------------------
@@ -182,10 +175,9 @@
   gap: 8px;
   background-color: var(--color-brand-primary, #8B5CF6);
   color: #FFFFFF;
-  font-size: 16px;
+  font-size: var(--fs-body);
   font-weight: 600;
-  padding: 18px 32px;
-  /* Thick, premium target size */
+  padding: 14px 28px;
   border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
@@ -195,7 +187,6 @@
 
 .submitButton:hover {
   opacity: 0.9;
-  /* Universal brand hover state logic */
 }
 
 .arrow {
@@ -212,7 +203,7 @@
 --------------------*/
 @media (max-width: 1200px) {
   .section {
-    padding: var(--spacing-96) 0;
+    padding: var(--section-py-md) 0;
   }
 
   .container {
@@ -220,7 +211,7 @@
   }
 
   .grid {
-    gap: var(--spacing-48);
+    gap: var(--spacing-40);
   }
 }
 
@@ -231,7 +222,7 @@
 
   .introColumn {
     padding-right: 0;
-    margin-bottom: var(--spacing-24);
+    margin-bottom: var(--spacing-20);
   }
 
   .formColumn {
@@ -241,28 +232,36 @@
   .formPanel {
     max-width: 100%;
   }
+
+  .paragraph {
+    max-width: var(--max-w-prose);
+  }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: var(--spacing-64) 0;
+    padding: var(--section-py-sm) 0;
   }
 
   .container {
-    padding: 0 24px;
+    padding: 0 20px;
   }
 
   .heading {
-    font-size: clamp(36px, 10vw, 48px);
+    font-size: clamp(1.9rem, 9vw, 2.8rem);
     margin-bottom: var(--spacing-16);
   }
 
+  .paragraph {
+    max-width: none;
+  }
+
   .formPanel {
-    padding: var(--spacing-32) var(--spacing-24);
+    padding: var(--spacing-20) var(--spacing-16);
   }
 
   .submitButton {
     width: 100%;
-    /* Fully responsive stacked target */
+    padding: 14px 24px;
   }
 }

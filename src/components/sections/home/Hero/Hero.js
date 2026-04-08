@@ -20,7 +20,7 @@ export default function Hero() {
     tl.from([
       ".gsap-hero-image",
       ".gsap-hero-trust",
-      ".gsap-hero-heading-line",
+      ".gsap-hero-heading",
       ".gsap-hero-text",
       ".gsap-hero-cta"
     ], {
@@ -47,13 +47,12 @@ export default function Hero() {
             <div className={styles.author}>— Mac Auto Services, Christchurch</div>
           </div>
 
-          <h1 className={styles.heading}>
-            <span className="gsap-hero-heading-line" style={{ display: 'inline-block' }}>Your Web Studio for</span>{' '}
-            <span className="gsap-hero-heading-line" style={{ display: 'inline-block' }}>Trades & Service Businesses.</span>
+          <h1 className={`gsap-hero-heading ${styles.heading}`}>
+            Websites that bring in more work for trades & service businesses.
           </h1>
 
           <p className={`gsap-hero-text ${styles.paragraph}`}>
-            Your site will load fast, look sharp, and bring in real work. No jargon. No templates. No surprises.
+            Built for New Zealand businesses that want more enquiries, not just a better-looking website.
           </p>
 
           <div className={`gsap-hero-cta ${styles.ctaGroup}`}>
@@ -63,6 +62,9 @@ export default function Hero() {
             </Link>
             <p className={styles.smallText}>
               Free. Written. Delivered within 48 hours.
+            </p>
+            <p className={styles.microText}>
+              No obligation. No pressure.
             </p>
           </div>
 

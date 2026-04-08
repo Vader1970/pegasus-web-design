@@ -2,29 +2,28 @@
   scroll-margin-top: 0px;
   width: 100%;
   background-color: var(--color-bg-primary);
-  padding: var(--spacing-64) 0;
+  padding: var(--spacing-48) 0;
   border-top: 1px solid var(--color-border-light);
   border-bottom: 1px solid var(--color-border-light);
 }
 
 .container {
   max-width: 1700px;
-  /* Respecting the newly upgraded global container scale */
   margin: 0 auto;
   padding: 0 64px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  align-items: center;
+  align-items: stretch;
 }
 
 .item {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
-  padding: 0 var(--spacing-32);
+  padding: 0 var(--spacing-24);
 }
 
 /* Pseudo element for the vertical divider */
@@ -34,33 +33,54 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  height: 48px;
-  /* Fixed height so it looks like a subtle layout guide, not a boxed wall */
+  height: 32px;
+  /* Shorter in height */
   width: 1px;
-  background-color: var(--color-border-light);
+  background-color: var(--color-text-body);
+  opacity: 0.15;
+  /* Thinner and lighter (low opacity) */
+}
+
+.iconWrapper {
+  margin-bottom: 6px;
+  /* Ultra-tight spacing system */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-brand-primary);
 }
 
 .text {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 0px;
+  /* Locked-in minimal gap */
   margin: 0;
+  width: 100%;
 }
 
 .main {
-  font-size: 16px;
+  font-size: var(--fs-body);
   font-weight: 500;
   color: var(--color-text-heading);
-  line-height: 140%;
+  line-height: var(--lh-body-tight);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  /* Min height to accommodate up to 2 lines of text (body x tight line height x 2) */
+  min-height: calc(var(--fs-body) * var(--lh-body-tight) * 2);
+  max-width: none;
 }
 
 .sub {
-  font-size: 16px;
-  /* Similar size as main based on the reference screenshot */
+  font-size: 0.95rem; /* Slightly smaller size */
   font-weight: 400;
   color: var(--color-text-body);
-  line-height: 140%;
+  opacity: 0.8; /* Lower opacity for softer visual feel */
+  line-height: var(--lh-body-tight);
+  max-width: none;
 }
 
 /* -------------------
@@ -68,76 +88,47 @@
 --------------------*/
 
 @media (max-width: 1200px) {
-
-  /* Adapting gracefully at the same point the Hero merges into 1-col */
   .container {
     grid-template-columns: repeat(2, 1fr);
-    row-gap: var(--spacing-48);
+    row-gap: var(--spacing-40);
     column-gap: 0;
     padding: 0 32px;
   }
 
-  /* Remove all vertical dividers */
   .item::after {
     display: none;
   }
 
-  /* Add horizontal line perfectly matched to <p> width */
-  .item:nth-child(1) .text::after,
-  .item:nth-child(2) .text::after {
-    content: '';
-    position: absolute;
-    bottom: -24px;
-    /* Centered in the 48px row gap */
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: var(--color-border-light);
+  .main {
+    min-height: auto; /* Remove heading min-height so elements hug tight */
   }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: var(--spacing-48) 0;
+    padding: var(--spacing-40) 0;
   }
 
   .container {
     grid-template-columns: 1fr;
-    row-gap: var(--spacing-48);
-    /* Adjusted for nice mobile spacing */
-    padding: 0 24px;
+    row-gap: var(--spacing-40);
+    padding: 0 20px;
   }
 
   .item {
     padding: 0;
   }
 
-  /* Completely kill all desktop vertical dividers */
   .item::after {
     display: none !important;
   }
 
-  /* Reset tablet horizontal dividers */
   .item .text::after {
     display: none;
   }
 
-  /* Apply horizontal divider to items 1, 2, 3 mapping exactly to <p> width */
-  .item:not(:last-child) .text::after {
-    display: block;
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    /* Centered in 40px row gap */
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: var(--color-border-light);
-  }
-
-  /* Adjust typography slightly on mobile to ensure it doesn't crowd */
   .main,
   .sub {
-    font-size: 16px;
+    font-size: var(--fs-body);
   }
 }
