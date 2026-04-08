@@ -1,3 +1,8 @@
+/* ================================================
+   RecentWork — Portfolio Preview
+   Featured project + supporting grid + section CTA
+================================================ */
+
 .section {
   scroll-margin-top: 0px;
   width: 100%;
@@ -13,11 +18,11 @@
 }
 
 /* -------------------
-   Part 1: Header Area
+   Header
 --------------------*/
 .header {
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
-  max-width: 760px;
+  max-width: 680px;
 }
 
 .heading {
@@ -35,17 +40,19 @@
   color: var(--color-text-body);
   margin: 0;
   max-width: var(--max-w-prose);
+  opacity: 0.85;
 }
 
 /* -------------------
-   Part 2: Featured Layer
+   Featured Project
 --------------------*/
-.featuredRow {
+.featured {
   display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: var(--spacing-80);
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--spacing-64);
   align-items: center;
-  margin-bottom: clamp(3rem, 6vw, 5rem);
+  margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
+  /* Increased separation from supporting grid */
 }
 
 .featuredImageWrapper {
@@ -64,11 +71,12 @@
 }
 
 .featuredTitle {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 800;
   letter-spacing: var(--ls-heading);
   color: var(--color-text-heading);
-  margin-bottom: var(--gap-heading-body);
+  margin-bottom: var(--spacing-8);
+  /* Tightened from spacing-12 */
   line-height: var(--lh-heading-loose);
 }
 
@@ -76,45 +84,57 @@
   font-size: var(--fs-body-lg);
   line-height: var(--lh-body);
   color: var(--color-text-body);
-  margin-bottom: var(--spacing-24);
-  max-width: 48ch;
+  margin-bottom: var(--spacing-20);
+  /* Tightened from spacing-24 */
+  max-width: 44ch;
+  opacity: 0.85;
 }
 
 /* -------------------
-   Part 3: Secondary Grid
+   Supporting Grid
 --------------------*/
-.secondaryGrid {
+.supportingGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-48) var(--spacing-32);
+  gap: var(--spacing-32);
 }
 
-.projectCard {
+.card {
   display: flex;
   flex-direction: column;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--color-bg-primary);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
 }
 
 .cardImageWrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  margin-bottom: var(--spacing-20);
-  border-radius: var(--radius-sm);
+  aspect-ratio: 3 / 2;
+  /* Slightly shorter than featured (16/10) to create hierarchy */
   overflow: hidden;
   background-color: var(--color-border-light, #EAEAEA);
 }
 
-.cardContent {
+.cardBody {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  padding: var(--spacing-16) var(--spacing-20);
+  /* Tighter internal spacing */
 }
 
 .cardTitle {
-  font-size: var(--fs-h3);
+  font-size: var(--fs-h4);
   font-weight: 700;
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-8);
+  margin-bottom: 4px;
   letter-spacing: var(--ls-heading);
 }
 
@@ -122,22 +142,23 @@
   font-size: var(--fs-body);
   line-height: var(--lh-body);
   color: var(--color-text-body);
-  margin-bottom: var(--spacing-16);
+  margin-bottom: var(--spacing-8);
+  /* Tighter gap before CTA */
   max-width: none;
+  opacity: 0.8;
 }
 
 /* -------------------
-   Shared Global Tokens
+   Shared Tokens
 --------------------*/
 .typeLabel {
-  font-size: var(--fs-xs);
-  font-weight: 800;
+  font-size: 0.7rem;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #4F52C9;
-  margin-bottom: var(--spacing-8);
+  color: var(--color-brand-primary);
+  margin-bottom: 6px;
   display: inline-block;
-  max-width: none;
 }
 
 .projectImage {
@@ -147,7 +168,7 @@
 
 .featuredImageWrapper:hover .projectImage,
 .cardImageWrapper:hover .projectImage {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .projectLink {
@@ -168,7 +189,7 @@
 
 .arrow {
   display: inline-block;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projectLink:hover .arrow {
@@ -176,8 +197,42 @@
 }
 
 /* -------------------
-   Responsive Overrides
+   Section Exit CTA
 --------------------*/
+.sectionCta {
+  text-align: center;
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  /* Increased from 2.5rem for stronger separation */
+}
+
+.sectionCtaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-brand-primary);
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 28px;
+  border: 1px solid var(--color-brand-primary);
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
+.sectionCtaLink:hover {
+  background-color: var(--color-brand-primary);
+  color: #fff;
+}
+
+.sectionCtaLink:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ================================================
+   Responsive
+================================================ */
+
+/* ── Tablet ── */
 @media (max-width: 1200px) {
   .section {
     padding: var(--section-py-md) 0;
@@ -187,20 +242,22 @@
     padding: 0 32px;
   }
 
-  .featuredRow {
-    gap: var(--spacing-48);
+  .featured {
     grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-40);
   }
 
   .featuredTitle {
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-size: clamp(1.35rem, 2.5vw, 1.85rem);
   }
 
-  .secondaryGrid {
+  .supportingGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-24);
   }
 }
 
+/* ── Mobile ── */
 @media (max-width: 768px) {
   .section {
     padding: var(--section-py-sm) 0;
@@ -218,27 +275,58 @@
     font-size: clamp(1.6rem, 7vw, 2.2rem);
   }
 
-  .featuredRow {
+  .featured {
     grid-template-columns: 1fr;
-    gap: var(--spacing-32);
-    margin-bottom: var(--spacing-48);
+    gap: var(--spacing-16);
+    margin-bottom: var(--spacing-40);
   }
 
-  .secondaryGrid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-40);
-  }
-
-  .featuredImageWrapper,
-  .cardImageWrapper {
-    aspect-ratio: 16 / 10;
+  .featuredImageWrapper {
+    aspect-ratio: 16 / 9;
   }
 
   .featuredTitle {
-    font-size: clamp(1.3rem, 6vw, 1.75rem);
+    font-size: clamp(1.25rem, 5.5vw, 1.65rem);
   }
 
   .featuredDescription {
     max-width: none;
+    margin-bottom: var(--spacing-12);
+  }
+
+  .supportingGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-16);
+    /* Tighter card gaps on mobile */
+  }
+
+  .cardImageWrapper {
+    aspect-ratio: 16 / 9;
+  }
+
+  .cardBody {
+    padding: var(--spacing-12) var(--spacing-16);
+  }
+
+  .cardTitle {
+    margin-bottom: 2px;
+  }
+
+  .cardDescription {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+  }
+
+  .typeLabel {
+    margin-bottom: 3px;
+  }
+
+  .sectionCta {
+    margin-top: var(--spacing-64);
+  }
+
+  .sectionCtaLink {
+    padding: 10px 24px;
+    font-size: 1rem;
   }
 }
