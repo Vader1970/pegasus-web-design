@@ -33,41 +33,53 @@ export default function LogoStrip() {
       }
     });
 
-    tl.from(".gsap-logo-heading", {
+    tl.from(".gsap-logo-header", {
       opacity: 0,
-      y: 20,
-      duration: 0.8,
-      ease: "power3.out"
+      y: 16,
+      duration: 0.6,
+      stagger: 0.12,
+      ease: "power2.out"
     })
-    .from(".gsap-logo-item", {
+    .from(".gsap-logo-marquee", {
       opacity: 0,
-      y: 20,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: "power3.out"
-    }, "-=0.4");
+      duration: 1,
+      ease: "power1.out"
+    }, "-=0.3");
   }, { scope: container });
+
+  const renderLogos = () =>
+    logos.map((logo, index) => (
+      <div key={index} className={styles.logoItem}>
+        <Image
+          src={logo.src}
+          alt={logo.alt}
+          fill
+          sizes="140px"
+          className={styles.logoImage}
+        />
+      </div>
+    ));
 
   return (
     <section ref={container} className={styles.section}>
       <div className={styles.container}>
-        
+
         <div className={styles.header}>
-          <h2 className={`gsap-logo-heading ${styles.heading}`}>Businesses we've worked with</h2>
+          <h2 className={`gsap-logo-header ${styles.heading}`}>
+            Businesses we&apos;ve worked with
+          </h2>
+          <p className={`gsap-logo-header ${styles.subtext}`}>
+            A few of the businesses we&apos;ve helped with clearer, better-performing websites.
+          </p>
         </div>
-        
-        <div className={styles.grid}>
-          {logos.map((logo, index) => (
-            <div key={index} className={`gsap-logo-item ${styles.logoItem}`}>
-              <Image 
-                src={logo.src}
-                alt={logo.alt}
-                fill
-                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className={styles.logoImage}
-              />
+
+        <div className={styles.marqueeContainer}>
+          <div className={`gsap-logo-marquee ${styles.marqueeWrapper}`}>
+            <div className={styles.marqueeTrack}>
+              <div className={styles.marqueeGroup}>{renderLogos()}</div>
+              <div className={styles.marqueeGroup} aria-hidden="true">{renderLogos()}</div>
             </div>
-          ))}
+          </div>
         </div>
 
       </div>
