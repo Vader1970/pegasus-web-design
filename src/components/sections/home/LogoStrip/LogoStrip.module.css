@@ -1,20 +1,29 @@
+/* ================================================
+   LogoStrip — Infinite Marquee
+   Premium horizontal logo scroll with edge fade masks
+   Constrained to ~1160px for visual alignment with page content
+================================================ */
+
 .section {
   scroll-margin-top: 0px;
   width: 100%;
   background-color: var(--color-bg-primary);
-  padding: var(--section-py) 0;
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
 }
 
 .container {
   max-width: 1700px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 64px;
 }
 
+/* -------------------
+   Header — Heading + Subtext
+--------------------*/
 .header {
   text-align: center;
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  padding: 0 64px;
 }
 
 .heading {
@@ -24,64 +33,172 @@
   color: var(--color-text-heading);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-48) var(--spacing-24);
+.subtext {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+  opacity: 0.7;
+  max-width: 440px;
+  margin: var(--spacing-8) auto 0;
 }
 
-/* Bounding Container Rule */
+/* -------------------
+   Marquee Container
+   Constrains the visible marquee to content width
+--------------------*/
+.marqueeContainer {
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* -------------------
+   Marquee Wrapper
+   Clips the track, applies soft edge masks
+--------------------*/
+.marqueeWrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 4%,
+    black 96%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 4%,
+    black 96%,
+    transparent 100%
+  );
+}
+
+/* -------------------
+   Marquee Track
+   Two identical groups side-by-side, sliding left.
+   The animation translates exactly -50% so the second
+   group seamlessly replaces the first with zero jump.
+--------------------*/
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 36s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Pause on hover — desktop only */
+.marqueeWrapper:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+/* -------------------
+   Marquee Group
+   One complete set of logos.
+   The gap + edge padding must be identical between groups
+   so the seam where they join is invisible.
+--------------------*/
+.marqueeGroup {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: clamp(2.5rem, 4vw, 3.5rem);
+  /* 
+   Edge padding = exactly half the gap value.
+   When two groups sit side-by-side the adjacent paddings
+   combine to equal one full gap → seamless spacing.
+  */
+  padding: 12px clamp(1.25rem, 2vw, 1.75rem);
+}
+
+/* -------------------
+   Logo Items
+--------------------*/
 .logoItem {
   position: relative;
-  height: 44px;
-  width: 100%;
+  flex-shrink: 0;
+  width: 125px;
+  height: 38px;
 }
 
 .logoImage {
   object-fit: contain;
   filter: grayscale(100%);
-  transition: opacity 0.3s ease;
+  opacity: 0.65;
 }
 
-.logoItem:hover .logoImage {
-  opacity: 0.6;
-}
-
-/* Responsive Rules */
+/* ================================================
+   Responsive
+================================================ */
 @media (max-width: 1024px) {
-  .section {
-    padding: var(--section-py-md) 0;
-  }
-  .container {
-    padding: 0 32px;
-  }
   .header {
-    margin-bottom: var(--spacing-48);
+    padding: 0 32px;
+    margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
   }
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-40) var(--spacing-20);
+
+  .marqueeContainer {
+    padding: 0 24px;
+  }
+
+  .marqueeGroup {
+    gap: clamp(2rem, 3.5vw, 3rem);
+  }
+
+  .logoItem {
+    width: 110px;
+    height: 34px;
+  }
+
+  .marqueeTrack {
+    animation-duration: 30s;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .section {
-    padding: var(--section-py-sm) 0;
+    padding: clamp(2rem, 5vw, 3rem) 0;
   }
-  .container {
-    padding: 0 20px;
-  }
+
   .header {
-    margin-bottom: var(--spacing-32);
+    padding: 0 20px;
+    margin-bottom: var(--spacing-20);
   }
+
   .heading {
     font-size: clamp(1.1rem, 5vw, 1.375rem);
   }
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-32) var(--spacing-16);
+
+  .subtext {
+    font-size: 0.9rem;
   }
+
+  .marqueeContainer {
+    padding: 0 16px;
+  }
+
+  .marqueeGroup {
+    gap: 1.75rem;
+    padding: 8px 0.875rem;
+  }
+
   .logoItem {
-    height: 34px;
+    width: 90px;
+    height: 28px;
+  }
+
+  .marqueeTrack {
+    animation-duration: 24s;
   }
 }
