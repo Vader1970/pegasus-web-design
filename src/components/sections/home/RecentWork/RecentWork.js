@@ -13,63 +13,44 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
-const secondaryProjects = [
+const featuredProject = {
+  type: "WEBSITE",
+  title: "Mac Auto Services",
+  description:
+    "Full website rebuild for an automotive workshop. Built to earn trust fast and turn visitors into booked jobs.",
+  link: "https://www.macautoservices.co.nz/",
+  image: "/images/home/projects/mac-auto-mock-up.webp",
+};
+
+const supportingProjects = [
   {
     type: "WEBSITE",
     title: "Burst Digital",
-    description: "Modern brand website for a digital services company.",
+    description: "Brand website that positioned a growing digital agency as a credible, premium partner.",
     link: "https://www.burstdigital.co.nz/",
-    image: "/images/home/projects/burst-digital-mock-up.png"
-  },
-  {
-    type: "WEBSITE",
-    title: "Autistic Innovations",
-    description: "Purpose-driven website with accessibility focus.",
-    link: "https://www.autisticinnovations.co.nz/",
-    image: "/images/home/projects/autistic-innovations-maoc-up.png"
+    image: "/images/home/projects/burst-digital-mock-up.png",
   },
   {
     type: "WEBSITE",
     title: "Cleghorn Roofing",
-    description: "Professional website for a roofing business.",
+    description: "Professional site for a roofing company — clear services, strong trust signals, and easy contact.",
     link: "https://cleghorn-roofing.vercel.app/",
-    image: "/images/home/projects/cleghorn-mock-up.png"
+    image: "/images/home/projects/cleghorn-mock-up.png",
   },
   {
     type: "LANDING PAGE",
     title: "Tilyard Plumbing",
-    description: "Custom-coded landing page built inside of Wix.",
+    description: "Custom-coded landing page inside Wix — turning paid traffic into phone calls.",
     link: "https://www.tilyardplumbing.co.nz/landing-page",
-    image: "/images/home/projects/tilyard-plumbing-mock-up.png"
-  },
-  {
-    type: "LANDING PAGE",
-    title: "Filtration Station",
-    description: "Service landing page within a Shopify store.",
-    link: "https://www.filtrationstation.co.nz/pages/installation-services",
-    image: "/images/home/projects/filtration-station-mock-up.png"
-  },
-  {
-    type: "LANDING PAGE",
-    title: "Innlist Holiday Homes",
-    description: "Custom-coded page built within platform constraints.",
-    link: "https://www.innlist.co.nz/landing-page/",
-    image: "/images/home/projects/innlist-mock-up.png"
+    image: "/images/home/projects/tilyard-plumbing-mock-up.png",
   },
   {
     type: "LANDING PAGE",
     title: "Master Kerb",
-    description: "High-converting landing page for a service business.",
+    description: "Landing page for a concrete kerbing business — built to generate consistent enquiries.",
     link: "https://www.masterkerb.co.nz/landing-page",
-    image: "/images/home/projects/master-kerb-mock-up.png"
+    image: "/images/home/projects/master-kerb-mock-up.png",
   },
-  {
-    type: "LANDING PAGE",
-    title: "Gee Quiz",
-    description: "Clean landing page designed to drive engagement.",
-    link: "https://www.geequiz.co.nz/landing-page",
-    image: "/images/home/projects/gee-quiz-mock-up.png"
-  }
 ];
 
 export default function RecentWork() {
@@ -85,76 +66,86 @@ export default function RecentWork() {
 
     tl.from(".gsap-work-header", {
       opacity: 0,
-      y: 30,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: "power3.out"
-    })
-      .from(".gsap-work-featured-img", {
-        opacity: 0,
-        scale: 0.95,
-        duration: 1.2,
-        ease: "power3.out"
-      }, "-=0.4")
-      .from(".gsap-work-featured-text", {
-        opacity: 0,
-        x: -20,
-        duration: 0.8,
-        ease: "power3.out"
-      }, "-=0.8")
-      .from(".gsap-work-card", {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out"
-      }, "-=0.4");
+      y: 20,
+      duration: 0.6,
+      stagger: 0.12,
+      ease: "power2.out"
+    });
+
+    tl.from(".gsap-work-featured-img", {
+      opacity: 0,
+      scale: 0.97,
+      duration: 1,
+      ease: "power2.out"
+    }, "-=0.3")
+    .from(".gsap-work-featured-text", {
+      opacity: 0,
+      y: 16,
+      duration: 0.6,
+      ease: "power2.out"
+    }, "-=0.6");
+
+    tl.from(".gsap-work-card", {
+      opacity: 0,
+      y: 24,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power2.out"
+    }, "-=0.3");
+
+    tl.from(".gsap-work-cta", {
+      opacity: 0,
+      y: 12,
+      duration: 0.5,
+      ease: "power2.out"
+    }, "-=0.2");
   }, { scope: container });
 
   return (
     <section ref={container} className={styles.section} id="work">
       <div className={styles.container}>
 
-        {/* Part 1: Heading Area */}
+        {/* ──── Header ──── */}
         <div className={styles.header}>
           <h2 className={`gsap-work-header ${styles.heading}`}>Recent work</h2>
           <p className={`gsap-work-header ${styles.intro}`}>
-            Real projects for real businesses — built to bring in work
+            Real websites and landing pages we&apos;ve built for service-based businesses — designed to bring in more enquiries, not just look good.
           </p>
         </div>
 
-        {/* Part 2: Featured Project Row */}
-        <div className={styles.featuredRow}>
+        {/* ──── Featured Project ──── */}
+        <div className={styles.featured}>
           <div className={`gsap-work-featured-img ${styles.featuredImageWrapper}`}>
             <Image
-              src="/images/home/projects/mac-auto-mock-up.webp"
-              alt="Mac Auto Services Website"
+              src={featuredProject.image}
+              alt={featuredProject.title}
               fill
               className={styles.projectImage}
               sizes="(max-width: 1024px) 100vw, 60vw"
+              priority
             />
           </div>
           <div className={`gsap-work-featured-text ${styles.featuredContent}`}>
-            <span className={styles.typeLabel}>WEBSITE</span>
-            <h3 className={styles.featuredTitle}>Mac Auto Services</h3>
+            <span className={styles.typeLabel}>{featuredProject.type}</span>
+            <h3 className={styles.featuredTitle}>{featuredProject.title}</h3>
             <p className={styles.featuredDescription}>
-              Conversion-focused website for an automotive workshop.
+              {featuredProject.description}
             </p>
             <Link
-              href="https://www.macautoservices.co.nz/"
+              href={featuredProject.link}
               className={styles.projectLink}
               target="_blank"
               rel="noopener noreferrer"
             >
-              View site <ArrowRight size={20} className={styles.arrow} />
+              View project <ArrowRight size={18} className={styles.arrow} />
             </Link>
           </div>
         </div>
 
-        {/* Part 3: Secondary Project Grid */}
-        <div className={styles.secondaryGrid}>
-          {secondaryProjects.map((project, index) => (
-            <div key={index} className={`gsap-work-card ${styles.projectCard}`}>
+        {/* ──── Supporting Projects ──── */}
+        <div className={styles.supportingGrid}>
+          {supportingProjects.map((project, index) => (
+            <div key={index} className={`gsap-work-card ${styles.card}`}>
               <div className={styles.cardImageWrapper}>
                 <Image
                   src={project.image}
@@ -164,7 +155,7 @@ export default function RecentWork() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
               </div>
-              <div className={styles.cardContent}>
+              <div className={styles.cardBody}>
                 <span className={styles.typeLabel}>{project.type}</span>
                 <h4 className={styles.cardTitle}>{project.title}</h4>
                 <p className={styles.cardDescription}>{project.description}</p>
@@ -174,11 +165,18 @@ export default function RecentWork() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  View site <ArrowRight size={20} className={styles.arrow} />
+                  View project <ArrowRight size={16} className={styles.arrow} />
                 </Link>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* ──── Section Exit CTA ──── */}
+        <div className={`gsap-work-cta ${styles.sectionCta}`}>
+          <Link href="/work" className={styles.sectionCtaLink}>
+            View all work <ArrowRight size={20} className={styles.arrow} />
+          </Link>
         </div>
 
       </div>

@@ -61,20 +61,16 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 4%,
-    black 96%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 4%,
-    black 96%,
-    transparent 100%
-  );
+  mask-image: linear-gradient(to right,
+      transparent 0%,
+      black 4%,
+      black 96%,
+      transparent 100%);
+  -webkit-mask-image: linear-gradient(to right,
+      transparent 0%,
+      black 4%,
+      black 96%,
+      transparent 100%);
 }
 
 /* -------------------
@@ -94,6 +90,7 @@
   from {
     transform: translate3d(0, 0, 0);
   }
+
   to {
     transform: translate3d(-50%, 0, 0);
   }
@@ -193,10 +190,10 @@
     padding: 8px 0.875rem;
   }
 
-  .logoItem {
+  /* .logoItem {
     width: 90px;
     height: 28px;
-  }
+  } */
 
   .marqueeTrack {
     animation-duration: 24s;
