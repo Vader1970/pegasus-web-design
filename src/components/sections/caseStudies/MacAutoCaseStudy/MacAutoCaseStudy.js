@@ -35,7 +35,7 @@ const approach = [
   {
     num: "04",
     title: "Build",
-    text: "Custom-coded in Next.js for speed and performance. Every page loads fast, works on mobile, and is easy for the team to manage.",
+    text: "Custom-coded in React for speed and performance. Every page loads fast, works on mobile, and runs smoothly across all devices.",
   },
   {
     num: "05",
