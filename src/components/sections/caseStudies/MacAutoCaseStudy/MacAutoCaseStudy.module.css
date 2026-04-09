@@ -135,11 +135,12 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  padding: 14px 32px;
   color: var(--color-brand-primary);
   font-size: var(--fs-body);
   font-weight: 500;
   text-decoration: none;
-  opacity: 0.8;
+  opacity: 1;
   transition: opacity 0.3s ease;
 }
 

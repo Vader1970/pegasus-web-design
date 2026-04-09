@@ -94,7 +94,8 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-text-secondary);
+  color: var(--color-text-body);
+  opacity: 0.82;
 }
 
 .metaValue {
@@ -132,10 +133,11 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  padding: 12px 28px;
   color: var(--color-brand-primary);
   font-size: var(--fs-body);
   font-weight: 500;
-  opacity: 0.8;
+  opacity: 1;
   text-decoration: none;
   transition: opacity 0.3s ease;
 }
