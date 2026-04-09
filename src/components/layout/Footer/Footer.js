@@ -52,6 +52,9 @@ export default function Footer() {
     window.dispatchEvent(new Event('programmaticNav'));
   };
 
+  // Route navigation to /work should keep navbar visible for better first-view UX.
+  const handleWorkNavClick = () => {};
+
   return (
     <footer ref={container} className={styles.footer}>
       <div className={styles.container}>
@@ -71,7 +74,7 @@ export default function Footer() {
 
           <nav className={styles.nav}>
             <Link href="/#services" className={styles.link} onClick={handleNavClick}>What We Do</Link>
-            <Link href="/#work" className={styles.link} onClick={handleNavClick}>Work</Link>
+            <Link href="/work" className={styles.link} onClick={handleWorkNavClick}>Work</Link>
             <Link href="/#about" className={styles.link} onClick={handleNavClick}>About</Link>
           </nav>
 
