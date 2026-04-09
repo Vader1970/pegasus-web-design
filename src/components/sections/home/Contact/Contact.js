@@ -5,7 +5,7 @@ import styles from './Contact.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -50,17 +50,34 @@ export default function Contact() {
         <div className={styles.grid}>
           {/* Left Column: Intro */}
           <div className={styles.introColumn}>
+            <span className={`gsap-contact-text ${styles.sectionLabel}`}>Contact</span>
             <h2 className={`gsap-contact-text ${styles.heading}`}>Get more work</h2>
             <p className={`gsap-contact-text ${styles.paragraph}`}>
-              If your current website doesn't feel right - or you don't have one at all — we can help you build something that does.
+              If your current website doesn&apos;t feel right — or you don&apos;t have one at all — we can help you build something that does.
             </p>
+            <div className={styles.reassuranceGroup}>
+              <ul className={styles.reassuranceList} aria-label="What to expect">
+                <li className={`gsap-contact-text ${styles.reassuranceItem}`}>
+                  <Check className={styles.reassuranceIcon} size={14} strokeWidth={2} aria-hidden />
+                  <span>No obligation — just a conversation</span>
+                </li>
+                <li className={`gsap-contact-text ${styles.reassuranceItem}`}>
+                  <Check className={styles.reassuranceIcon} size={14} strokeWidth={2} aria-hidden />
+                  <span>Clear next steps within 48 hours</span>
+                </li>
+                <li className={`gsap-contact-text ${styles.reassuranceItem}`}>
+                  <Check className={styles.reassuranceIcon} size={14} strokeWidth={2} aria-hidden />
+                  <span>Built around your business, not templates</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Right Column: Form Panel */}
           <div className={styles.formColumn}>
             <div className={`gsap-contact-panel ${styles.formPanel}`}>
               <p className={`gsap-contact-field ${styles.formIntro}`}>
-                Tell us about your project and timeline. No obligation — just a conversation.
+                Tell us a few details — we&apos;ll map out the best next steps for you.
               </p>
 
               <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
@@ -92,27 +109,29 @@ export default function Contact() {
                     id="help" 
                     name="help" 
                     className={styles.textarea} 
-                    placeholder="Tell us what you need help with&hellip;"
+                    placeholder="Tell us what you need help with…"
                     rows={4}
                   ></textarea>
                 </div>
 
-                <div className={`gsap-contact-field ${styles.testimonialBlock}`}>
-                  <span className={styles.stars}>★★★★★</span>
-                  <p className={styles.testimonialText}>
-                    “They genuinely cared about getting everything right”<br />
-                    <span className={styles.testimonialAuthor}>-Mac Auto Services, Christchurch</span>
+                <div className={`gsap-contact-field ${styles.formFooter}`}>
+                  <div className={styles.testimonialBlock}>
+                    <span className={styles.stars}>★★★★★</span>
+                    <p className={styles.testimonialText}>
+                      “They genuinely cared about getting everything right”<br />
+                      <span className={styles.testimonialAuthor}>-Mac Auto Services, Christchurch</span>
+                    </p>
+                  </div>
+
+                  <p className={styles.supportLine}>
+                    We’ll send your written proposal within 48 hours. No obligation.
                   </p>
-                </div>
 
-                <p className={`gsap-contact-field ${styles.supportLine}`}>
-                  We’ll send your written proposal within 48 hours. No obligation.
-                </p>
-
-                <div className="gsap-contact-field">
-                  <button type="submit" className={styles.submitButton}>
-                    Get My Proposal <ArrowRight size={20} className={styles.arrow} />
-                  </button>
+                  <div className={styles.submitWrap}>
+                    <button type="submit" className={styles.submitButton}>
+                      Get My Proposal <ArrowRight size={20} className={styles.arrow} />
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>

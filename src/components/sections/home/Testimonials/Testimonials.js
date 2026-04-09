@@ -128,7 +128,7 @@ export default function Testimonials() {
         <div className={`gsap-test-col ${styles.ctaBlock}`}>
           <h3 className={styles.ctaHeading}>Want results like this for your business?</h3>
           <Link href="/#contact" className={styles.ctaBtn}>
-            Get your free proposal <ArrowRight size={18} className={styles.arrow} />
+            Get your free proposal <ArrowRight size={20} className={styles.arrow} />
           </Link>
         </div>
       </div>

@@ -121,32 +121,42 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 5px;
+  gap: var(--spacing-12);
 }
 
 .ctaButton {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  color: var(--color-brand-primary);
-  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  justify-content: center;
+  gap: var(--cta-primary-gap);
+  padding: var(--cta-primary-py) var(--cta-primary-px);
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-on-dark);
+  font-size: var(--fs-body);
   font-weight: 600;
   text-decoration: none;
-  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-bottom: 2px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s ease;
 }
 
 .arrow {
   display: inline-block;
+  flex-shrink: 0;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ctaButton:hover .arrow {
-  transform: translateX(6px);
+  transform: translateX(4px);
 }
 
 .ctaButton:hover {
-  opacity: 0.8;
+  opacity: 0.92;
+}
+
+.ctaButton:active {
+  transform: scale(0.99);
 }
 
 /* "Free. Written. Delivered within 48 hours." */
@@ -295,10 +305,6 @@
     max-width: 44ch;
   }
 
-  .ctaButton {
-    font-size: 1.05rem;
-  }
-
   .imageColumn {
     min-height: auto;
     height: auto;
@@ -420,9 +426,10 @@
     max-width: none;
   }
 
-  /* --- CTA --- */
   .ctaButton {
-    font-size: 1.05rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   /* --- IMAGE ---

@@ -56,9 +56,9 @@
 .ctaLink {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--cta-primary-gap);
   color: var(--color-brand-primary);
-  font-size: clamp(1.1rem, 1.5vw, 1.375rem);
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
   font-weight: 600;
   text-decoration: none;
   margin-top: var(--spacing-12);
@@ -66,11 +66,13 @@
 }
 
 .ctaLink:hover {
-  opacity: 0.85;
+  opacity: 0.88;
+  color: var(--color-brand-accent);
 }
 
 .arrow {
   display: inline-block;
+  flex-shrink: 0;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

@@ -166,25 +166,32 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 16px 36px;
+  gap: var(--cta-primary-gap);
+  padding: var(--cta-primary-py) var(--cta-primary-px);
   background-color: var(--color-brand-primary);
-  color: #fff;
-  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: var(--color-text-on-dark);
+  font-size: var(--fs-body);
   font-weight: 600;
   text-decoration: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  border-radius: var(--radius-md);
+  transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
 .ctaBtn:hover {
-  background-color: #4338CA;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+  opacity: 0.92;
+}
+
+.ctaBtn:active {
+  transform: scale(0.99);
 }
 
 .arrow {
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.ctaBtn:hover .arrow {
+  transform: translateX(4px);
 }
 
 /* -------------------
@@ -248,5 +255,11 @@
 
   .quote {
     font-size: var(--fs-body);
+  }
+
+  .ctaBtn {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }

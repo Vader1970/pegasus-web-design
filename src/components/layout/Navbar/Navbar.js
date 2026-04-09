@@ -131,14 +131,14 @@ export default function Navbar() {
 
           {/* Center: Desktop Nav Links */}
           <nav className={styles.desktopNav}>
-            <Link href="#services" className={styles.navLink} onClick={handleNavClick}>What We Do</Link>
-            <Link href="#work" className={styles.navLink} onClick={handleNavClick}>Work</Link>
-            <Link href="#about" className={styles.navLink} onClick={handleNavClick}>About</Link>
+            <Link href="/#services" className={styles.navLink} onClick={handleNavClick}>What We Do</Link>
+            <Link href="/#work" className={styles.navLink} onClick={handleNavClick}>Work</Link>
+            <Link href="/#about" className={styles.navLink} onClick={handleNavClick}>About</Link>
           </nav>
 
           {/* Right: Desktop CTA */}
           <div className={styles.ctaWrapper}>
-            <Link href="#contact" className={styles.ctaButton} onClick={handleNavClick}>
+            <Link href="/#contact" className={styles.ctaButton} onClick={handleNavClick}>
               Get your free proposal
               <ArrowRight size={20} className={styles.arrow} />
             </Link>

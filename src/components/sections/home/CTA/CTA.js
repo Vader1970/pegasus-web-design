@@ -38,7 +38,7 @@ export default function CTA() {
             We’ll review your situation and send a written proposal within 48 hours - at no cost and with no obligation to proceed.
           </p>
           <div className="gsap-cta-text">
-            <Link href="#contact" className={styles.link}>
+            <Link href="#contact" className={styles.ctaButton}>
               Get your free proposal <ArrowRight size={20} className={styles.arrow} />
             </Link>
           </div>

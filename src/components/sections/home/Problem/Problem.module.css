@@ -52,26 +52,27 @@
   max-width: var(--max-w-prose);
 }
 
-/* CTA Link */
+/* Secondary CTA — text link */
 .ctaLink {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--cta-primary-gap);
   color: var(--color-brand-primary);
-  font-size: clamp(1.1rem, 1.5vw, 1.375rem);
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   text-decoration: none;
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
 }
 
 .ctaLink:hover {
-  opacity: 0.85;
+  opacity: 0.88;
   color: var(--color-brand-accent);
 }
 
 .arrow {
   display: inline-block;
+  flex-shrink: 0;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

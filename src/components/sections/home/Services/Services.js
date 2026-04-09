@@ -84,7 +84,7 @@ export default function Services() {
           </p>
           <div className="gsap-services-text">
             <Link href="#work" className={styles.ctaLink}>
-              See how we fix it <ArrowRight size={20} className={styles.arrow} />
+              See some of our work <ArrowRight size={20} className={styles.arrow} />
             </Link>
           </div>
         </div>
