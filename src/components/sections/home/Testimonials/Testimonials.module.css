@@ -12,14 +12,36 @@
   padding: 0 64px;
 }
 
+.headerBlock {
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
+}
+
+.label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brand-primary);
+  margin-bottom: var(--spacing-8);
+}
+
 .heading {
   font-size: var(--fs-h2);
   line-height: var(--lh-heading-loose);
   font-weight: 800;
   letter-spacing: var(--ls-heading);
   color: var(--color-text-heading);
-  margin-bottom: clamp(2.5rem, 4vw, 4rem);
+  margin-bottom: var(--spacing-12);
   max-width: var(--max-w-heading-sm);
+}
+
+.subtext {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+  opacity: 0.85;
+  max-width: var(--max-w-prose);
 }
 
 .grid {
@@ -118,11 +140,51 @@
 }
 
 .resultText {
-  font-size: var(--fs-small);
+  font-size: var(--fs-body);
   font-weight: 700;
   color: var(--color-brand-primary);
   line-height: var(--lh-body-tight);
   max-width: none;
+}
+
+.ctaBlock {
+  text-align: center;
+  margin-top: 56px;
+  padding-bottom: 8px;
+}
+
+.ctaHeading {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  line-height: var(--lh-heading-loose);
+  margin-bottom: var(--spacing-24);
+  max-width: none;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background-color: var(--color-brand-primary);
+  color: #fff;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.ctaBtn:hover {
+  background-color: #4338CA;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+}
+
+.arrow {
+  flex-shrink: 0;
 }
 
 /* -------------------
@@ -159,8 +221,15 @@
 
   .heading {
     font-size: clamp(1.6rem, 7vw, 2.2rem);
-    margin-bottom: var(--spacing-32);
     max-width: none;
+  }
+
+  .headerBlock {
+    margin-bottom: var(--spacing-32);
+  }
+
+  .subtext {
+    font-size: var(--fs-body);
   }
 
   .grid {

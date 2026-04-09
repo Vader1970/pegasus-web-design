@@ -13,33 +13,28 @@ if (typeof window !== "undefined") {
 const faqs = [
   {
     question: "How much does a website cost?",
-    answer: "Every project is different, so we give honest, written quotes before any work starts. Most small business websites are $2,500 - $5,000. Landing pages start from $800. We’ll tell you exactly what’s included — no hidden fees, no surprises."
+    answer: "Most small business websites fall between $2,500 – $5,000. Landing pages start from $800. We give you an honest, written quote before any work starts — no hidden fees."
   },
   {
-    question: "How long does a website take to build?",
-    answer: "Most business websites are ready in 3 - 6 weeks from the day we receive your content. Landing pages can be turned around in 1 - 2 weeks. Every project gets a clear timeline upfront — we don’t leave you guessing."
+    question: "How long does it take?",
+    answer: "Most sites are live within 3–6 weeks. Landing pages can be turned around in 1–2 weeks. You'll get a clear timeline upfront so there are no surprises."
   },
   {
-    question: "Which platform is best - Framer, Webflow, or custom code?",
-    answer: "It depends on your goals and how hands-on you want to be. Framer is great for businesses who want to update content themselves. Webflow is better for performance and design flexibility. Custom code suits unique requirements. We’ll recommend the right one after a free conversation — no upselling."
-  },
-  {
-    question: "Do you only work with Christchurch businesses?",
-    answer: "Not at all. We work with businesses across New Zealand and internationally. We handle everything online, so your location is never a barrier. Most of our clients are service businesses — wherever they are."
+    question: "Which platform do you recommend?",
+    answer: "We'll recommend the best option based on your goals — not what's easiest for us. Whether that's Framer, Webflow, or custom code, you'll know exactly why before we start."
   },
   {
     question: "What do I need to get started?",
-    answer: "Not much. We guide you through everything. To get started, we just need a brief overview of your business and what you’re trying to achieve. We can help with copy, photos, and direction if you’re starting from scratch — you don’t need to have everything ready."
+    answer: "Just a rough idea of what your business needs. We handle the rest — from copy direction to design to launch. You don't need anything ready."
   },
   {
-    question: "Do you offer support?",
-    answer: "Yes. We offer hosting and support plans that include updates, backups, SEO, security monitoring, and priority support."
+    question: "What happens after launch?",
+    answer: "Every project includes 1 month of free support. After that, we offer ongoing hosting and care plans covering updates, security, and priority support."
   }
 ];
 
 export default function FAQ() {
   const container = useRef(null);
-  // All items closed by default
   const [openIndex, setOpenIndex] = useState(-1);
 
   useGSAP(() => {
@@ -66,7 +61,6 @@ export default function FAQ() {
   }, { scope: container });
 
   const toggleItem = (index) => {
-    // Toggles closed if clicking the currently open item, otherwise opens the requested item
     setOpenIndex(prevIndex => (prevIndex === index ? -1 : index));
   };
 
@@ -74,6 +68,7 @@ export default function FAQ() {
     <section ref={container} className={styles.section} id="faq">
       <div className={styles.container}>
         <div className={styles.content}>
+          <span className={`gsap-faq-heading ${styles.label}`}>COMMON QUESTIONS</span>
           <h2 className={`gsap-faq-heading ${styles.heading}`}>Frequently asked questions</h2>
           
           <div className={styles.accordion}>
@@ -107,6 +102,10 @@ export default function FAQ() {
               );
             })}
           </div>
+
+          <p className={`gsap-faq-item ${styles.microTrust}`}>
+            Still unsure? We&apos;ll walk you through everything — no pressure.
+          </p>
 
         </div>
       </div>

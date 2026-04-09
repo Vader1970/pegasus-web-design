@@ -68,21 +68,22 @@ export default function About() {
 
           {/* Right: Content Column */}
           <div className={styles.contentColumn}>
+            <span className={`gsap-about-text ${styles.label}`}>WHO WE ARE</span>
             <h2 className={`gsap-about-text ${styles.heading}`}>
               We design and build high-performing websites for service businesses.
             </h2>
 
             <p className={`gsap-about-text ${styles.paragraph}`}>
-              We kept seeing the same thing - great trades and service businesses losing work online. Not because they weren’t good, but because their website didn’t show it. Michele and Daniel bring formal qualifications in web design, graphic design, and UX to every project. And we work exclusively in your world - trades, services, the businesses that make NZ run.
+              Most trades and service businesses lose work online — not because they&apos;re not good at what they do, but because their website doesn&apos;t show it. We fix that. We build websites that earn trust fast and turn visitors into real enquiries.
             </p>
 
             {/* Benefits List */}
             <ul className={styles.benefitsList}>
               {[
-                "NZ-wide clients.",
-                "9+ conversion-focused projects delivered.",
-                "1 month support included after launch",
-                "We recommend the right platform for your needs"
+                "Trusted by service businesses across New Zealand",
+                "Proven websites built to generate real enquiries",
+                "1 month of dedicated support included after launch",
+                "We recommend the right platform for your business"
               ].map((benefit, index) => (
                 <li key={index} className={`gsap-about-benefit ${styles.benefitsItem}`}>
                   <div className={styles.checkIconWrapper}>
@@ -100,9 +101,8 @@ export default function About() {
             </ul>
 
             {/* Qualifications Panel */}
+            <span className={`gsap-about-text ${styles.panelLabel}`}>Our background</span>
             <div className={`gsap-about-panel ${styles.panel}`}>
-              <h3 className={styles.panelHeading}>Qualifications</h3>
-
               <div className={styles.panelColumns}>
                 {/* Daniel */}
                 <div className={styles.personColumn}>
@@ -119,8 +119,8 @@ export default function About() {
                           <Image
                             src="/images/home/team/knowledge-purple-dark.png"
                             alt="Qualification Icon"
-                            width={20}
-                            height={20}
+                            width={16}
+                            height={16}
                             className={styles.icon}
                           />
                         </div>
@@ -143,8 +143,8 @@ export default function About() {
                           <Image
                             src="/images/home/team/knowledge-purple-dark.png"
                             alt="Qualification Icon"
-                            width={20}
-                            height={20}
+                            width={16}
+                            height={16}
                             className={styles.icon}
                           />
                         </div>

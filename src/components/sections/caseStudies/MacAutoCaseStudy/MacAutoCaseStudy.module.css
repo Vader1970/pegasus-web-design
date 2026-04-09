@@ -1,0 +1,704 @@
+/* ================================================
+   MacAutoCaseStudy — Premium Case Study Page
+   Reuses the Pegasus design system 1:1
+================================================ */
+
+.page {
+  width: 100%;
+}
+
+/* -------------------
+   Shared Layout
+--------------------*/
+.container {
+  max-width: 1312px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.narrowContainer {
+  max-width: 660px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.splitContainer {
+  max-width: 1312px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-64);
+  align-items: center;
+}
+
+/* -------------------
+   Section Backgrounds
+--------------------*/
+.sectionDefault {
+  width: 100%;
+  background-color: var(--color-bg-primary);
+  padding: var(--section-py) 0;
+}
+
+.sectionAlt {
+  width: 100%;
+  background-color: var(--color-bg-secondary, #F1F3F7);
+  padding: var(--section-py) 0;
+}
+
+/* -------------------
+   Shared Typography
+--------------------*/
+.label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brand-primary);
+  margin-bottom: var(--spacing-8);
+}
+
+.sectionHeading {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading-loose);
+  font-weight: 800;
+  letter-spacing: var(--ls-heading);
+  color: var(--color-text-heading);
+  margin-bottom: var(--spacing-24);
+  max-width: 20ch;
+}
+
+.bodyText {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+  opacity: 0.85;
+  margin-bottom: var(--spacing-20);
+  max-width: 56ch;
+}
+
+.bulletList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.bulletList li {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+  padding-left: 20px;
+  position: relative;
+}
+
+.bulletList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-brand-primary);
+}
+
+/* -------------------
+   Shared Buttons
+--------------------*/
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background-color: var(--color-brand-primary);
+  color: #fff;
+  font-size: var(--fs-body);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: opacity 0.3s ease;
+}
+
+.btnPrimary:hover {
+  opacity: 0.88;
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-brand-primary);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.btnSecondary:hover {
+  opacity: 1;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnPrimary:hover .arrow,
+.btnSecondary:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ================================================
+   1 — HERO
+================================================ */
+.heroSection {
+  width: 100%;
+  background-color: var(--color-bg-primary);
+  padding: clamp(5rem, 10vw, 8rem) 0 var(--section-py);
+}
+
+.heroContainer {
+  max-width: 1312px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--spacing-64);
+  align-items: center;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroHeading {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  line-height: var(--lh-heading);
+  font-weight: 800;
+  letter-spacing: var(--ls-heading-tight);
+  color: var(--color-text-heading);
+  margin-bottom: var(--spacing-12);
+}
+
+.heroSub {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-body-tight);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  margin-bottom: var(--spacing-20);
+  max-width: 36ch;
+}
+
+.heroPara {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+  opacity: 0.85;
+  margin-bottom: var(--spacing-32);
+  max-width: 48ch;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-24);
+}
+
+.heroImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.heroImage {
+  object-fit: contain;
+  object-position: center;
+}
+
+/* ================================================
+   2 — SPLIT SECTIONS (Problem / Outcome)
+================================================ */
+.splitImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--color-border-light);
+}
+
+.splitImage {
+  object-fit: cover;
+}
+
+/* ================================================
+   4 — APPROACH GRID
+================================================ */
+.approachGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-32);
+  margin-top: var(--spacing-48);
+}
+
+.approachStep {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepNum {
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  color: var(--color-brand-primary);
+  opacity: 0.2;
+  line-height: 1;
+  margin-bottom: var(--spacing-12);
+}
+
+.stepTitle {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: var(--spacing-8);
+  letter-spacing: var(--ls-heading);
+}
+
+.stepText {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+  opacity: 0.85;
+  max-width: none;
+}
+
+/* ================================================
+   5 — DESIGN DECISIONS
+================================================ */
+.designBlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-40);
+  align-items: center;
+  margin-top: 56px;
+}
+
+.designBlockReverse {
+  direction: rtl;
+}
+
+.designBlockReverse>* {
+  direction: ltr;
+}
+
+.designImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--color-border-light);
+}
+
+.designImage {
+  object-fit: cover;
+}
+
+.designText {
+  display: flex;
+  flex-direction: column;
+}
+
+.designTitle {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  letter-spacing: var(--ls-heading);
+  margin-bottom: var(--spacing-8);
+  line-height: var(--lh-heading-loose);
+}
+
+.designPara {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+  opacity: 0.85;
+  max-width: 48ch;
+}
+
+/* ================================================
+   6 — THE BUILD (two-column)
+================================================ */
+.buildGrid {
+  max-width: 1312px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-64);
+  align-items: center;
+}
+
+.buildText {
+  max-width: 560px;
+}
+
+.buildImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.buildImage {
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12));
+  transform: scale(1.03);
+}
+
+/* ================================================
+   7 — RESULTS & PROOF (combined)
+   Two-column: outcome text left, testimonial right.
+   One shared background keeps them connected.
+================================================ */
+.resultsSection {
+  width: 100%;
+  background-color: var(--color-bg-primary);
+  padding: clamp(5rem, 8vw, 7rem) 0;
+}
+
+.resultsGrid {
+  max-width: 1312px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: var(--spacing-48);
+  align-items: start;
+}
+
+.resultsText {
+  padding-top: var(--spacing-12);
+}
+
+/* — Testimonial card (inside results grid) — */
+.testimonialCard {
+  background-color: var(--color-bg-secondary, #F1F3F7);
+  border-radius: 16px;
+  padding: clamp(2.25rem, 4.5vw, 3rem) clamp(2rem, 4vw, 2.75rem);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 8px 32px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.quoteIcon {
+  color: var(--color-brand-primary);
+  opacity: 0.22;
+  margin-bottom: var(--spacing-20);
+}
+
+.quoteText {
+  font-size: var(--fs-body);
+  line-height: 1.85;
+  color: var(--color-text-body);
+  font-style: italic;
+  margin-bottom: var(--spacing-24);
+  max-width: 65ch;
+}
+
+.quoteAuthor {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  padding-top: var(--spacing-16);
+  border-top: 1px solid var(--color-border-light);
+  margin-top: auto;
+}
+
+.authorImageWrapper {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: var(--color-border-light);
+}
+
+.authorImage {
+  object-fit: cover;
+}
+
+.authorName {
+  display: block;
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  line-height: 1.3;
+}
+
+.authorRole {
+  display: block;
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+/* ================================================
+   8 — FINAL CTA
+   Uses a lighter slate navy (#1E293B) so it is
+   visually distinct from the darker footer (#0F172A).
+================================================ */
+.ctaSection {
+  width: 100%;
+  background-color: #1E293B;
+  padding: 104px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ctaContent {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ctaHeading {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: var(--ls-heading-tight);
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.ctaPara {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 36px;
+  max-width: 520px;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 44px;
+  min-width: 240px;
+  background-color: var(--color-brand-primary);
+  color: #fff;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.ctaBtn:hover {
+  background-color: #4338CA;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+}
+
+/* ================================================
+   RESPONSIVE
+================================================ */
+
+/* ── Tablet ── */
+@media (max-width: 1200px) {
+
+  .container,
+  .narrowContainer,
+  .splitContainer,
+  .heroContainer {
+    padding: 0 32px;
+  }
+
+  .sectionDefault,
+  .sectionAlt {
+    padding: var(--section-py-md) 0;
+  }
+
+  .heroSection {
+    padding: clamp(4rem, 8vw, 6rem) 0 var(--section-py-md);
+  }
+
+  .resultsGrid {
+    padding: 0 32px;
+    gap: var(--spacing-40);
+  }
+
+  .buildGrid {
+    padding: 0 32px;
+    gap: var(--spacing-40);
+  }
+
+  .ctaSection {
+    padding: 72px 24px;
+  }
+
+  .heroContainer {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-40);
+  }
+
+  .splitContainer {
+    gap: var(--spacing-40);
+  }
+
+  .approachGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-24);
+  }
+
+  .designBlock {
+    gap: var(--spacing-32);
+    margin-top: 48px;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+
+  .container,
+  .narrowContainer,
+  .splitContainer,
+  .heroContainer {
+    padding: 0 20px;
+  }
+
+  .sectionDefault,
+  .sectionAlt {
+    padding: clamp(3rem, 6vw, 4rem) 0;
+  }
+
+  .heroSection {
+    padding: clamp(3.5rem, 7vw, 5rem) 0 var(--section-py-sm);
+  }
+
+  .resultsSection {
+    padding: clamp(3rem, 6vw, 4rem) 0;
+  }
+
+  .resultsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-24);
+    padding: 0 20px;
+  }
+
+  .resultsText {
+    padding-top: 0;
+  }
+
+  .buildGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-32);
+    padding: 0 20px;
+  }
+
+  .buildText {
+    max-width: none;
+  }
+
+  .buildImageWrapper {
+    aspect-ratio: 16 / 10;
+  }
+
+  .ctaSection {
+    padding: 64px 20px;
+  }
+
+  .heroContainer {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-32);
+  }
+
+  .heroHeading {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+
+  .heroSub {
+    max-width: none;
+  }
+
+  .heroPara {
+    max-width: none;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-16);
+  }
+
+  .heroImageWrapper {
+    aspect-ratio: 16 / 10;
+  }
+
+  .splitContainer {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-32);
+  }
+
+  .sectionHeading {
+    max-width: none;
+  }
+
+  .approachGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-24);
+    margin-top: var(--spacing-32);
+  }
+
+  .designBlock,
+  .designBlockReverse {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-20);
+    margin-top: var(--spacing-40);
+    direction: ltr;
+  }
+
+  .designImageWrapper {
+    aspect-ratio: 16 / 9;
+  }
+
+  .testimonialCard {
+    padding: var(--spacing-24) var(--spacing-20);
+    border-radius: 14px;
+  }
+
+  .ctaHeading {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .bulletList li {
+    font-size: var(--fs-body);
+  }
+
+  .bulletList {
+    gap: var(--spacing-12);
+  }
+}

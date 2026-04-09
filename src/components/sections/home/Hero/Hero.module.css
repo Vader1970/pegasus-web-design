@@ -19,7 +19,7 @@
 .container {
   /* Reduced from 1700px: tightens the gap between columns
      at ultra-wide screens where 1fr 1fr creates too much dead air */
-  max-width: 1500px;
+  max-width: 1700px;
   width: 100%;
   margin: 0 auto;
   padding: 0 64px;

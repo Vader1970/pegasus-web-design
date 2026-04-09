@@ -16,6 +16,16 @@
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
+.label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brand-primary);
+  margin-bottom: 6px;
+}
+
 .heading {
   font-size: var(--fs-h2);
   line-height: var(--lh-heading-loose);
