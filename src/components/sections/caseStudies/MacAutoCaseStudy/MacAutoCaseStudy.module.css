@@ -18,7 +18,7 @@
 }
 
 .narrowContainer {
-  max-width: 660px;
+  max-width: 720px;
   width: 100%;
   margin: 0 auto;
   padding: 0 64px;
@@ -569,6 +569,15 @@
     gap: var(--spacing-40);
   }
 
+  /* Goal section only: content first, image second on smaller screens */
+  .goalContent {
+    order: 1;
+  }
+
+  .goalImage {
+    order: 2;
+  }
+
   .approachGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-24);
@@ -661,6 +670,15 @@
   .splitContainer {
     grid-template-columns: 1fr;
     gap: var(--spacing-32);
+  }
+
+  /* Goal section only: keep content before image on mobile */
+  .goalContent {
+    order: 1;
+  }
+
+  .goalImage {
+    order: 2;
   }
 
   .sectionHeading {

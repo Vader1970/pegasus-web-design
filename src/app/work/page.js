@@ -1,6 +1,7 @@
 import WorkHero from '@/components/sections/work/WorkHero/WorkHero';
 import WorkFeatured from '@/components/sections/work/WorkFeatured/WorkFeatured';
 import WorkGrid from '@/components/sections/work/WorkGrid/WorkGrid';
+import SlateBandCta from '@/components/sections/shared/SlateBandCta/SlateBandCta';
 
 export const metadata = {
   title: 'Our Work — Pegasus Web Design',
@@ -14,6 +15,7 @@ export default function WorkPage() {
       <WorkHero />
       <WorkFeatured />
       <WorkGrid />
+      <SlateBandCta />
     </main>
   );
 }

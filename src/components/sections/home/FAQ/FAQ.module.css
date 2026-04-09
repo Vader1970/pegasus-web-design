@@ -117,6 +117,11 @@
   padding-top: var(--spacing-8);
 }
 
+/* Matches CTA section: paragraph → primary button spacing (--gap-body-cta in variables) */
+.ctaWrap {
+  margin-top: var(--gap-body-cta);
+}
+
 /* -------------------
    Responsive Scaling
 --------------------*/

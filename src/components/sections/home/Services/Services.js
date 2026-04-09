@@ -16,7 +16,7 @@ const servicesOptions = [
   {
     title: "Landing Pages",
     subtitle: "Turn clicks into actual enquiries",
-    body: "Focused pages designed to clearly explain your offer and guide visitors to take action — not just browse and leave."
+    body: "Focused pages designed to clearly explain your offer and guide visitors to take action, not just browse and leave."
   },
   {
     title: "Business Websites",
@@ -26,7 +26,7 @@ const servicesOptions = [
   {
     title: "Website Redesigns",
     subtitle: "Fix what’s costing you work",
-    body: "We rebuild underperforming websites into something clearer, faster, and designed to bring in consistent enquiries."
+    body: "We rebuild underperforming websites into something clearer, faster, and designed to encourage visitors to take action."
   },
   {
     title: "Platform Guidance",

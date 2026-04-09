@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import styles from './Footer.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -14,6 +15,22 @@ if (typeof window !== "undefined") {
 
 export default function Footer() {
   const container = useRef(null);
+  const pathname = usePathname();
+
+  // Next.js route changes alter document height; ScrollTrigger must recalculate
+  // or footer reveal can stay at opacity: 0 (gsap.from immediateRender).
+  useEffect(() => {
+    const refresh = () => ScrollTrigger.refresh();
+    refresh();
+    const t0 = window.setTimeout(refresh, 0);
+    const t1 = window.setTimeout(refresh, 150);
+    window.addEventListener("load", refresh);
+    return () => {
+      clearTimeout(t0);
+      clearTimeout(t1);
+      window.removeEventListener("load", refresh);
+    };
+  }, [pathname]);
 
   useGSAP(() => {
     gsap.from(".gsap-footer-item", {
@@ -24,8 +41,10 @@ export default function Footer() {
       ease: "power3.out",
       scrollTrigger: {
         trigger: container.current,
-        start: "top 95%",
-      }
+        start: "top bottom",
+        once: true,
+        invalidateOnRefresh: true,
+      },
     });
   }, { scope: container });
 
@@ -39,6 +58,7 @@ export default function Footer() {
         <div className={`gsap-footer-item ${styles.content}`}>
 
           <div className={styles.logoWrapper}>
+            <Link href="/">
             <Image
               src="/images/shared/pegasus-logo.png"
               alt="Pegasus Web Design Logo"
@@ -46,6 +66,7 @@ export default function Footer() {
               sizes="(max-width: 768px) 160px, 200px"
               className={styles.logo}
             />
+            </Link>
           </div>
 
           <nav className={styles.nav}>

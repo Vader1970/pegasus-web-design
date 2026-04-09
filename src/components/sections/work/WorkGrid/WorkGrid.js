@@ -37,7 +37,7 @@ const projects = [
   {
     type: "Website",
     title: "Cleghorn Roofing",
-    summary: "Professional site for a roofing company — clear services, strong trust signals, and easy contact.",
+    summary: "Professional site for a roofing company, clear services, strong trust signals, and easy contact.",
     image: "/images/home/projects/cleghorn-mock-up.png",
     liveSite: "https://cleghorn-roofing.vercel.app/",
     caseStudy: null,
@@ -47,7 +47,7 @@ const projects = [
   {
     type: "Landing Page",
     title: "Tilyard Plumbing",
-    summary: "Custom-coded landing page inside Wix — turning paid traffic into phone calls.",
+    summary: "Custom-coded landing page inside Wix, turning paid traffic into phone calls.",
     image: "/images/home/projects/tilyard-plumbing-mock-up.png",
     liveSite: "https://www.tilyardplumbing.co.nz/landing-page",
     caseStudy: null,
@@ -77,7 +77,7 @@ const projects = [
   {
     type: "Landing Page",
     title: "Master Kerb",
-    summary: "Landing page for a concrete kerbing business — built to generate consistent enquiries.",
+    summary: "Landing page for a concrete kerbing business, built to generate consistent enquiries.",
     image: "/images/home/projects/master-kerb-mock-up.png",
     liveSite: "https://www.masterkerb.co.nz/landing-page",
     caseStudy: null,

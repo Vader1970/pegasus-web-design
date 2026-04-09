@@ -94,7 +94,7 @@ export default function Process() {
             From first conversation to live website in 3 to 6 weeks.
           </h2>
           <p className={`gsap-process-heading ${styles.processIntro}`}>
-            A clear, structured process designed to get your site live quickly — without confusion or delays.
+            A clear, structured process designed to get your site live quickly, without confusion or delays.
           </p>
         </div>
 

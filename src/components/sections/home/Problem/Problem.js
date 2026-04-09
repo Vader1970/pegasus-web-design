@@ -17,7 +17,7 @@ const cards = [
   {
     icon: "/images/home/icons/outdated-design.png",
     title: "Looks outdated",
-    text: "Visitors judge your business in seconds. If your site looks old, they assume the business is too",
+    text: "Visitors judge your business in seconds. If your site looks old, they assume the business looks unprofessional.",
     alt: "Outdated design icon"
   },
   {
@@ -35,7 +35,7 @@ const cards = [
   {
     icon: "/images/home/icons/not-converting.png",
     title: "Doesn't build trust",
-    text: "No reviews, no proof, no clear next step — so people choose someone else.",
+    text: "No reviews, no proof, no clear next step, so people choose someone else.",
     alt: "Not converting icon"
   }
 ];
@@ -78,7 +78,7 @@ export default function Problem() {
             If your website doesn't reflect how good your business actually is, it's costing you work.
           </h2>
           <p className={`gsap-problem-text ${styles.paragraph}`}>
-            Most business owners we speak to aren't losing work because of their service — they're losing it because their website doesn't create the right first impression, and potential customers quietly go elsewhere.
+            Most business owners we speak to aren't losing work because of their service, they're losing it because their website doesn't create the right first impression, and potential customers quietly go elsewhere.
           </p>
           <div className="gsap-problem-text">
             <Link href="#services" className={styles.ctaLink}>

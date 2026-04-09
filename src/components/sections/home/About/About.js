@@ -74,7 +74,7 @@ export default function About() {
             </h2>
 
             <p className={`gsap-about-text ${styles.paragraph}`}>
-              Most trades and service businesses lose work online — not because they&apos;re not good at what they do, but because their website doesn&apos;t show it. We fix that. We build websites that earn trust fast and turn visitors into real enquiries.
+              Most trades and service businesses lose work online, not because they&apos;re not good at what they do, but because their website doesn&apos;t show it. We fix that. We build websites that earn trust fast and turn visitors into real enquiries.
             </p>
 
             {/* Benefits List */}
@@ -112,7 +112,7 @@ export default function About() {
                       "Diploma in Web Design & Production",
                       "Certificate in UX Design",
                       "Certificate in Web Development",
-                      "Certificate in Business Studies (Information Systems)"
+                      "Certificate in Business Studies"
                     ].map((qual, idx) => (
                       <li key={idx} className={styles.qualificationItem}>
                         <div className={styles.knowledgeIconWrapper}>
@@ -136,7 +136,7 @@ export default function About() {
                   <ul className={styles.qualificationList}>
                     {[
                       "Diploma in Web Design & Production",
-                      "Diploma in Graphic Design"
+                      "Diploma in Graphic Design",
                     ].map((qual, idx) => (
                       <li key={idx} className={styles.qualificationItem}>
                         <div className={styles.knowledgeIconWrapper}>
