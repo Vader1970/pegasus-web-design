@@ -29,19 +29,21 @@ export default function Contact() {
       stagger: 0.2,
       ease: "power3.out"
     })
+    .from(".gsap-contact-reassurance", {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      ease: "power3.out"
+    }, "-=0.4")
     .from(".gsap-contact-panel", {
       opacity: 0,
       y: 30,
       duration: 0.8,
       ease: "power3.out"
-    }, "-=0.6")
-    .from(".gsap-contact-field", {
-      opacity: 0,
-      y: 15,
-      duration: 0.6,
-      stagger: 0.1,
-      ease: "power3.out"
     }, "-=0.4");
+
+    // Run the full contact reveal sequence at 2x speed.
+    tl.timeScale(2);
   }, { scope: container });
 
   return (
@@ -55,17 +57,17 @@ export default function Contact() {
             <p className={`gsap-contact-text ${styles.paragraph}`}>
               If your current website doesn&apos;t feel right, or you don&apos;t have one at all, we can help you build something that does.
             </p>
-            <div className={styles.reassuranceGroup}>
+            <div className={`gsap-contact-reassurance ${styles.reassuranceGroup}`}>
               <ul className={styles.reassuranceList} aria-label="What to expect">
-                <li className={`gsap-contact-text ${styles.reassuranceItem}`}>
+                <li className={styles.reassuranceItem}>
                   <Check className={styles.reassuranceIcon} size={14} strokeWidth={2} aria-hidden />
                   <span>No obligation - just a conversation</span>
                 </li>
-                <li className={`gsap-contact-text ${styles.reassuranceItem}`}>
+                <li className={styles.reassuranceItem}>
                   <Check className={styles.reassuranceIcon} size={14} strokeWidth={2} aria-hidden />
                   <span>Clear next steps within 48 hours</span>
                 </li>
-                <li className={`gsap-contact-text ${styles.reassuranceItem}`}>
+                <li className={styles.reassuranceItem}>
                   <Check className={styles.reassuranceIcon} size={14} strokeWidth={2} aria-hidden />
                   <span>Built around your business, not templates</span>
                 </li>
@@ -76,22 +78,22 @@ export default function Contact() {
           {/* Right Column: Form Panel */}
           <div className={styles.formColumn}>
             <div className={`gsap-contact-panel ${styles.formPanel}`}>
-              <p className={`gsap-contact-field ${styles.formIntro}`}>
+              <p className={styles.formIntro}>
                 Tell us a few details, we&apos;ll map out the best next steps for you.
               </p>
 
               <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
-                <div className={`gsap-contact-field ${styles.fieldGroup}`}>
+                <div className={styles.fieldGroup}>
                   <label htmlFor="name" className={styles.label}>Name</label>
                   <input type="text" id="name" name="name" className={styles.input} />
                 </div>
 
-                <div className={`gsap-contact-field ${styles.fieldGroup}`}>
+                <div className={styles.fieldGroup}>
                   <label htmlFor="email" className={styles.label}>Email</label>
                   <input type="email" id="email" name="email" className={styles.input} />
                 </div>
 
-                <div className={`gsap-contact-field ${styles.fieldGroup}`}>
+                <div className={styles.fieldGroup}>
                   <label htmlFor="projectType" className={styles.label}>Project type</label>
                   <select id="projectType" name="projectType" className={styles.select} defaultValue="">
                     <option value="" disabled>Select a project type</option>
@@ -103,7 +105,7 @@ export default function Contact() {
                   </select>
                 </div>
 
-                <div className={`gsap-contact-field ${styles.fieldGroup}`}>
+                <div className={styles.fieldGroup}>
                   <label htmlFor="help" className={styles.label}>What do you need help with?</label>
                   <textarea 
                     id="help" 
@@ -114,7 +116,7 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
-                <div className={`gsap-contact-field ${styles.formFooter}`}>
+                <div className={styles.formFooter}>
                   <div className={styles.testimonialBlock}>
                     <span className={styles.stars}>★★★★★</span>
                     <p className={styles.testimonialText}>

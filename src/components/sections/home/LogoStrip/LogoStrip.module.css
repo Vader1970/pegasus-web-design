@@ -190,10 +190,10 @@
     padding: 8px 0.875rem;
   }
 
-  /* .logoItem {
-    width: 90px;
-    height: 28px;
-  } */
+  .logoItem {
+    width: 125px;
+    height: 38px;
+  }
 
   .marqueeTrack {
     animation-duration: 24s;

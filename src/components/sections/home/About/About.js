@@ -22,32 +22,38 @@ export default function About() {
       }
     });
 
-    tl.from(".gsap-about-img", {
+    tl.from(".gsap-about-text", {
       opacity: 0,
-      scale: 0.95,
-      duration: 1.2,
-      ease: "power3.out"
-    })
-    .from(".gsap-about-text", {
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: "power3.out"
-    }, "-=0.8")
-    .from(".gsap-about-benefit", {
-      opacity: 0,
-      x: -20,
-      duration: 0.6,
+      y: 20,
+      duration: 0.45,
       stagger: 0.1,
       ease: "power3.out"
-    }, "-=0.4")
+    })
+    .from(".gsap-about-benefit", {
+      opacity: 0,
+      x: -16,
+      duration: 0.4,
+      stagger: 0.07,
+      ease: "power3.out"
+    }, "-=0.2")
+    .from(".gsap-about-panel-label", {
+      opacity: 0,
+      y: 12,
+      duration: 0.3,
+      ease: "power3.out"
+    }, "-=0.05")
     .from(".gsap-about-panel", {
       opacity: 0,
-      y: 30,
-      duration: 0.8,
+      y: 22,
+      duration: 0.45,
       ease: "power3.out"
-    }, "-=0.2");
+    }, "-=0.05")
+    .from(".gsap-about-img", {
+      opacity: 0,
+      scale: 0.95,
+      duration: 0.6,
+      ease: "power3.out"
+    }, 0);
   }, { scope: container });
 
   return (
@@ -101,7 +107,7 @@ export default function About() {
             </ul>
 
             {/* Qualifications Panel */}
-            <span className={`gsap-about-text ${styles.panelLabel}`}>Our background</span>
+            <span className={`gsap-about-panel-label ${styles.panelLabel}`}>Our background</span>
             <div className={`gsap-about-panel ${styles.panel}`}>
               <div className={styles.panelColumns}>
                 {/* Daniel */}
