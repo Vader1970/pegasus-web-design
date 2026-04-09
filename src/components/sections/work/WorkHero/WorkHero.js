@@ -31,7 +31,7 @@ export default function WorkHero() {
       <div className={styles.container}>
         <span className={`gsap-work-hero ${styles.eyebrow}`}>OUR WORK</span>
         <h1 className={`gsap-work-hero ${styles.heading}`}>
-          Websites built to bring in work.
+        Designed to look sharp, load fast, and bring in enquiries.
         </h1>
         <p className={`gsap-work-hero ${styles.paragraph}`}>
           A selection of websites and landing pages we&apos;ve designed for service-based businesses. Built to look sharp, load fast, and help turn visitors into enquiries.

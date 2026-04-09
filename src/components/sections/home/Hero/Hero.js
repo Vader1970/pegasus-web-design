@@ -48,11 +48,11 @@ export default function Hero() {
           </div>
 
           <h1 className={`gsap-hero-heading ${styles.heading}`}>
-            Websites that bring in more work for trades & service businesses.
+          If your website doesn't reflect how good your business actually is, it's costing you work.
           </h1>
 
           <p className={`gsap-hero-text ${styles.paragraph}`}>
-            Built for New Zealand businesses that want more enquiries, not just a better-looking website.
+          We design fast, modern websites that turn visitors into real enquiries.
           </p>
 
           <div className={`gsap-hero-cta ${styles.ctaGroup}`}>
