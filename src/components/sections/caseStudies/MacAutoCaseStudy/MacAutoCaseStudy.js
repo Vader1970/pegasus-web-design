@@ -64,6 +64,22 @@ export default function MacAutoCaseStudy() {
         },
       });
     });
+
+    const designBlocks = page.current.querySelectorAll("[data-design-block]");
+    designBlocks.forEach((block) => {
+      gsap.from(block, {
+        opacity: 0,
+        y: 28,
+        duration: 0.95,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: block,
+          start: "top 88%",
+          invalidateOnRefresh: true,
+          once: true,
+        },
+      });
+    });
   }, { scope: page });
 
   return (
@@ -202,10 +218,10 @@ export default function MacAutoCaseStudy() {
           </h2>
 
           {/* Block 1 — image left */}
-          <div className={`gsap-cs ${styles.designBlock}`}>
+          <div className={styles.designBlock} data-design-block>
             <div className={styles.designImageWrapper}>
               <Image
-                src={`${IMG}/services-hero.jpg`}
+                src={`${IMG}/services.webp`}
                 alt="Mac Auto Services page design"
                 fill
                 className={styles.designImage}
@@ -221,11 +237,11 @@ export default function MacAutoCaseStudy() {
           </div>
 
           {/* Block 2 — image right (reversed) */}
-          <div className={`gsap-cs ${styles.designBlock} ${styles.designBlockReverse}`}>
+          <div className={`${styles.designBlock} ${styles.designBlockReverse}`} data-design-block>
             <div className={styles.designImageWrapper}>
               <Image
-                src={`${IMG}/chris-service.webp`}
-                alt="Oil change service detail"
+                src={`${IMG}/visual.webp`}
+                alt="Visual hierarchy example"
                 fill
                 className={styles.designImage}
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -240,11 +256,11 @@ export default function MacAutoCaseStudy() {
           </div>
 
           {/* Block 3 — image left */}
-          <div className={`gsap-cs ${styles.designBlock}`}>
+          <div className={styles.designBlock} data-design-block>
             <div className={styles.designImageWrapper}>
               <Image
-                src={`${IMG}/chris.png`}
-                alt="Chris working in the workshop"
+                src={`${IMG}/performance.webp`}
+                alt="Performance metrics example"
                 fill
                 className={styles.designImage}
                 sizes="(max-width: 1024px) 100vw, 50vw"
