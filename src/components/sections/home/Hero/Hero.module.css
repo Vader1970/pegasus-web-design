@@ -171,8 +171,8 @@
 .microText {
   font-size: 0.8rem;
   line-height: 1.4;
-  color: var(--color-text-secondary);
-  opacity: 0.65;
+  color: var(--color-text-body);
+  opacity: 0.85;
   max-width: none;
 }
 

@@ -106,7 +106,7 @@ export default function About() {
               <div className={styles.panelColumns}>
                 {/* Daniel */}
                 <div className={styles.personColumn}>
-                  <h4 className={styles.personName}>Daniel</h4>
+                  <p className={styles.personName}>Daniel</p>
                   <ul className={styles.qualificationList}>
                     {[
                       "Diploma in Web Design & Production",
@@ -132,7 +132,7 @@ export default function About() {
 
                 {/* Michele */}
                 <div className={styles.personColumn}>
-                  <h4 className={styles.personName}>Michele</h4>
+                  <p className={styles.personName}>Michele</p>
                   <ul className={styles.qualificationList}>
                     {[
                       "Diploma in Web Design & Production",

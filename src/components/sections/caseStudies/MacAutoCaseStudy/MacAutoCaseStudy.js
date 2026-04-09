@@ -224,7 +224,7 @@ export default function MacAutoCaseStudy() {
           <div className={`gsap-cs ${styles.designBlock} ${styles.designBlockReverse}`}>
             <div className={styles.designImageWrapper}>
               <Image
-                src={`${IMG}/oil-change.jpg`}
+                src={`${IMG}/chris-service.webp`}
                 alt="Oil change service detail"
                 fill
                 className={styles.designImage}
