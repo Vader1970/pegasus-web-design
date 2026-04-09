@@ -184,21 +184,23 @@
 .projectLink {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--cta-primary-gap);
   color: var(--color-brand-primary);
   font-size: var(--fs-body);
   font-weight: 600;
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, color 0.3s ease;
   margin-top: auto;
 }
 
 .projectLink:hover {
-  opacity: 0.8;
+  opacity: 0.88;
+  color: var(--color-brand-accent);
 }
 
 .arrow {
   display: inline-block;
+  flex-shrink: 0;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -218,20 +220,26 @@
 .sectionCtaLink {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--cta-primary-gap);
   color: var(--color-brand-primary);
-  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  font-size: clamp(1.05rem, 1.35vw, 1.15rem);
   font-weight: 600;
   text-decoration: none;
-  padding: 12px 28px;
-  border: 1px solid var(--color-brand-primary);
-  border-radius: 6px;
-  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  transition: opacity 0.3s ease, color 0.3s ease;
 }
 
 .sectionCtaLink:hover {
-  background-color: var(--color-brand-primary);
-  color: #fff;
+  opacity: 0.88;
+  color: var(--color-brand-accent);
+}
+
+.sectionCtaLink .arrow {
+  display: inline-block;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sectionCtaLink:hover .arrow {
@@ -335,8 +343,4 @@
     margin-top: var(--spacing-64);
   }
 
-  .sectionCtaLink {
-    padding: 10px 24px;
-    font-size: 1rem;
-  }
 }

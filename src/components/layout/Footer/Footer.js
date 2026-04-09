@@ -49,9 +49,9 @@ export default function Footer() {
           </div>
 
           <nav className={styles.nav}>
-            <Link href="#services" className={styles.link} onClick={handleNavClick}>What We Do</Link>
-            <Link href="#work" className={styles.link} onClick={handleNavClick}>Work</Link>
-            <Link href="#about" className={styles.link} onClick={handleNavClick}>About</Link>
+            <Link href="/#services" className={styles.link} onClick={handleNavClick}>What We Do</Link>
+            <Link href="/#work" className={styles.link} onClick={handleNavClick}>Work</Link>
+            <Link href="/#about" className={styles.link} onClick={handleNavClick}>About</Link>
           </nav>
 
         </div>

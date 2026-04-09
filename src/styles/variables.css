@@ -106,4 +106,9 @@
   --radius-sm: 5px;
   --radius-md: 16px;
   --radius-lg: 20px;
+
+  /* Primary CTA (solid) — shared across homepage */
+  --cta-primary-py: 14px;
+  --cta-primary-px: 28px;
+  --cta-primary-gap: 8px;
 }

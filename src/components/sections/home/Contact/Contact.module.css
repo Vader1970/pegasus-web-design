@@ -1,6 +1,10 @@
 .section {
   width: 100%;
-  background-color: #F4F5FD;
+  background: linear-gradient(
+    180deg,
+    var(--color-brand-soft, #f4f5fd) 0%,
+    #eceef8 100%
+  );
   padding: var(--section-py) 0;
   scroll-margin-top: 0px;
 }
@@ -15,11 +19,28 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-40);
+  gap: var(--spacing-80);
+  align-items: start;
 }
 
 .introColumn {
-  padding-right: var(--spacing-40);
+  max-width: 560px;
+  width: 100%;
+  padding-right: var(--spacing-32);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Eyebrow — matches Problem / Services / RecentWork */
+.sectionLabel {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brand-primary);
+  margin-bottom: 6px;
+  max-width: none;
 }
 
 .heading {
@@ -28,14 +49,60 @@
   font-weight: 800;
   letter-spacing: var(--ls-heading-tight);
   color: var(--color-text-heading);
-  margin-bottom: var(--gap-heading-body);
+  margin-bottom: var(--spacing-16);
+  max-width: 14ch;
 }
 
 .paragraph {
   font-size: var(--fs-body-lg);
   line-height: var(--lh-body);
   color: var(--color-text-body);
-  max-width: 48ch;
+  max-width: var(--max-w-prose);
+  margin: 0;
+}
+
+/* Checklist — light reassurance block (not a competing card) */
+.reassuranceGroup {
+  margin-top: clamp(1.5rem, 2vw, 2rem);
+  margin-bottom: var(--spacing-48);
+  padding: var(--spacing-20) var(--spacing-24);
+  background-color: rgba(79, 82, 201, 0.04);
+  border: none;
+  border-radius: var(--radius-sm);
+}
+
+.reassuranceList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.reassuranceItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  line-height: var(--lh-body-tight);
+  color: var(--color-text-secondary);
+  max-width: none;
+}
+
+.reassuranceItem .reassuranceIcon {
+  margin-top: 3px;
+}
+
+.reassuranceItem span {
+  opacity: 0.9;
+}
+
+.reassuranceIcon {
+  flex-shrink: 0;
+  color: var(--color-brand-primary);
+  opacity: 0.42;
 }
 
 /* -------------------
@@ -47,21 +114,21 @@
 }
 
 .formPanel {
-  background-color: var(--color-bg-primary, #FFFFFF);
-  border: 1px solid var(--color-border-light, #EAEAEA);
-  border-radius: var(--radius-sm);
-  padding: var(--card-py) var(--card-px);
+  background-color: var(--color-bg-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: clamp(1.5rem, 2.5vw, 2.25rem) clamp(1.35rem, 2.25vw, 2rem);
   width: 100%;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.035);
 }
 
 .formIntro {
-  font-size: var(--fs-body-lg);
-  font-weight: 600;
-  color: var(--color-text-body);
-  margin-bottom: var(--spacing-32);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-24);
   line-height: var(--lh-body);
-  max-width: none;
+  max-width: 42ch;
 }
 
 .form {
@@ -73,7 +140,7 @@
 .fieldGroup {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--spacing-8);
 }
 
 .label {
@@ -90,10 +157,10 @@
 .select,
 .textarea {
   width: 100%;
-  background-color: var(--color-bg-primary, #FFFFFF);
-  border: 1px solid #CBD5E1;
-  border-radius: 8px;
-  padding: 12px 14px;
+  background-color: var(--color-bg-primary, #ffffff);
+  border: 1px solid var(--color-border-medium, #dde2ea);
+  border-radius: var(--radius-sm);
+  padding: 13px 14px;
   font-size: var(--fs-body);
   color: var(--color-text-heading);
   font-family: inherit;
@@ -131,10 +198,18 @@
 }
 
 /* -------------------
-   Testimonial & Submit block
+   Form footer — testimonial + support + submit
 --------------------*/
+.formFooter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  padding-top: var(--spacing-24);
+  margin-top: 0;
+  border-top: 1px solid rgba(17, 17, 17, 0.06);
+}
+
 .testimonialBlock {
-  margin-top: var(--spacing-12);
   font-size: var(--fs-small);
   line-height: var(--lh-body);
   color: var(--color-text-body);
@@ -160,9 +235,14 @@
 
 .supportLine {
   font-size: var(--fs-small);
-  color: var(--color-text-body);
-  margin-bottom: var(--spacing-12);
+  color: var(--color-text-secondary);
+  line-height: var(--lh-body-tight);
+  margin: 0;
   max-width: none;
+}
+
+.submitWrap {
+  margin: 0;
 }
 
 /* -------------------
@@ -172,21 +252,25 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  background-color: var(--color-brand-primary, #8B5CF6);
-  color: #FFFFFF;
+  gap: var(--cta-primary-gap);
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-on-dark);
   font-size: var(--fs-body);
   font-weight: 600;
-  padding: 14px 28px;
+  padding: var(--cta-primary-py) var(--cta-primary-px);
   border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.2s ease;
   width: max-content;
 }
 
 .submitButton:hover {
-  opacity: 0.9;
+  opacity: 0.92;
+}
+
+.submitButton:active {
+  transform: scale(0.99);
 }
 
 .arrow {
@@ -211,22 +295,33 @@
   }
 
   .grid {
-    gap: var(--spacing-40);
+    gap: var(--spacing-80);
   }
 }
 
 @media (max-width: 992px) {
   .grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-48);
+  }
+
+  .heading {
+    max-width: none;
   }
 
   .introColumn {
+    max-width: none;
     padding-right: 0;
-    margin-bottom: var(--spacing-20);
+    margin-bottom: 0;
+  }
+
+  .reassuranceGroup {
+    margin-bottom: 0;
   }
 
   .formColumn {
     justify-content: flex-start;
+    margin-top: 0;
   }
 
   .formPanel {
@@ -250,18 +345,37 @@
   .heading {
     font-size: clamp(1.9rem, 9vw, 2.8rem);
     margin-bottom: var(--spacing-16);
+    max-width: none;
   }
 
   .paragraph {
     max-width: none;
   }
 
+  .reassuranceGroup {
+    margin-top: clamp(1.5rem, 2vw, 2rem);
+    margin-bottom: var(--spacing-8);
+    padding: var(--spacing-20) var(--spacing-24);
+  }
+
+  .reassuranceList {
+    gap: var(--spacing-16);
+  }
+
   .formPanel {
-    padding: var(--spacing-20) var(--spacing-16);
+    padding: var(--spacing-32) var(--spacing-24);
+  }
+
+  .formFooter {
+    gap: var(--spacing-24);
+    padding-top: var(--spacing-24);
   }
 
   .submitButton {
     width: 100%;
-    padding: 14px 24px;
+  }
+
+  .grid {
+    gap: clamp(1.5rem, 5vw, 2rem);
   }
 }
