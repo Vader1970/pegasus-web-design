@@ -132,7 +132,7 @@ export default function Navbar() {
           {/* Center: Desktop Nav Links */}
           <nav className={styles.desktopNav}>
             <Link href="/#services" className={styles.navLink} onClick={handleNavClick}>What We Do</Link>
-            <Link href="/#work" className={styles.navLink} onClick={handleNavClick}>Work</Link>
+            <Link href="/work" className={styles.navLink} onClick={handleNavClick}>Work</Link>
             <Link href="/#about" className={styles.navLink} onClick={handleNavClick}>About</Link>
           </nav>
 
@@ -160,9 +160,9 @@ export default function Navbar() {
         {/* Mobile: Fullscreen Menu Dropdown */}
         <div className={styles.mobileMenu} data-open={isOpen}>
           <nav className={styles.mobileNavLinks}>
-            <Link href="#services" className={styles.mobileNavLink} onClick={handleNavClick}>What We Do</Link>
-            <Link href="#work" className={styles.mobileNavLink} onClick={handleNavClick}>Work</Link>
-            <Link href="#about" className={styles.mobileNavLink} onClick={handleNavClick}>About</Link>
+            <Link href="/#services" className={styles.mobileNavLink} onClick={handleNavClick}>What We Do</Link>
+            <Link href="/work" className={styles.mobileNavLink} onClick={handleNavClick}>Work</Link>
+            <Link href="/#about" className={styles.mobileNavLink} onClick={handleNavClick}>About</Link>
           </nav>
 
           <div className={styles.mobileCtaWrapper}>

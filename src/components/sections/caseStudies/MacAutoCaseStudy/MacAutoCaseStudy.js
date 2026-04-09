@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './MacAutoCaseStudy.module.css';
+import SlateBandCta from '@/components/sections/shared/SlateBandCta/SlateBandCta';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -24,7 +25,7 @@ const approach = [
   {
     num: "02",
     title: "Plan",
-    text: "Mapped out the site structure around their core services — WOF inspections, repairs, and servicing — with a clear path to enquiry.",
+    text: "Mapped out the site structure around their core services, WOF inspections, repairs, and servicing, with a clear path to enquiry.",
   },
   {
     num: "03",
@@ -80,7 +81,7 @@ export default function MacAutoCaseStudy() {
               Conversion-focused website for a Christchurch automotive workshop
             </p>
             <p className={`gsap-cs ${styles.heroPara}`}>
-              Mac Auto needed a website that matched the quality of their work — trustworthy, clear, and built to turn local visitors into booked jobs.
+              Mac Auto needed a website that matched the quality of their work, trustworthy, clear, and built to turn local visitors into booked jobs.
             </p>
             <div className={`gsap-cs ${styles.heroActions}`}>
               <Link
@@ -122,8 +123,8 @@ export default function MacAutoCaseStudy() {
             <ul className={`gsap-cs ${styles.bulletList}`}>
               <li>The old site looked outdated and didn&apos;t reflect the quality of their work</li>
               <li>Customers couldn&apos;t easily find services, hours, or how to book</li>
-              <li>Mobile experience was poor — most local search traffic is on phones</li>
-              <li>No clear call to action — visitors had nowhere obvious to go</li>
+              <li>Mobile experience was poor, most local search traffic is on phones</li>
+              <li>No clear call to action, visitors had nowhere obvious to go</li>
               <li>Competitors with better sites were winning the same customers</li>
             </ul>
           </div>
@@ -143,18 +144,29 @@ export default function MacAutoCaseStudy() {
           3 — THE GOAL
       ════════════════════════════════════════════ */}
       <section className={styles.sectionDefault} data-animate>
-        <div className={styles.narrowContainer}>
-          <span className={`gsap-cs ${styles.label}`}>THE GOAL</span>
-          <h2 className={`gsap-cs ${styles.sectionHeading}`}>
-            Build a site that earns trust and drives enquiries
-          </h2>
-          <ul className={`gsap-cs ${styles.bulletList}`}>
-            <li>Present Mac Auto as the professional, reliable workshop they are</li>
-            <li>Make it easy for visitors to find services and take action</li>
-            <li>Optimise for mobile-first — where most local customers search</li>
-            <li>Create a fast, modern site that builds credibility in seconds</li>
-            <li>Give the team a platform they can actually grow with</li>
-          </ul>
+        <div className={`${styles.splitContainer} ${styles.goalSplitContainer}`}>
+          <div className={`gsap-cs ${styles.splitImageWrapper} ${styles.goalImage}`}>
+            <Image
+              src={`${IMG}/happy-customer.webp`}
+              alt="Happy Mac Auto customer standing beside vehicle"
+              fill
+              className={styles.splitImage}
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
+          <div className={`${styles.splitText} ${styles.goalContent}`}>
+            <span className={`gsap-cs ${styles.label}`}>THE GOAL</span>
+            <h2 className={`gsap-cs ${styles.sectionHeading}`}>
+              Build a site that earns trust and drives enquiries
+            </h2>
+            <ul className={`gsap-cs ${styles.bulletList}`}>
+              <li>Present Mac Auto as the professional, reliable workshop they are</li>
+              <li>Make it easy for visitors to find services and take action</li>
+              <li>Optimise for mobile-first, where most local customers search</li>
+              <li>Create a fast, modern site that builds credibility in seconds</li>
+              <li>Give the team a platform they can actually grow with</li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -203,7 +215,7 @@ export default function MacAutoCaseStudy() {
             <div className={styles.designText}>
               <h3 className={styles.designTitle}>Service pages built around real questions</h3>
               <p className={styles.designPara}>
-                Each service page was structured around the questions customers actually ask — what&apos;s included, how long it takes, and how to book. No fluff, no jargon.
+                Each service page was structured around the questions customers actually ask, what&apos;s included, how long it takes, and how to book. No fluff, no jargon.
               </p>
             </div>
           </div>
@@ -231,7 +243,7 @@ export default function MacAutoCaseStudy() {
           <div className={`gsap-cs ${styles.designBlock}`}>
             <div className={styles.designImageWrapper}>
               <Image
-                src={`${IMG}/chris-working.webp`}
+                src={`${IMG}/chris.png`}
                 alt="Chris working in the workshop"
                 fill
                 className={styles.designImage}
@@ -241,7 +253,7 @@ export default function MacAutoCaseStudy() {
             <div className={styles.designText}>
               <h3 className={styles.designTitle}>Mobile-first, conversion-focused</h3>
               <p className={styles.designPara}>
-                Over 70% of traffic comes from mobile search. Every interaction — buttons, forms, navigation — was designed for thumbs first and desktops second.
+                Over 70% of traffic comes from mobile search. Every interaction, buttons, forms, navigation, was designed for thumbs first and desktops second.
               </p>
             </div>
           </div>
@@ -259,10 +271,10 @@ export default function MacAutoCaseStudy() {
               Custom-coded for speed and reliability
             </h2>
             <p className={`gsap-cs ${styles.bodyText}`}>
-              The site was built from scratch using React — no templates, no page builders. This gives Mac Auto a site that loads fast, ranks well, and can scale as their business grows.
+              The site was built from scratch using React, no templates, no page builders. This gives Mac Auto a site that loads fast, ranks well, and can scale as their business grows.
             </p>
             <ul className={`gsap-cs ${styles.bulletList}`}>
-              <li>Custom React codebase — fast, secure, future-proof</li>
+              <li>Custom React codebase, fast, secure, future-proof</li>
               <li>Optimised images and lazy loading for performance</li>
               <li>SEO foundations built in from day one</li>
               <li>Responsive across every device and screen size</li>
@@ -307,7 +319,7 @@ export default function MacAutoCaseStudy() {
             <blockquote className={styles.quoteText}>
               &ldquo;Daniel and Michele did an incredible job creating the Mac Auto Services website. From start to finish, they were professional, friendly, and extremely easy to work with.
               <br /><br />
-              They took the time to really understand the business and what we wanted to achieve, and their attention to detail was outstanding. Every part of the website was thoughtfully put together — nothing felt rushed or overlooked.
+              They took the time to really understand the business and what we wanted to achieve, and their attention to detail was outstanding. Every part of the website was thoughtfully put together - nothing felt rushed or overlooked.
               <br /><br />
               What really stood out was the care and passion they brought to the project. The website looks amazing, functions perfectly, and represents the business exactly how we envisioned.
               <br /><br />
@@ -332,22 +344,7 @@ export default function MacAutoCaseStudy() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════
-          8 — FINAL CTA
-      ════════════════════════════════════════════ */}
-      <section className={styles.ctaSection} data-animate>
-        <div className={styles.ctaContent}>
-          <h2 className={`gsap-cs ${styles.ctaHeading}`}>
-            Ready to turn your website into your best salesperson?
-          </h2>
-          <p className={`gsap-cs ${styles.ctaPara}`}>
-            We design fast, high-converting websites for trades and service businesses — built to bring in real enquiries, not just look good.
-          </p>
-          <Link href="/#contact" className={`gsap-cs ${styles.ctaBtn}`}>
-            Get your free proposal <ArrowRight size={18} className={styles.arrow} />
-          </Link>
-        </div>
-      </section>
+      <SlateBandCta />
 
     </div>
   );

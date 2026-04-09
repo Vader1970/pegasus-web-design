@@ -116,7 +116,7 @@
 .formPanel {
   background-color: var(--color-bg-primary);
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   padding: clamp(1.5rem, 2.5vw, 2.25rem) clamp(1.35rem, 2.25vw, 2rem);
   width: 100%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.035);
@@ -128,7 +128,7 @@
   color: var(--color-text-secondary);
   margin-bottom: var(--spacing-24);
   line-height: var(--lh-body);
-  max-width: 42ch;
+  max-width: 100%;
 }
 
 .form {
@@ -258,7 +258,7 @@
   font-size: var(--fs-body);
   font-weight: 600;
   padding: var(--cta-primary-py) var(--cta-primary-px);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   border: none;
   cursor: pointer;
   transition: opacity 0.3s ease, transform 0.2s ease;

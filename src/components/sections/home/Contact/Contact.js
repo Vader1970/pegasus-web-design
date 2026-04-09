@@ -53,13 +53,13 @@ export default function Contact() {
             <span className={`gsap-contact-text ${styles.sectionLabel}`}>Contact</span>
             <h2 className={`gsap-contact-text ${styles.heading}`}>Get more work</h2>
             <p className={`gsap-contact-text ${styles.paragraph}`}>
-              If your current website doesn&apos;t feel right — or you don&apos;t have one at all — we can help you build something that does.
+              If your current website doesn&apos;t feel right, or you don&apos;t have one at all, we can help you build something that does.
             </p>
             <div className={styles.reassuranceGroup}>
               <ul className={styles.reassuranceList} aria-label="What to expect">
                 <li className={`gsap-contact-text ${styles.reassuranceItem}`}>
                   <Check className={styles.reassuranceIcon} size={14} strokeWidth={2} aria-hidden />
-                  <span>No obligation — just a conversation</span>
+                  <span>No obligation - just a conversation</span>
                 </li>
                 <li className={`gsap-contact-text ${styles.reassuranceItem}`}>
                   <Check className={styles.reassuranceIcon} size={14} strokeWidth={2} aria-hidden />
@@ -77,7 +77,7 @@ export default function Contact() {
           <div className={styles.formColumn}>
             <div className={`gsap-contact-panel ${styles.formPanel}`}>
               <p className={`gsap-contact-field ${styles.formIntro}`}>
-                Tell us a few details — we&apos;ll map out the best next steps for you.
+                Tell us a few details, we&apos;ll map out the best next steps for you.
               </p>
 
               <form className={styles.form} onSubmit={(e) => e.preventDefault()}>

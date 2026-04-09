@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './RecentWork.module.css';
+import ctaStyles from '../CTA/CTA.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -33,21 +34,21 @@ const supportingProjects = [
   {
     type: "WEBSITE",
     title: "Cleghorn Roofing",
-    description: "Professional site for a roofing company — clear services, strong trust signals, and easy contact.",
+    description: "Professional site for a roofing company, clear services, strong trust signals, and easy contact.",
     link: "https://cleghorn-roofing.vercel.app/",
     image: "/images/home/projects/cleghorn-mock-up.png",
   },
   {
     type: "LANDING PAGE",
     title: "Tilyard Plumbing",
-    description: "Custom-coded landing page inside Wix — turning paid traffic into phone calls.",
+    description: "Custom-coded landing page inside Wix, turning paid traffic into phone calls.",
     link: "https://www.tilyardplumbing.co.nz/landing-page",
     image: "/images/home/projects/tilyard-plumbing-mock-up.png",
   },
   {
     type: "LANDING PAGE",
     title: "Master Kerb",
-    description: "Landing page for a concrete kerbing business — built to generate consistent enquiries.",
+    description: "Landing page for a concrete kerbing business, built to generate consistent enquiries.",
     link: "https://www.masterkerb.co.nz/landing-page",
     image: "/images/home/projects/master-kerb-mock-up.png",
   },
@@ -95,10 +96,10 @@ export default function RecentWork() {
 
     tl.from(".gsap-work-cta", {
       opacity: 0,
-      y: 12,
-      duration: 0.5,
-      ease: "power2.out"
-    }, "-=0.2");
+      y: 30,
+      duration: 0.8,
+      ease: "power3.out"
+    }, "-=0.4");
   }, { scope: container });
 
   return (
@@ -110,7 +111,7 @@ export default function RecentWork() {
           <span className={`gsap-work-header ${styles.label}`}>REAL PROJECTS</span>
           <h2 className={`gsap-work-header ${styles.heading}`}>Recent work</h2>
           <p className={`gsap-work-header ${styles.intro}`}>
-            Real websites and landing pages we&apos;ve built for service-based businesses — designed to bring in more enquiries, not just look good.
+            Real websites and landing pages we&apos;ve built for service-based businesses, designed to bring in more enquiries, not just look good.
           </p>
         </div>
 
@@ -175,8 +176,9 @@ export default function RecentWork() {
 
         {/* ──── Section Exit CTA ──── */}
         <div className={`gsap-work-cta ${styles.sectionCta}`}>
-          <Link href="/work" className={styles.sectionCtaLink}>
-            View all work <ArrowRight size={20} className={styles.arrow} />
+          <Link href="/work" className={ctaStyles.ctaButton}>
+            View all work{' '}
+            <ArrowRight size={20} className={ctaStyles.arrow} />
           </Link>
         </div>
 

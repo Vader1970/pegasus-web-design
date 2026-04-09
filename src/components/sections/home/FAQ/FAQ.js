@@ -1,7 +1,10 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import styles from './FAQ.module.css';
+import ctaStyles from '../CTA/CTA.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -13,19 +16,19 @@ if (typeof window !== "undefined") {
 const faqs = [
   {
     question: "How much does a website cost?",
-    answer: "Most small business websites fall between $2,500 – $5,000. Landing pages start from $800. We give you an honest, written quote before any work starts — no hidden fees."
+    answer: "Most small business websites fall between $2,500 - $5,000. Landing pages start from $800. We give you an honest, written quote before any work starts, no hidden fees."
   },
   {
     question: "How long does it take?",
-    answer: "Most sites are live within 3–6 weeks. Landing pages can be turned around in 1–2 weeks. You'll get a clear timeline upfront so there are no surprises."
+    answer: "Most sites are live within 3 - 6 weeks. Landing pages can be turned around in 1 - 2 weeks. You'll get a clear timeline upfront so there are no surprises."
   },
   {
     question: "Which platform do you recommend?",
-    answer: "We'll recommend the best option based on your goals — not what's easiest for us. Whether that's Framer, Webflow, or custom code, you'll know exactly why before we start."
+    answer: "We'll recommend the best option based on your goals, not what's easiest for us. Whether that's Framer, Webflow, or custom code, you'll know exactly why before we start."
   },
   {
     question: "What do I need to get started?",
-    answer: "Just a rough idea of what your business needs. We handle the rest — from copy direction to design to launch. You don't need anything ready."
+    answer: "Just a rough idea of what your business needs. We handle the rest, from copy direction to design to launch. You don't need anything ready."
   },
   {
     question: "What happens after launch?",
@@ -56,6 +59,12 @@ export default function FAQ() {
       y: 20,
       duration: 0.8,
       stagger: 0.15,
+      ease: "power3.out"
+    }, "-=0.4")
+    .from(".gsap-faq-cta", {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
       ease: "power3.out"
     }, "-=0.4");
   }, { scope: container });
@@ -104,8 +113,15 @@ export default function FAQ() {
           </div>
 
           <p className={`gsap-faq-item ${styles.microTrust}`}>
-            Still unsure? We&apos;ll walk you through everything — no pressure.
+            Still unsure? We&apos;ll walk you through everything, no pressure.
           </p>
+
+          <div className={`gsap-faq-cta ${styles.ctaWrap}`}>
+            <Link href="#contact" className={ctaStyles.ctaButton}>
+              Get your free proposal{' '}
+              <ArrowRight size={20} className={ctaStyles.arrow} />
+            </Link>
+          </div>
 
         </div>
       </div>

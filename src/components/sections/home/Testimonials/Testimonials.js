@@ -76,7 +76,7 @@ export default function Testimonials() {
           <span className={`gsap-test-heading ${styles.label}`}>REAL RESULTS</span>
           <h2 className={`gsap-test-heading ${styles.heading}`}>Real results from real businesses</h2>
           <p className={`gsap-test-heading ${styles.subtext}`}>
-            Websites designed to bring in enquiries — not just look good.
+            Websites designed to bring in enquiries, not just look good.
           </p>
         </div>
         
