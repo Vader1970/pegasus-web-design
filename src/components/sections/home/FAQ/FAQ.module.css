@@ -18,6 +18,16 @@
   flex-direction: column;
 }
 
+.label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brand-primary);
+  margin-bottom: var(--spacing-8);
+}
+
 .heading {
   font-size: var(--fs-h2);
   line-height: var(--lh-heading-loose);
@@ -98,6 +108,13 @@
   color: var(--color-text-body);
   margin: 0 0 var(--spacing-24) 0;
   max-width: var(--max-w-prose);
+}
+
+.microTrust {
+  font-size: var(--fs-body);
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-32);
+  padding-top: var(--spacing-8);
 }
 
 /* -------------------

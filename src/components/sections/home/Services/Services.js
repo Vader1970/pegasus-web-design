@@ -74,6 +74,7 @@ export default function Services() {
         
         {/* Left Column: Content */}
         <div className={styles.contentColumn}>
+          <span className={`gsap-services-text ${styles.label}`}>HOW WE HELP</span>
           <h2 className={`gsap-services-text ${styles.heading}`}>What do you need help with?</h2>
           <p className={`gsap-services-text ${styles.paragraph}`}>
             No templates. Everything is built around what your business actually needs.

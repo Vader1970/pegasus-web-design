@@ -2,6 +2,8 @@
 
 import { useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import styles from './Testimonials.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -70,7 +72,13 @@ export default function Testimonials() {
   return (
     <section ref={container} className={styles.section} id="testimonials">
       <div className={styles.container}>
-        <h2 className={`gsap-test-heading ${styles.heading}`}>Results our clients see</h2>
+        <div className={styles.headerBlock}>
+          <span className={`gsap-test-heading ${styles.label}`}>REAL RESULTS</span>
+          <h2 className={`gsap-test-heading ${styles.heading}`}>Real results from real businesses</h2>
+          <p className={`gsap-test-heading ${styles.subtext}`}>
+            Websites designed to bring in enquiries — not just look good.
+          </p>
+        </div>
         
         <div className={styles.grid}>
           {testimonials.map((item, index) => (
@@ -115,6 +123,13 @@ export default function Testimonials() {
 
             </div>
           ))}
+        </div>
+
+        <div className={`gsap-test-col ${styles.ctaBlock}`}>
+          <h3 className={styles.ctaHeading}>Want results like this for your business?</h3>
+          <Link href="/#contact" className={styles.ctaBtn}>
+            Get your free proposal <ArrowRight size={18} className={styles.arrow} />
+          </Link>
         </div>
       </div>
     </section>

@@ -73,6 +73,7 @@ export default function Problem() {
 
         {/* Left Content */}
         <div className={styles.contentColumn}>
+          <span className={`gsap-problem-text ${styles.label}`}>THE PROBLEM</span>
           <h2 className={`gsap-problem-text ${styles.heading}`}>
             If your website doesn't reflect how good your business actually is, it's costing you work.
           </h2>

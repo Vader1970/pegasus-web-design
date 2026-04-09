@@ -107,6 +107,7 @@ export default function RecentWork() {
 
         {/* ──── Header ──── */}
         <div className={styles.header}>
+          <span className={`gsap-work-header ${styles.label}`}>REAL PROJECTS</span>
           <h2 className={`gsap-work-header ${styles.heading}`}>Recent work</h2>
           <p className={`gsap-work-header ${styles.intro}`}>
             Real websites and landing pages we&apos;ve built for service-based businesses — designed to bring in more enquiries, not just look good.

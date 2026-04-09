@@ -1,31 +1,15 @@
-import CaseStudyHero from '@/components/sections/caseStudies/MacAutoServices/CaseStudyHero/CaseStudyHero';
-import CaseStudyIntro from '@/components/sections/caseStudies/MacAutoServices/CaseStudyIntro/CaseStudyIntro';
-import CaseStudyProblem from '@/components/sections/caseStudies/MacAutoServices/CaseStudyProblem/CaseStudyProblem';
-import CaseStudyApproach from '@/components/sections/caseStudies/MacAutoServices/CaseStudyApproach/CaseStudyApproach';
-import CaseStudyDesignBuild from '@/components/sections/caseStudies/MacAutoServices/CaseStudyDesignBuild/CaseStudyDesignBuild';
-import CaseStudyKeyScreens from '@/components/sections/caseStudies/MacAutoServices/CaseStudyKeyScreens/CaseStudyKeyScreens';
-import CaseStudyPerformance from '@/components/sections/caseStudies/MacAutoServices/CaseStudyPerformance/CaseStudyPerformance';
-import CaseStudyPlatform from '@/components/sections/caseStudies/MacAutoServices/CaseStudyPlatform/CaseStudyPlatform';
-import CaseStudyImprovements from '@/components/sections/caseStudies/MacAutoServices/CaseStudyImprovements/CaseStudyImprovements';
-import CaseStudyOutcome from '@/components/sections/caseStudies/MacAutoServices/CaseStudyOutcome/CaseStudyOutcome';
-import CaseStudyTestimonial from '@/components/sections/caseStudies/MacAutoServices/CaseStudyTestimonial/CaseStudyTestimonial';
-import CaseStudyCTA from '@/components/sections/caseStudies/MacAutoServices/CaseStudyCTA/CaseStudyCTA';
+import MacAutoCaseStudy from '@/components/sections/caseStudies/MacAutoCaseStudy/MacAutoCaseStudy';
 
-export default function MacAutoServicesCaseStudy() {
+export const metadata = {
+  title: 'Mac Auto Services — Case Study | Pegasus Web Design',
+  description:
+    'How we built a conversion-focused website for a Christchurch automotive workshop. See the strategy, design decisions, and results.',
+};
+
+export default function MacAutoServicesCaseStudyPage() {
   return (
     <main>
-      <CaseStudyHero />
-      <CaseStudyIntro />
-      <CaseStudyProblem />
-      <CaseStudyApproach />
-      <CaseStudyDesignBuild />
-      <CaseStudyKeyScreens />
-      <CaseStudyPerformance />
-      <CaseStudyPlatform />
-      <CaseStudyImprovements />
-      <CaseStudyOutcome />
-      <CaseStudyTestimonial />
-      <CaseStudyCTA />
+      <MacAutoCaseStudy />
     </main>
   );
 }

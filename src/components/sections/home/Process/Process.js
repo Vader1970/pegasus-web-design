@@ -89,6 +89,7 @@ export default function Process() {
       <div className={styles.container}>
 
         <div className={styles.header}>
+          <span className={`gsap-process-heading ${styles.label}`}>OUR PROCESS</span>
           <h2 className={`gsap-process-heading ${styles.heading}`}>
             From first conversation to live website in 3 to 6 weeks.
           </h2>
