@@ -13,7 +13,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-48);
-  align-items: center;
+  align-items: start;
 }
 
 /* -------------------
@@ -161,8 +161,6 @@
 
   .contentColumn {
     max-width: 100%;
-    /* Small top offset so heading baseline optically aligns with top card */
-    padding-top: var(--spacing-8);
   }
 
   .heading {
