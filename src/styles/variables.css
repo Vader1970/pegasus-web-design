@@ -77,14 +77,14 @@
      Section, card, and rhythm spacing using clamp()
   ====================== */
 
-  /* Section vertical padding (desktop → large) */
-  --section-py: clamp(4rem, 8vw, 7rem);
+  /* Section vertical padding: desktop 72–96px, tablet/mobile 56–72px */
+  --section-py: clamp(4.5rem, 6vw, 6rem);
 
   /* Section vertical padding (medium breakpoint) */
-  --section-py-md: clamp(3rem, 6vw, 5rem);
+  --section-py-md: clamp(3.5rem, 5vw, 4.5rem);
 
   /* Section vertical padding (mobile) */
-  --section-py-sm: clamp(3rem, 6vw, 4rem);
+  --section-py-sm: clamp(3.5rem, 5vw, 4.5rem);
 
   /* Card internal padding */
   --card-px: clamp(1.25rem, 2vw, 2rem);
@@ -92,8 +92,8 @@
 
   /* Vertical rhythm within content blocks */
   --gap-eyebrow-heading: 0.5rem;      /* Eyebrow label → heading */
-  --gap-heading-body: clamp(0.75rem, 1vw, 1rem);   /* Heading → paragraph */
-  --gap-body-cta: clamp(1rem, 1.5vw, 1.5rem);      /* Paragraph → CTA */
+  --gap-heading-body: 1rem;           /* Heading → paragraph (16px) */
+  --gap-body-cta: 1.5rem;             /* Paragraph → primary CTA (24px) */
 
   /* Text block max-widths for readability */
   --max-w-prose: 62ch;               /* Body paragraphs */

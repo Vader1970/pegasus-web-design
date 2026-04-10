@@ -13,7 +13,7 @@
 }
 
 .headerBlock {
-  margin-bottom: clamp(2.5rem, 4vw, 4rem);
+  margin-bottom: var(--spacing-32);
 }
 
 .label {
@@ -32,7 +32,7 @@
   font-weight: 800;
   letter-spacing: var(--ls-heading);
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-12);
+  margin-bottom: var(--spacing-16);
   max-width: var(--max-w-heading-sm);
 }
 
@@ -47,7 +47,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-48);
+  gap: var(--spacing-24);
   align-items: stretch;
 }
 
@@ -66,7 +66,7 @@
   position: relative;
   width: 100%;
   height: 44px;
-  margin-bottom: var(--spacing-32);
+  margin-bottom: var(--spacing-24);
 }
 
 .logo {
@@ -149,8 +149,8 @@
 
 .ctaBlock {
   text-align: center;
-  margin-top: 56px;
-  padding-bottom: 8px;
+  margin-top: var(--spacing-48);
+  padding-bottom: var(--spacing-8);
 }
 
 .ctaHeading {
@@ -207,7 +207,7 @@
   }
 
   .grid {
-    gap: var(--spacing-32);
+    gap: var(--spacing-24);
   }
 }
 
@@ -232,7 +232,7 @@
   }
 
   .headerBlock {
-    margin-bottom: var(--spacing-32);
+    margin-bottom: var(--spacing-24);
   }
 
   .subtext {
@@ -241,7 +241,7 @@
 
   .grid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-32);
+    gap: var(--spacing-24);
   }
 
   .logoWrapper {

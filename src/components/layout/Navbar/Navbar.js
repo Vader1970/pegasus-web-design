@@ -96,7 +96,7 @@ export default function Navbar() {
     }, 1000);
   };
 
-  // Route navigation to /work should keep navbar visible for better first-view UX.
+  // Route navigation to /work (and case study pages under it) keeps navbar visible for first-view UX.
   const handleWorkNavClick = () => {
     setIsVisible(true);
     setIsNavigating(false);
@@ -138,9 +138,10 @@ export default function Navbar() {
 
           {/* Center: Desktop Nav Links */}
           <nav className={styles.desktopNav}>
-            <Link href="/#services" className={styles.navLink} onClick={handleNavClick}>What We Do</Link>
+            <Link href="/#services" className={styles.navLink} onClick={handleNavClick}>Services</Link>
             <Link href="/work" className={styles.navLink} onClick={handleWorkNavClick}>Work</Link>
-            <Link href="/#about" className={styles.navLink} onClick={handleNavClick}>About</Link>
+            <Link href="/#about" className={styles.navLink} onClick={handleNavClick}>About Us</Link>
+            <Link href="/work/mac-auto-services" className={styles.navLink} onClick={handleWorkNavClick}>Case Study</Link>
           </nav>
 
           {/* Right: Desktop CTA */}
@@ -167,9 +168,10 @@ export default function Navbar() {
         {/* Mobile: Fullscreen Menu Dropdown */}
         <div className={styles.mobileMenu} data-open={isOpen}>
           <nav className={styles.mobileNavLinks}>
-            <Link href="/#services" className={styles.mobileNavLink} onClick={handleNavClick}>What We Do</Link>
+            <Link href="/#services" className={styles.mobileNavLink} onClick={handleNavClick}>Services</Link>
             <Link href="/work" className={styles.mobileNavLink} onClick={handleWorkNavClick}>Work</Link>
-            <Link href="/#about" className={styles.mobileNavLink} onClick={handleNavClick}>About</Link>
+            <Link href="/#about" className={styles.mobileNavLink} onClick={handleNavClick}>About US</Link>
+            <Link href="/work/mac-auto-services" className={styles.mobileNavLink} onClick={handleWorkNavClick}>Case Study</Link>
           </nav>
 
           <div className={styles.mobileCtaWrapper}>

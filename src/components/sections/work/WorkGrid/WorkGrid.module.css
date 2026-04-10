@@ -21,7 +21,7 @@
 .filterBar {
   display: flex;
   gap: var(--spacing-8);
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  margin-bottom: var(--spacing-32);
   flex-wrap: wrap;
 }
 
@@ -60,7 +60,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-32);
+  gap: var(--spacing-24);
   align-items: stretch; /* Force all cards in a row to equal height */
 }
 
@@ -107,7 +107,7 @@
   flex-direction: column;
   flex-grow: 1;
   min-height: 160px; /* Consistent content area height across cards */
-  padding: var(--spacing-16) var(--spacing-24) var(--spacing-20);
+  padding: var(--spacing-16) var(--spacing-24) var(--spacing-24);
 }
 
 .cardType {
@@ -116,14 +116,14 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-brand-primary);
-  margin-bottom: 6px;
+  margin-bottom: var(--spacing-8);
 }
 
 .cardTitle {
   font-size: var(--fs-h3);
   font-weight: 700;
   color: var(--color-text-heading);
-  margin-bottom: 6px;
+  margin-bottom: var(--gap-heading-body);
   letter-spacing: var(--ls-heading);
 }
 
@@ -132,7 +132,7 @@
   line-height: var(--lh-body);
   color: var(--color-text-body);
   opacity: 0.8;
-  margin-bottom: var(--spacing-16);
+  margin-bottom: var(--gap-body-cta);
   max-width: none;
   /* Clamp to 2 lines so all cards stay the same height */
   display: -webkit-box;

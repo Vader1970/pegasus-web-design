@@ -13,7 +13,7 @@
 }
 
 .header {
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: var(--spacing-32);
 }
 
 .label {
@@ -41,7 +41,7 @@
   color: var(--color-text-body);
   opacity: 0.8;
   max-width: 520px;
-  margin-top: var(--spacing-12);
+  margin-top: var(--spacing-16);
 }
 
 .desktopBreak {
@@ -51,7 +51,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-64) var(--spacing-40);
+  gap: var(--spacing-48) var(--spacing-32);
 }
 
 .step {
@@ -101,12 +101,12 @@
   }
 
   .header {
-    margin-bottom: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--spacing-32);
   }
 
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    row-gap: var(--spacing-48);
+    row-gap: var(--spacing-32);
     column-gap: var(--spacing-32);
   }
 }
@@ -121,7 +121,7 @@
   }
 
   .header {
-    margin-bottom: var(--spacing-32);
+    margin-bottom: var(--spacing-24);
   }
 
   .heading {
