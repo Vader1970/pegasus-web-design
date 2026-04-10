@@ -97,10 +97,10 @@ export default function Contact() {
                   <label htmlFor="projectType" className={styles.label}>Project type</label>
                   <select id="projectType" name="projectType" className={styles.select} defaultValue="">
                     <option value="" disabled>Select a project type</option>
-                    <option value="business-website">Business website</option>
-                    <option value="landing-page">Landing page</option>
-                    <option value="website-redesign">Website redesign</option>
-                    <option value="platform-guidance">Platform guidance</option>
+                    <option value="business-website">I need more enquiries</option>
+                    <option value="landing-page">My website looks outdated</option>
+                    <option value="website-redesign">I need a new website</option>
+                    <option value="platform-guidance">My site is slow or not converting</option>
                     <option value="not-sure-yet">Not sure yet</option>
                   </select>
                 </div>
@@ -126,12 +126,12 @@ export default function Contact() {
                   </div>
 
                   <p className={styles.supportLine}>
-                    We’ll send your written proposal within 48 hours. No obligation.
+                    We'll send your written proposal within 48 hours. No obligation.
                   </p>
 
                   <div className={styles.submitWrap}>
                     <button type="submit" className={styles.submitButton}>
-                      Get My Proposal <ArrowRight size={20} className={styles.arrow} />
+                      Start my project <ArrowRight size={20} className={styles.arrow} />
                     </button>
                   </div>
                 </div>
