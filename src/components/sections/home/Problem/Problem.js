@@ -73,12 +73,12 @@ export default function Problem() {
 
         {/* Left Content */}
         <div className={styles.contentColumn}>
-          <span className={`gsap-problem-text ${styles.label}`}>THE PROBLEM</span>
+          <span className={`gsap-problem-text ${styles.label}`}>THE REAL PROBLEM</span>
           <h2 className={`gsap-problem-text ${styles.heading}`}>
-            If your website doesn't reflect how good your business actually is, it's costing you work.
+          Why your website isn't bringing in work
           </h2>
           <p className={`gsap-problem-text ${styles.paragraph}`}>
-            Most business owners we speak to aren't losing work because of their service, they're losing it because their website doesn't create the right first impression, and potential customers quietly go elsewhere.
+          Most businesses aren't losing work because of their service, they're losing it because their website fails to create trust in those first few seconds.
           </p>
           <div className="gsap-problem-text">
             <Link href="#services" className={styles.ctaLink}>
