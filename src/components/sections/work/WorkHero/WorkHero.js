@@ -36,9 +36,6 @@ export default function WorkHero() {
         <p className={`gsap-work-hero ${styles.paragraph}`}>
           A selection of websites and landing pages we&apos;ve designed for service-based businesses. Built to look sharp, load fast, and help turn visitors into enquiries.
         </p>
-        <Link href="/#contact" className={`gsap-work-hero ${styles.cta}`}>
-          Get your free proposal <ArrowRight size={20} className={styles.arrow} />
-        </Link>
       </div>
     </section>
   );
