@@ -43,7 +43,6 @@
   font-size: var(--fs-body-lg);
   line-height: var(--lh-body);
   color: var(--color-text-body);
-  margin-bottom: var(--gap-body-cta);
   max-width: 52ch;
   opacity: 0.85;
 }
