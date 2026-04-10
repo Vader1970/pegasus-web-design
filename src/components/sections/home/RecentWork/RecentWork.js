@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './RecentWork.module.css';
 import ctaStyles from '../CTA/CTA.module.css';
+import workFeaturedStyles from '../../work/WorkFeatured/WorkFeatured.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -17,9 +18,11 @@ if (typeof window !== "undefined") {
 const featuredProject = {
   type: "WEBSITE",
   title: "Mac Auto Services",
+  results: "+15 new clients in the first month",
   description:
-    "Full website rebuild for an automotive workshop. Built to earn trust fast and turn visitors into booked jobs.",
-  link: "https://www.macautoservices.co.nz/",
+    "Trust-first website rebuild that helped a local workshop win more enquiries and look established from first click.",
+  caseStudy: "/work/mac-auto-services",
+  liveSite: "https://www.macautoservices.co.nz/",
   image: "/images/home/projects/mac-auto-mock-up.webp",
 };
 
@@ -27,28 +30,29 @@ const supportingProjects = [
   {
     type: "WEBSITE",
     title: "Burst Digital",
-    description: "Brand website that positioned a growing digital agency as a credible, premium partner.",
+    description: "Premium brand site built to strengthen trust and attract higher-value leads.",
     link: "https://www.burstdigital.co.nz/",
     image: "/images/home/projects/burst-digital-mock-up.png",
   },
   {
     type: "WEBSITE",
     title: "Autistic Innovations",
-    description: "Purpose-driven website built with accessibility and clarity at its core.",
+    description: "Clear, accessible website that helps the right people understand the offer and act.",
     link: "https://www.autisticinnovations.co.nz/",
     image: "/images/home/projects/autistic-innovations-maoc-up.png",
   },
   {
     type: "LANDING PAGE",
     title: "Filtration Station",
-    description: "Service landing page built within a Shopify store to drive installation bookings.",
+    description: "Conversion-focused landing page created to generate more installation enquiries.",
     link: "https://www.filtrationstation.co.nz/pages/installation-services",
     image: "/images/home/projects/filtration-station-mock-up.png",
+    anchorId: "landing-page-projects",
   },
   {
     type: "LANDING PAGE",
     title: "Master Kerb",
-    description: "Landing page for a concrete kerbing business, built to generate consistent enquiries.",
+    description: "Lead-gen landing page designed to turn local traffic into steady enquiries.",
     link: "https://www.masterkerb.co.nz/landing-page",
     image: "/images/home/projects/master-kerb-mock-up.png",
   },
@@ -109,14 +113,14 @@ export default function RecentWork() {
         {/* ──── Header ──── */}
         <div className={styles.header}>
           <span className={`gsap-work-header ${styles.label}`}>REAL PROJECTS</span>
-          <h2 className={`gsap-work-header ${styles.heading}`}>Recent work</h2>
+          <h2 className={`gsap-work-header ${styles.heading}`}>Real results from real businesses</h2>
           <p className={`gsap-work-header ${styles.intro}`}>
             Real websites and landing pages we&apos;ve built for service-based businesses, designed to bring in more enquiries, not just look good.
           </p>
         </div>
 
         {/* ──── Featured Project ──── */}
-        <div className={styles.featured}>
+        <article className={styles.featured}>
           <div className={`gsap-work-featured-img ${styles.featuredImageWrapper}`}>
             <Image
               src={featuredProject.image}
@@ -130,24 +134,41 @@ export default function RecentWork() {
           <div className={`gsap-work-featured-text ${styles.featuredContent}`}>
             <span className={styles.typeLabel}>{featuredProject.type}</span>
             <h3 className={styles.featuredTitle}>{featuredProject.title}</h3>
+            <p className={styles.featuredResults}>
+              <span className={styles.featuredStars}>★★★★★</span> {featuredProject.results}
+            </p>
             <p className={styles.featuredDescription}>
               {featuredProject.description}
             </p>
-            <Link
-              href={featuredProject.link}
-              className={styles.projectLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View project <ArrowRight size={18} className={styles.arrow} />
-            </Link>
+            <div className={workFeaturedStyles.actions}>
+              <Link href={featuredProject.liveSite} className={workFeaturedStyles.primaryBtn} target="_blank" rel="noopener noreferrer">
+                View live site <ArrowRight size={18} className={workFeaturedStyles.arrow} />
+              </Link>
+              <Link
+                href={featuredProject.caseStudy}
+                className={workFeaturedStyles.secondaryLink}
+              >
+                View case study <ArrowRight size={16} className={workFeaturedStyles.arrow} />
+              </Link>
+            </div>
           </div>
-        </div>
+        </article>
 
         {/* ──── Supporting Projects ──── */}
         <div className={styles.supportingGrid}>
           {supportingProjects.map((project, index) => (
-            <div key={index} className={`gsap-work-card ${styles.card}`}>
+            <article
+              key={index}
+              id={project.anchorId}
+              className={`gsap-work-card ${styles.card} ${project.anchorId ? styles.anchorTarget : ""}`}
+            >
+              <Link
+                href={project.link}
+                className={styles.cardOverlayLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View ${project.title} site`}
+              />
               <div className={styles.cardImageWrapper}>
                 <Image
                   src={project.image}
@@ -161,23 +182,18 @@ export default function RecentWork() {
                 <span className={styles.typeLabel}>{project.type}</span>
                 <h4 className={styles.cardTitle}>{project.title}</h4>
                 <p className={styles.cardDescription}>{project.description}</p>
-                <Link
-                  href={project.link}
-                  className={styles.projectLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View project <ArrowRight size={16} className={styles.arrow} />
-                </Link>
+                <span className={styles.projectLink}>
+                  View site <ArrowRight size={16} className={styles.arrow} />
+                </span>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
         {/* ──── Section Exit CTA ──── */}
         <div className={`gsap-work-cta ${styles.sectionCta}`}>
           <Link href="/work" className={ctaStyles.ctaButton}>
-            View all work{' '}
+            View more projects{' '}
             <ArrowRight size={20} className={ctaStyles.arrow} />
           </Link>
         </div>
