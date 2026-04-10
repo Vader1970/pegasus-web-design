@@ -15,7 +15,7 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-80);
+  gap: var(--spacing-48);
   align-items: stretch;
 }
 
@@ -62,7 +62,7 @@
   font-weight: 800;
   letter-spacing: var(--ls-heading);
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--gap-heading-body);
   max-width: var(--max-w-heading-sm);
 }
 
@@ -70,7 +70,7 @@
   font-size: var(--fs-body-lg);
   line-height: var(--lh-body);
   color: var(--color-text-body);
-  margin-bottom: var(--spacing-40);
+  margin-bottom: var(--spacing-32);
   max-width: var(--max-w-prose);
 }
 
@@ -81,7 +81,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-16);
-  margin: 0 0 var(--spacing-40) 0;
+  margin: 0 0 var(--spacing-32) 0;
   padding: 0;
   list-style: none;
 }

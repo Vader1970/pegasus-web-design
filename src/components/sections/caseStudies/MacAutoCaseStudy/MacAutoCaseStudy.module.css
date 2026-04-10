@@ -31,7 +31,7 @@
   padding: 0 64px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-64);
+  gap: var(--spacing-48);
   align-items: center;
 }
 
@@ -69,7 +69,7 @@
   font-weight: 800;
   letter-spacing: var(--ls-heading);
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--gap-heading-body);
   max-width: 20ch;
 }
 
@@ -78,7 +78,7 @@
   line-height: var(--lh-body);
   color: var(--color-text-body);
   opacity: 0.85;
-  margin-bottom: var(--spacing-20);
+  margin-bottom: var(--gap-body-cta);
   max-width: 56ch;
 }
 
@@ -164,7 +164,7 @@
 .heroSection {
   width: 100%;
   background-color: var(--color-bg-primary);
-  padding: clamp(5rem, 10vw, 8rem) 0 var(--section-py);
+  padding: var(--section-py) 0;
 }
 
 .heroContainer {
@@ -174,7 +174,7 @@
   padding: 0 64px;
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: var(--spacing-64);
+  gap: var(--spacing-48);
   align-items: center;
 }
 
@@ -189,7 +189,7 @@
   font-weight: 800;
   letter-spacing: var(--ls-heading-tight);
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-12);
+  margin-bottom: var(--gap-heading-body);
 }
 
 .heroSub {
@@ -197,7 +197,7 @@
   line-height: var(--lh-body-tight);
   color: var(--color-text-secondary);
   font-weight: 500;
-  margin-bottom: var(--spacing-20);
+  margin-bottom: var(--gap-heading-body);
   max-width: 36ch;
 }
 
@@ -206,14 +206,14 @@
   line-height: var(--lh-body);
   color: var(--color-text-body);
   opacity: 0.85;
-  margin-bottom: var(--spacing-32);
+  margin-bottom: var(--gap-body-cta);
   max-width: 48ch;
 }
 
 .heroActions {
   display: flex;
   align-items: center;
-  gap: var(--spacing-24);
+  gap: var(--spacing-16);
 }
 
 .heroImageWrapper {
@@ -251,8 +251,8 @@
 .approachGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-32);
-  margin-top: var(--spacing-48);
+  gap: var(--spacing-24);
+  margin-top: var(--spacing-24);
 }
 
 .approachStep {
@@ -273,7 +273,7 @@
   font-size: var(--fs-h3);
   font-weight: 700;
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--gap-heading-body);
   letter-spacing: var(--ls-heading);
 }
 
@@ -291,17 +291,24 @@
 .designBlock {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-40);
+  gap: var(--spacing-32);
   align-items: center;
-  margin-top: 56px;
+  margin-top: var(--spacing-32);
 }
 
-.designBlockReverse {
-  direction: rtl;
-}
+/*
+  Reverse columns without direction: rtl (rtl breaks consistent
+  font smoothing / metrics vs neighbouring blocks).
+  Desktop only — mobile keeps DOM order so image stacks first like other blocks.
+*/
+@media (min-width: 769px) {
+  .designBlockReverse .designText {
+    order: 1;
+  }
 
-.designBlockReverse>* {
-  direction: ltr;
+  .designBlockReverse .designImageWrapper {
+    order: 2;
+  }
 }
 
 .designImageWrapper {
@@ -319,23 +326,39 @@
 .designText {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
 }
 
+/* Explicit type so global h3 / p rules never partially win */
 .designTitle {
+  font-family: inherit;
   font-size: var(--fs-h3);
+  font-style: normal;
   font-weight: 700;
+  font-synthesis: none;
   color: var(--color-text-heading);
   letter-spacing: var(--ls-heading);
-  margin-bottom: var(--spacing-8);
+  margin: 0 0 var(--gap-heading-body) 0;
   line-height: var(--lh-heading-loose);
 }
 
 .designPara {
+  font-family: inherit;
   font-size: var(--fs-body-lg);
+  font-style: normal;
+  font-weight: 400;
+  font-synthesis: none;
   line-height: var(--lh-body);
+  letter-spacing: normal;
+  /* Solid color — opacity on text can look inconsistent across columns */
   color: var(--color-text-body);
-  opacity: 0.85;
   max-width: 48ch;
+  margin: 0;
+  padding: 0;
+  text-align: start;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ================================================
@@ -348,7 +371,7 @@
   padding: 0 64px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-64);
+  gap: var(--spacing-48);
   align-items: center;
 }
 
@@ -379,7 +402,7 @@
 .resultsSection {
   width: 100%;
   background-color: var(--color-bg-primary);
-  padding: clamp(5rem, 8vw, 7rem) 0;
+  padding: var(--section-py) 0;
 }
 
 .resultsGrid {
@@ -389,19 +412,19 @@
   padding: 0 64px;
   display: grid;
   grid-template-columns: 1fr 1.15fr;
-  gap: var(--spacing-48);
+  gap: var(--spacing-32);
   align-items: start;
 }
 
 .resultsText {
-  padding-top: var(--spacing-12);
+  padding-top: 0;
 }
 
 /* — Testimonial card (inside results grid) — */
 .testimonialCard {
   background-color: var(--color-bg-secondary, #F1F3F7);
   border-radius: 16px;
-  padding: clamp(2.25rem, 4.5vw, 3rem) clamp(2rem, 4vw, 2.75rem);
+  padding: var(--spacing-32) var(--spacing-24);
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.03),
     0 8px 32px rgba(0, 0, 0, 0.05);
@@ -412,7 +435,7 @@
 .quoteIcon {
   color: var(--color-brand-primary);
   opacity: 0.22;
-  margin-bottom: var(--spacing-20);
+  margin-bottom: var(--gap-heading-body);
 }
 
 .quoteText {
@@ -420,7 +443,7 @@
   line-height: 1.85;
   color: var(--color-text-body);
   font-style: italic;
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--gap-body-cta);
   max-width: 65ch;
 }
 
@@ -428,7 +451,7 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-12);
-  padding-top: var(--spacing-16);
+  padding-top: var(--spacing-24);
   border-top: 1px solid var(--color-border-light);
   margin-top: auto;
 }
@@ -470,7 +493,7 @@
 .ctaSection {
   width: 100%;
   background-color: #1E293B;
-  padding: 104px 24px;
+  padding: var(--section-py) var(--spacing-24);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -490,14 +513,14 @@
   font-weight: 800;
   letter-spacing: var(--ls-heading-tight);
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: var(--gap-heading-body);
 }
 
 .ctaPara {
   font-size: var(--fs-body-lg);
   line-height: var(--lh-body);
   color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 36px;
+  margin-bottom: var(--gap-body-cta);
   max-width: 520px;
 }
 
@@ -543,30 +566,30 @@
   }
 
   .heroSection {
-    padding: clamp(4rem, 8vw, 6rem) 0 var(--section-py-md);
+    padding: var(--section-py-md) 0;
   }
 
   .resultsGrid {
     padding: 0 32px;
-    gap: var(--spacing-40);
+    gap: var(--spacing-32);
   }
 
   .buildGrid {
     padding: 0 32px;
-    gap: var(--spacing-40);
+    gap: var(--spacing-32);
   }
 
   .ctaSection {
-    padding: 72px 24px;
+    padding: var(--section-py-md) var(--spacing-24);
   }
 
   .heroContainer {
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-40);
+    gap: var(--spacing-32);
   }
 
   .splitContainer {
-    gap: var(--spacing-40);
+    gap: var(--spacing-32);
   }
 
   /* Goal section only: content first, image second on smaller screens */
@@ -585,7 +608,7 @@
 
   .designBlock {
     gap: var(--spacing-32);
-    margin-top: 48px;
+    margin-top: var(--spacing-32);
   }
 }
 
@@ -601,15 +624,15 @@
 
   .sectionDefault,
   .sectionAlt {
-    padding: clamp(3rem, 6vw, 4rem) 0;
+    padding: var(--section-py-sm) 0;
   }
 
   .heroSection {
-    padding: clamp(3.5rem, 7vw, 5rem) 0 var(--section-py-sm);
+    padding: var(--section-py-sm) 0;
   }
 
   .resultsSection {
-    padding: clamp(3rem, 6vw, 4rem) 0;
+    padding: var(--section-py-sm) 0;
   }
 
   .resultsGrid {
@@ -637,7 +660,7 @@
   }
 
   .ctaSection {
-    padding: 64px 20px;
+    padding: var(--section-py-sm) 20px;
   }
 
   .heroContainer {
@@ -688,15 +711,14 @@
   .approachGrid {
     grid-template-columns: 1fr;
     gap: var(--spacing-24);
-    margin-top: var(--spacing-32);
+    margin-top: var(--spacing-24);
   }
 
   .designBlock,
   .designBlockReverse {
     grid-template-columns: 1fr;
-    gap: var(--spacing-20);
-    margin-top: var(--spacing-40);
-    direction: ltr;
+    gap: var(--spacing-24);
+    margin-top: var(--spacing-32);
   }
 
   /* Let mockups use full column width; fixed aspect + fill + contain left side gaps */

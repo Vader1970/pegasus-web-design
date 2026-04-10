@@ -21,10 +21,10 @@ export default function Home() {
       <Process />
       <LogoStrip />
       <RecentWork />
+      <Testimonials />
       <About />
       <CTA />
       <FAQ />
-      <Testimonials />
       <Contact />
     </main>
   );

@@ -8,7 +8,7 @@
   scroll-margin-top: 0px;
   width: 100%;
   background-color: var(--color-bg-primary);
-  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  padding: clamp(3rem, 4.5vw, 4rem) 0;
 }
 
 .container {
@@ -22,7 +22,7 @@
 --------------------*/
 .header {
   text-align: center;
-  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  margin-bottom: var(--spacing-24);
   padding: 0 64px;
 }
 
@@ -39,7 +39,7 @@
   color: var(--color-text-body);
   opacity: 0.7;
   max-width: 440px;
-  margin: var(--spacing-8) auto 0;
+  margin: var(--spacing-16) auto 0;
 }
 
 /* -------------------
@@ -133,7 +133,7 @@
 .logoImage {
   object-fit: contain;
   filter: grayscale(100%);
-  opacity: 0.65;
+  opacity: 1;
 }
 
 /* ================================================
@@ -142,7 +142,7 @@
 @media (max-width: 1024px) {
   .header {
     padding: 0 32px;
-    margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
+    margin-bottom: var(--spacing-24);
   }
 
   .marqueeContainer {
@@ -165,12 +165,12 @@
 
 @media (max-width: 640px) {
   .section {
-    padding: clamp(2rem, 5vw, 3rem) 0;
+    padding: clamp(3rem, 5vw, 3.75rem) 0;
   }
 
   .header {
     padding: 0 20px;
-    margin-bottom: var(--spacing-20);
+    margin-bottom: var(--spacing-24);
   }
 
   .heading {

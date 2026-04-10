@@ -42,9 +42,11 @@ export default function Hero() {
           <div className={`gsap-hero-trust ${styles.trustLine}`}>
             <div className={styles.trustRow}>
               <span className={styles.stars}>★★★★★</span>
-              <span className={styles.trustText}>+15 new clients in the first month of going live.</span>
+              <span className={styles.trustText}>Trusted by NZ service businesses</span>
             </div>
-            <div className={styles.author}>— Mac Auto Services, Christchurch</div>
+            <div className={styles.author}>
+              +15 new clients generated in first month (Mac Auto Services)
+            </div>
           </div>
 
           <h1 className={`gsap-hero-heading ${styles.heading}`}>

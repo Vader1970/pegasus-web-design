@@ -21,7 +21,7 @@
    Header
 --------------------*/
 .header {
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: var(--spacing-32);
   max-width: 680px;
 }
 
@@ -59,10 +59,9 @@
 .featured {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
-  gap: var(--spacing-64);
+  gap: var(--spacing-48);
   align-items: center;
-  margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
-  /* Increased separation from supporting grid */
+  margin-bottom: var(--spacing-48);
 }
 
 .featuredImageWrapper {
@@ -85,8 +84,7 @@
   font-weight: 800;
   letter-spacing: var(--ls-heading);
   color: var(--color-text-heading);
-  margin-bottom: var(--spacing-8);
-  /* Tightened from spacing-12 */
+  margin-bottom: var(--spacing-16);
   line-height: var(--lh-heading-loose);
 }
 
@@ -94,8 +92,7 @@
   font-size: var(--fs-body-lg);
   line-height: var(--lh-body);
   color: var(--color-text-body);
-  margin-bottom: var(--spacing-20);
-  /* Tightened from spacing-24 */
+  margin-bottom: var(--spacing-24);
   max-width: 44ch;
   opacity: 0.85;
 }
@@ -106,7 +103,7 @@
 .supportingGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-32);
+  gap: var(--spacing-24);
 }
 
 .card {
@@ -152,8 +149,7 @@
   font-size: var(--fs-body);
   line-height: var(--lh-body);
   color: var(--color-text-body);
-  margin-bottom: var(--spacing-8);
-  /* Tighter gap before CTA */
+  margin-bottom: var(--spacing-24);
   max-width: none;
   opacity: 0.8;
 }
@@ -213,8 +209,7 @@
 --------------------*/
 .sectionCta {
   text-align: center;
-  margin-top: clamp(3rem, 6vw, 4.5rem);
-  /* Increased from 2.5rem for stronger separation */
+  margin-top: var(--spacing-48);
 }
 
 /* ================================================
@@ -233,7 +228,7 @@
 
   .featured {
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-40);
+    gap: var(--spacing-32);
   }
 
   .featuredTitle {
@@ -257,7 +252,7 @@
   }
 
   .header {
-    margin-bottom: var(--spacing-32);
+    margin-bottom: var(--spacing-24);
   }
 
   .heading {
@@ -266,8 +261,8 @@
 
   .featured {
     grid-template-columns: 1fr;
-    gap: var(--spacing-16);
-    margin-bottom: var(--spacing-40);
+    gap: var(--spacing-24);
+    margin-bottom: var(--spacing-32);
   }
 
   .featuredImageWrapper {
@@ -280,13 +275,12 @@
 
   .featuredDescription {
     max-width: none;
-    margin-bottom: var(--spacing-12);
+    margin-bottom: var(--spacing-24);
   }
 
   .supportingGrid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-16);
-    /* Tighter card gaps on mobile */
+    gap: var(--spacing-24);
   }
 
   .cardImageWrapper {
@@ -311,7 +305,7 @@
   }
 
   .sectionCta {
-    margin-top: var(--spacing-64);
+    margin-top: var(--spacing-48);
   }
 
 }

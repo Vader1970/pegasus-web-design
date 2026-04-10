@@ -12,7 +12,7 @@
   padding: 0 64px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-80);
+  gap: var(--spacing-48);
   align-items: center;
 }
 
@@ -48,7 +48,7 @@
   font-size: var(--fs-body-lg);
   line-height: var(--lh-body);
   color: var(--color-text-body);
-  margin-bottom: var(--spacing-32);
+  margin-bottom: var(--spacing-24);
   max-width: var(--max-w-prose);
 }
 
@@ -153,7 +153,7 @@
   .container {
     /* 55/45 split: content side gets meaningfully more room */
     grid-template-columns: 55fr 45fr;
-    gap: var(--spacing-40);
+    gap: var(--spacing-32);
     padding: 0 48px;
     /* Top-align: cards start at the same vertical position as the heading */
     align-items: start;
@@ -169,7 +169,7 @@
     /* Pulled back from desktop --fs-h2 to prevent 4+ line wrap */
     font-size: clamp(1.6rem, 2.6vw, 2.2rem);
     line-height: 1.1;
-    margin-bottom: 0.65rem;
+    margin-bottom: var(--spacing-16);
     max-width: none;
   }
 
@@ -184,7 +184,7 @@
   }
 
   .cardsGrid {
-    gap: var(--spacing-16);
+    gap: var(--spacing-20);
   }
 
   .card {
@@ -209,7 +209,7 @@
 
   .container {
     grid-template-columns: 1fr;
-    gap: var(--spacing-40);
+    gap: var(--spacing-32);
     padding: 0 40px;
     align-items: stretch;
   }
@@ -229,7 +229,7 @@
   .paragraph {
     font-size: var(--fs-body-lg);
     max-width: none;
-    margin-bottom: var(--spacing-32);
+    margin-bottom: var(--spacing-24);
   }
 
   .ctaLink {
@@ -239,7 +239,7 @@
   /* Cards: restore 2-col now that full width is available */
   .cardsGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-20);
+    gap: var(--spacing-24);
   }
 
   .card {

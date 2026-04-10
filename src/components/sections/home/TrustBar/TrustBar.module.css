@@ -2,7 +2,7 @@
   scroll-margin-top: 0px;
   width: 100%;
   background-color: var(--color-bg-primary);
-  padding: var(--spacing-48) 0;
+  padding: clamp(2.5rem, 3.5vw, 3rem) 0;
   border-top: 1px solid var(--color-border-light);
   border-bottom: 1px solid var(--color-border-light);
 }
@@ -90,7 +90,7 @@
 @media (max-width: 1200px) {
   .container {
     grid-template-columns: repeat(2, 1fr);
-    row-gap: var(--spacing-40);
+    row-gap: var(--spacing-24);
     column-gap: 0;
     padding: 0 32px;
   }
@@ -106,12 +106,12 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: var(--spacing-40) 0;
+    padding: clamp(2.75rem, 4vw, 3.5rem) 0;
   }
 
   .container {
     grid-template-columns: 1fr;
-    row-gap: var(--spacing-40);
+    row-gap: var(--spacing-24);
     padding: 0 20px;
   }
 
