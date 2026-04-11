@@ -2,7 +2,6 @@ import Hero from '@/components/sections/home/Hero/Hero';
 import TrustBar from '@/components/sections/home/TrustBar/TrustBar';
 import Problem from '@/components/sections/home/Problem/Problem';
 import Services from '@/components/sections/home/Services/Services';
-import ServicesAlt from '@/components/sections/home/ServicesAlt/ServicesAlt';
 import Process from '@/components/sections/home/Process/Process';
 import LogoStrip from '@/components/sections/home/LogoStrip/LogoStrip';
 import RecentWork from '@/components/sections/home/RecentWork/RecentWork';
@@ -18,8 +17,7 @@ export default function Home() {
       <Hero />
       <TrustBar />
       <Problem />
-      <ServicesAlt />
-      {/* <Services /> */}
+      <Services />
       <Process />
       <LogoStrip />
       <RecentWork />

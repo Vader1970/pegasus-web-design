@@ -69,7 +69,7 @@ export default function LogoStrip() {
             Businesses we&apos;ve worked with
           </h2>
           <p className={`gsap-logo-header ${styles.subtext}`}>
-            A few of the businesses we&apos;ve helped with clearer, better-performing websites.
+            A few of the businesses we&apos;ve helped with clearer, better-performing websites and landing pages.
           </p>
         </div>
 

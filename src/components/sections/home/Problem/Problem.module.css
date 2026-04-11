@@ -98,14 +98,14 @@
   background-color: var(--color-bg-primary);
   padding: var(--card-py) var(--card-px);
   border-radius: var(--radius-sm);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .iconWrapper {

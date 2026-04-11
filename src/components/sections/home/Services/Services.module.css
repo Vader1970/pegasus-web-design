@@ -1,5 +1,5 @@
 .section {
-  scroll-margin-top: 0px;
+  scroll-margin-top: 0;
   width: 100%;
   background-color: var(--color-bg-primary);
   padding: var(--section-py) 0;
@@ -12,14 +12,10 @@
   padding: 0 64px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-48);
+  gap: var(--spacing-40);
   align-items: start;
-  /* Anchors both columns to the top line perfectly */
 }
 
-/* -------------------
-   Left Content
---------------------*/
 .contentColumn {
   display: flex;
   flex-direction: column;
@@ -64,9 +60,9 @@
   color: var(--color-brand-primary);
   font-size: clamp(1.05rem, 1.35vw, 1.25rem);
   font-weight: 600;
+  letter-spacing: 0.01em;
   text-decoration: none;
-  margin-top: 0;
-  transition: opacity 0.3s ease, color 0.3s ease;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
 }
 
 .ctaLink:hover {
@@ -85,136 +81,98 @@
 }
 
 /* -------------------
-   Accordion Layer
+   Service rows
 --------------------*/
-.accordionColumn {
+.rowsColumn {
   width: 100%;
+  min-width: 0;
 }
 
-.accordion {
+/* Gap between rows — matches Problem .cardsGrid at each breakpoint */
+.rowsList {
+  --row-gap: var(--spacing-24);
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--color-border-light);
+  gap: var(--row-gap);
 }
 
-.accordionItem {
-  border-bottom: 1px solid var(--color-border-light);
-  border-left: 1px solid transparent;
-  /* Elegant, thin border accent */
-  transition: background-color 0.4s ease, border-left-color 0.4s ease;
-}
-
-.accordionItem.open {
-  background-color: rgba(100, 103, 242, 0.015);
-  /* Extremely soft, barely-there tint */
-  border-left-color: var(--color-brand-primary);
-}
-
-.accordionHeader {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--spacing-16) var(--spacing-24);
-  /* Tighter vertical padding to group with content */
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  transition: opacity 0.3s ease;
-}
-
-.accordionHeader:hover {
-  opacity: 0.85;
-}
-
-.headerContent {
-  flex: 1;
-  padding-right: var(--spacing-24);
-}
-
-.accordionTitle {
-  font-size: var(--fs-h3);
-  font-weight: 700;
-  color: var(--color-text-heading);
+.serviceRow {
+  position: relative;
   margin: 0;
-  transition: color 0.3s ease;
+  background-color: rgba(100, 103, 242, 0.008);
+  border-radius: var(--radius-sm);
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+  border-right: 1px solid var(--color-border-light);
+  border-left: 3px solid var(--color-brand-primary);
+  box-shadow: var(--shadow-card);
+  padding: clamp(0.85rem, 1.2vw, 1.15rem) clamp(1.2rem, 1.75vw, 1.9rem);
+  transition: box-shadow 0.3s ease;
 }
 
-.accordionHeader:hover .accordionTitle {
-  color: var(--color-brand-primary);
+.serviceRow:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(-0.5 * var(--row-gap));
+  height: 1px;
+  background-color: var(--color-border-light);
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
-.accordionItem.open .accordionTitle {
-  color: var(--color-brand-primary);
+.serviceRow:hover {
+  box-shadow: var(--shadow-card-hover);
 }
 
-.chevron {
-  color: var(--color-text-secondary);
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
-  /* Ultra-smooth, elegant easing */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.accordionItem.open .chevron {
-  transform: rotate(180deg);
-  color: var(--color-brand-primary);
-}
-
-.accordionBodyWrapper {
+.rowInner {
   display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  grid-template-columns: minmax(0, 0.52fr) minmax(0, 1fr);
+  gap: var(--spacing-24);
+  align-items: start;
 }
 
-.accordionItem.open .accordionBodyWrapper {
-  grid-template-rows: 1fr;
+.rowTitle {
+  font-size: clamp(1.18rem, 1.75vw, 1.4rem);
+  font-weight: 700;
+  color: var(--color-brand-primary);
+  margin: 0;
+  letter-spacing: var(--ls-heading);
+  line-height: 1.2;
 }
 
-.accordionBody {
-  overflow: hidden;
+.rowBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  min-width: 0;
 }
 
-.accordionContentPadding {
-  padding: 0 var(--spacing-24) var(--spacing-24);
-  /* Tighter padding-bottom to keep the unit cohesive */
-}
-
-.accordionSubtitle {
-  font-size: 0.95rem;
-  /* slightly smaller than title */
-  font-weight: 500;
-  /* medium weight */
-  color: var(--color-text-heading);
-  /* same colour as heading */
-  margin: 0 0 2px 0;
-  /* tight vertical spacing to description */
-}
-
-.accordionText {
-  font-size: 0.95rem;
-  /* lighter body text scale */
+.rowText {
+  font-size: var(--fs-body);
   line-height: var(--lh-body);
   color: var(--color-text-body);
   margin: 0;
-  opacity: 0.9;
-  max-width: var(--max-w-prose);
+  max-width: none;
+  opacity: 0.94;
 }
 
-/* -------------------
-   Responsive Rules
---------------------*/
-@media (max-width: 1200px) {
+/* ------------------------------------------------
+   1024px
+------------------------------------------------ */
+@media (max-width: 1024px) {
   .section {
     padding: var(--section-py-md) 0;
   }
 
   .container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 55fr 45fr;
     gap: var(--spacing-32);
-    padding: 0 32px;
+    padding: 0 48px;
   }
 
   .contentColumn {
@@ -222,11 +180,98 @@
   }
 
   .heading {
-    max-width: var(--max-w-heading-sm);
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    line-height: 1.1;
+    margin-bottom: var(--spacing-16);
+    max-width: none;
+  }
+
+  .paragraph {
+    font-size: var(--fs-body);
+    max-width: none;
+    margin-bottom: var(--spacing-24);
+  }
+
+  .ctaLink {
+    font-size: 1.05rem;
+  }
+
+  .rowsList {
+    --row-gap: var(--spacing-20);
+  }
+
+  .serviceRow {
+    padding: clamp(0.85rem, 1.15vw, 1.05rem) clamp(1.1rem, 1.5vw, 1.5rem);
+  }
+
+  .rowInner {
+    grid-template-columns: minmax(0, 0.48fr) minmax(0, 1fr);
+    gap: var(--spacing-20);
+  }
+
+  .rowTitle {
+    font-size: clamp(1.1rem, 1.65vw, 1.32rem);
   }
 }
 
-@media (max-width: 768px) {
+/* ------------------------------------------------
+   900px — stack section
+------------------------------------------------ */
+@media (max-width: 900px) {
+  .section {
+    padding: var(--section-py-md) 0;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-32);
+    padding: 0 40px;
+    align-items: stretch;
+  }
+
+  .contentColumn {
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .heading {
+    font-size: clamp(1.65rem, 3.5vw, 2.2rem);
+    line-height: var(--lh-heading-loose);
+    margin-bottom: var(--gap-heading-body);
+  }
+
+  .paragraph {
+    font-size: var(--fs-body-lg);
+    max-width: none;
+    margin-bottom: var(--spacing-24);
+  }
+
+  .ctaLink {
+    font-size: clamp(1.05rem, 1.5vw, 1.375rem);
+  }
+
+  .rowsList {
+    --row-gap: var(--spacing-24);
+  }
+
+  .serviceRow {
+    padding: clamp(1rem, 2.5vw, 1.2rem) clamp(1.1rem, 2.5vw, 1.5rem);
+  }
+
+  .rowInner {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+  }
+
+  .rowBody {
+    gap: var(--spacing-12);
+  }
+}
+
+/* ------------------------------------------------
+   640px
+------------------------------------------------ */
+@media (max-width: 640px) {
   .section {
     padding: var(--section-py-sm) 0;
   }
@@ -237,20 +282,32 @@
   }
 
   .heading {
-    font-size: clamp(1.6rem, 7vw, 2.2rem);
-    max-width: none;
+    font-size: clamp(1.5rem, 6.5vw, 2rem);
   }
 
-  .accordionTitle {
+  .paragraph {
+    font-size: var(--fs-body);
+    margin-bottom: var(--spacing-24);
+  }
+
+  .rowsList {
+    --row-gap: var(--spacing-20);
+  }
+
+  .serviceRow {
+    padding: var(--spacing-16) var(--spacing-16);
+  }
+
+  .rowTitle {
     font-size: 1.05rem;
   }
 
-  .accordionHeader {
-    padding: 16px 16px;
+  .rowBody {
+    gap: var(--spacing-12);
   }
 
-  .accordionContentPadding {
-    padding: 0 16px 16px;
+  .rowText {
+    font-size: 0.95rem;
   }
 
   .ctaLink {

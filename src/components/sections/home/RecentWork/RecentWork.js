@@ -23,7 +23,7 @@ const featuredProject = {
     "Trust-first website rebuild that helped a local workshop win more enquiries and look established from first click.",
   caseStudy: "/work/mac-auto-services",
   liveSite: "https://www.macautoservices.co.nz/",
-  image: "/images/home/projects/mac-auto-mock-up.webp",
+  image: "/images/home/projects/mac-auto-services-mock-up.webp",
 };
 
 const supportingProjects = [
@@ -37,7 +37,7 @@ const supportingProjects = [
   {
     type: "WEBSITE",
     title: "Autistic Innovations",
-    description: "Clear, accessible website that helps the right people understand the offer and act.",
+    description: "Clear, accessible website that helps the right people understand the support offered and act.",
     link: "https://www.autisticinnovations.co.nz/",
     image: "/images/home/projects/autistic-innovations-maoc-up.png",
   },
@@ -51,7 +51,7 @@ const supportingProjects = [
   },
   {
     type: "LANDING PAGE",
-    title: "Master Kerb",
+    title: "Master Kerb & Concrete",
     description: "Lead-gen landing page designed to turn local traffic into steady enquiries.",
     link: "https://www.masterkerb.co.nz/landing-page",
     image: "/images/home/projects/master-kerb-mock-up.png",
