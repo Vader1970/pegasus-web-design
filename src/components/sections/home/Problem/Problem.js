@@ -17,7 +17,7 @@ const cards = [
   {
     icon: "/images/home/icons/outdated-design.png",
     title: "Looks outdated",
-    text: "Visitors judge your business in seconds. If your site looks old, they assume the business looks unprofessional.",
+    text: "Visitors judge your business in seconds. If your site looks unprofessional, they assume the business is too.",
     alt: "Outdated design icon"
   },
   {
@@ -29,7 +29,7 @@ const cards = [
   {
     icon: "/images/home/icons/confusion-structure.png",
     title: "Hard to navigate",
-    text: "If people can’t quickly find what they need, they leave instead of getting in touch.",
+    text: "If people can't quickly find what they need, they leave instead of getting in touch.",
     alt: "Confusing structure icon"
   },
   {

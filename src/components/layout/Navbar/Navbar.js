@@ -138,7 +138,7 @@ export default function Navbar() {
 
           {/* Center: Desktop Nav Links */}
           <nav className={styles.desktopNav}>
-            <Link href="/#services-alt" className={styles.navLink} onClick={handleNavClick}>Services</Link>
+            <Link href="/#services" className={styles.navLink} onClick={handleNavClick}>Services</Link>
             <Link href="/work" className={styles.navLink} onClick={handleWorkNavClick}>Work</Link>
             <Link href="/#about" className={styles.navLink} onClick={handleNavClick}>About Us</Link>
             <Link href="/work/mac-auto-services" className={styles.navLink} onClick={handleWorkNavClick}>Case Study</Link>
@@ -168,14 +168,14 @@ export default function Navbar() {
         {/* Mobile: Fullscreen Menu Dropdown */}
         <div className={styles.mobileMenu} data-open={isOpen}>
           <nav className={styles.mobileNavLinks}>
-            <Link href="/#services-alt" className={styles.mobileNavLink} onClick={handleNavClick}>Services</Link>
+            <Link href="/#services" className={styles.mobileNavLink} onClick={handleNavClick}>Services</Link>
             <Link href="/work" className={styles.mobileNavLink} onClick={handleWorkNavClick}>Work</Link>
             <Link href="/#about" className={styles.mobileNavLink} onClick={handleNavClick}>About US</Link>
             <Link href="/work/mac-auto-services" className={styles.mobileNavLink} onClick={handleWorkNavClick}>Case Study</Link>
           </nav>
 
           <div className={styles.mobileCtaWrapper}>
-            <Link href="#contact" className={styles.ctaButton} onClick={handleNavClick}>
+            <Link href="/#contact" className={styles.ctaButton} onClick={handleNavClick}>
               Get your free proposal
               <ArrowRight size={20} className={styles.arrow} />
             </Link>

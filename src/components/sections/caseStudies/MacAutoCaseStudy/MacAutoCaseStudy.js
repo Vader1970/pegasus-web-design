@@ -115,7 +115,7 @@ export default function MacAutoCaseStudy() {
           </div>
           <div className={`gsap-cs ${styles.heroImageWrapper}`}>
             <Image
-              src={`${IMG}/hero-new.png`}
+              src={`${IMG}/mac-case-study-hero.png`}
               alt="Mac Auto Services website on laptop"
               fill
               className={styles.heroImage}
@@ -137,11 +137,11 @@ export default function MacAutoCaseStudy() {
               A great workshop with a website that didn&apos;t match
             </h2>
             <ul className={`gsap-cs ${styles.bulletList}`}>
-              <li>The old site looked outdated and didn&apos;t reflect the quality of their work</li>
-              <li>Customers couldn&apos;t easily find services, hours, or how to book</li>
-              <li>Mobile experience was poor, most local search traffic is on phones</li>
-              <li>No clear call to action, visitors had nowhere obvious to go</li>
-              <li>Competitors with better sites were winning the same customers</li>
+              <li>The old site looked outdated and didn&apos;t reflect the quality of their work.</li>
+              <li>Customers couldn&apos;t easily find services, hours, or how to book.</li>
+              <li>Mobile experience was poor, most local search traffic is on phones.</li>
+              <li>No clear call to action, visitors had nowhere obvious to go.</li>
+              <li>Competitors with better sites were winning the same customers.</li>
             </ul>
           </div>
           <div className={`gsap-cs ${styles.splitImageWrapper}`}>
@@ -176,11 +176,11 @@ export default function MacAutoCaseStudy() {
               Build a site that earns trust and drives enquiries
             </h2>
             <ul className={`gsap-cs ${styles.bulletList}`}>
-              <li>Present Mac Auto as the professional, reliable workshop they are</li>
-              <li>Make it easy for visitors to find services and take action</li>
-              <li>Optimise for mobile-first, where most local customers search</li>
-              <li>Create a fast, modern site that builds credibility in seconds</li>
-              <li>Give the team a platform they can actually grow with</li>
+              <li>Present Mac Auto as the professional, reliable workshop they are.</li>
+              <li>Make it easy for visitors to find services and take action.</li>
+              <li>Optimise for mobile-first, where most local customers search.</li>
+              <li>Create a fast, modern site that builds credibility in seconds.</li>
+              <li>Give the team a platform they can actually grow with.</li>
             </ul>
           </div>
         </div>
@@ -269,7 +269,7 @@ export default function MacAutoCaseStudy() {
             <div className={styles.designText}>
               <h3 className={styles.designTitle}>Mobile-first, conversion-focused</h3>
               <p className={styles.designPara}>
-                Over 70% of traffic comes from mobile search. Every interaction, buttons, forms, navigation, was designed for thumbs first and desktops second.
+              Over 70% of traffic comes from mobile search, so performance was a key focus. The site achieves strong PageSpeed scores, loads quickly, and delivers a smooth experience that keeps visitors engaged and encourages bookings.
               </p>
             </div>
           </div>
@@ -290,15 +290,15 @@ export default function MacAutoCaseStudy() {
               The site was built from scratch using React, no templates, no page builders. This gives Mac Auto a site that loads fast, ranks well, and can scale as their business grows.
             </p>
             <ul className={`gsap-cs ${styles.bulletList}`}>
-              <li>Custom React codebase, fast, secure, future-proof</li>
-              <li>Optimised images and lazy loading for performance</li>
-              <li>SEO foundations built in from day one</li>
-              <li>Responsive across every device and screen size</li>
+              <li>Custom React codebase, fast, secure, future-proof.</li>
+              <li>Optimised images and lazy loading for performance.</li>
+              <li>SEO foundations built in from day one.</li>
+              <li>Responsive across every device and screen size.</li>
             </ul>
           </div>
           <div className={`gsap-cs ${styles.buildImageWrapper}`}>
             <Image
-              src="/images/home/projects/mac-auto-mock-up.webp"
+              src="/images/case-studies/mac-auto-services/mobile-first.png"
               alt="Mac Auto Services website mockup"
               fill
               className={styles.buildImage}
@@ -321,11 +321,11 @@ export default function MacAutoCaseStudy() {
               Built to convert, not just exist
             </h2>
             <ul className={`gsap-cs ${styles.bulletList}`}>
-              <li>A professional presence that matches the quality of their work</li>
-              <li>Clear service pages that guide visitors straight to enquiry</li>
-              <li>Mobile-first design capturing 70%+ of local search traffic</li>
-              <li>Trust signals that turn browsers into booked customers</li>
-              <li>A fast, scalable platform built to grow with the business</li>
+              <li>A professional presence that matches the quality of their work.</li>
+              <li>Clear service pages that guide visitors straight to enquiry.</li>
+              <li>Mobile-first design capturing 70%+ of local search traffic.</li>
+              <li>Trust signals that turn browsers into booked customers.</li>
+              <li>A fast, scalable platform built to grow with the business.</li>
             </ul>
           </div>
 

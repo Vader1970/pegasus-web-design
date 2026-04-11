@@ -107,6 +107,10 @@
   --radius-md: 16px;
   --radius-lg: 20px;
 
+  /* Card elevation — Problem .card, Services .serviceRow */
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.06);
+
   /* Primary CTA (solid) — shared across homepage */
   --cta-primary-py: 14px;
   --cta-primary-px: 28px;

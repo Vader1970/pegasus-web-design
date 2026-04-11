@@ -25,7 +25,7 @@ const featured = {
   ],
   liveSite: "https://www.macautoservices.co.nz/",
   caseStudy: "/work/mac-auto-services",
-  image: "/images/home/projects/mac-auto-mock-up.webp",
+  image: "/images/home/projects/mac-auto-services-mock-up.webp",
 };
 
 export default function WorkFeatured() {

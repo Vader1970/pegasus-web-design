@@ -73,7 +73,7 @@ export default function Footer() {
           </div>
 
           <nav className={styles.nav}>
-            <Link href="/#services-alt" className={styles.link} onClick={handleNavClick}>Services</Link>
+            <Link href="/#services" className={styles.link} onClick={handleNavClick}>Services</Link>
             <Link href="/work" className={styles.link} onClick={handleWorkNavClick}>Work</Link>
             <Link href="/#about" className={styles.link} onClick={handleNavClick}>About Us</Link>
             <Link href="/work/mac-auto-services" className={styles.link} onClick={handleWorkNavClick}>Case Study</Link>
