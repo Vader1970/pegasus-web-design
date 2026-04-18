@@ -79,6 +79,7 @@ const PlatformIcon = () => (
 const services = [
   {
     key: "redesigns",
+    slug: "website-redesigns",
     title: "Website Redesigns",
     body:
       "We rebuild outdated or underperforming websites so they look more professional, load faster, and turn more visitors into real enquiries.",
@@ -87,6 +88,7 @@ const services = [
   },
   {
     key: "business",
+    slug: "business-websites",
     title: "Business Websites",
     body:
       "Custom-built websites for service businesses that need clear messaging, strong trust signals, and a straightforward path for visitors to get in touch.",
@@ -95,6 +97,7 @@ const services = [
   },
   {
     key: "landing",
+    slug: "landing-pages",
     title: "Landing Pages",
     body:
       "Single-focus pages designed for ads, campaigns, or specific services, built to guide visitors toward action and turn clicks into qualified leads.",
@@ -103,6 +106,7 @@ const services = [
   },
   {
     key: "seo",
+    slug: "seo-optimisation",
     title: "SEO Optimisation",
     body:
       "We improve your website's structure, content, and search visibility so more of the right people can find your business online. From on-page SEO to technical improvements, we focus on practical changes that support long-term growth.",
@@ -111,6 +115,7 @@ const services = [
   },
   {
     key: "platform",
+    slug: "platform-guidance",
     title: "Platform Guidance",
     body:
       "Straightforward advice on the right platform for your business, helping you choose a setup that fits your goals, budget, and long-term growth.",
@@ -196,7 +201,7 @@ export default function HowWeHelp() {
 
         {/* Bento grid — 2 cards on top row, 3 cards on bottom row */}
         <div className={styles.bento} role="list">
-          {services.map(({ key, title, body, Icon, placement }) => (
+          {services.map(({ key, slug, title, body, Icon, placement }) => (
             <article
               key={key}
               role="listitem"
@@ -208,6 +213,18 @@ export default function HowWeHelp() {
               </div>
               <h3 className={styles.cardTitle}>{title}</h3>
               <p className={styles.cardBody}>{body}</p>
+              <Link
+                href={`/services/${slug}`}
+                className={styles.cardLink}
+                aria-label={`Learn more about ${title}`}
+              >
+                Learn more
+                <ArrowRight
+                  size={16}
+                  className={styles.cardLinkArrow}
+                  aria-hidden="true"
+                />
+              </Link>
             </article>
           ))}
         </div>

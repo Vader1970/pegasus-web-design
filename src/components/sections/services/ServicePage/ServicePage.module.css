@@ -1,0 +1,545 @@
+/* =================================================================
+   ServicePage — Shared template for every /services/[slug] page.
+   Design system: same tokens, spacing, and rhythm as the homepage
+   and the Mac Auto case study. One look across the site.
+================================================================== */
+
+.page {
+  width: 100%;
+}
+
+/* -------------------
+   Containers
+--------------------*/
+.container {
+  max-width: 1312px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.narrowContainer {
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+/* -------------------
+   Section backgrounds — alternating rhythm to match homepage
+--------------------*/
+.sectionDefault {
+  width: 100%;
+  background-color: var(--color-bg-primary);
+  padding: var(--section-py) 0;
+}
+
+.sectionAlt {
+  width: 100%;
+  background-color: var(--color-bg-section-alt, #f7f8fa);
+  padding: var(--section-py) 0;
+}
+
+/* -------------------
+   Shared typography
+--------------------*/
+.label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brand-primary);
+  margin-bottom: 6px;
+}
+
+.sectionHeading {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading-loose);
+  font-weight: 800;
+  letter-spacing: var(--ls-heading);
+  color: var(--color-text-heading);
+  margin: 0 0 var(--gap-heading-body);
+  max-width: 24ch;
+}
+
+.blockHeader {
+  max-width: 720px;
+  margin-bottom: var(--spacing-32);
+}
+
+.bodyText {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+  opacity: 0.85;
+  margin: 0 0 var(--gap-body-cta);
+  max-width: 56ch;
+}
+
+/* -------------------
+   Bullet list — same visual style as case study
+--------------------*/
+.bulletList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  max-width: 62ch;
+}
+
+.bulletList li {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+  padding-left: 20px;
+  position: relative;
+}
+
+.bulletList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-brand-primary);
+}
+
+/* -------------------
+   Checklist grid — "What's included"
+--------------------*/
+.checkGrid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-16) var(--spacing-32);
+}
+
+.checkItem {
+  display: flex;
+  gap: var(--spacing-12);
+  align-items: flex-start;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background-color: var(--color-brand-soft);
+  color: var(--color-brand-primary);
+  margin-top: 2px;
+}
+
+.checkText {
+  display: block;
+}
+
+/* -------------------
+   Buttons — mirror case study system
+--------------------*/
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cta-primary-gap);
+  padding: var(--cta-primary-py) var(--cta-primary-px);
+  background-color: var(--color-brand-primary);
+  color: #fff;
+  font-size: var(--fs-body);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: opacity 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btnPrimary:hover {
+  opacity: 0.92;
+  background-color: var(--color-brand-accent);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--cta-primary-py) 0;
+  color: var(--color-brand-primary);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.btnSecondary:hover {
+  color: var(--color-brand-accent);
+}
+
+.arrow {
+  display: inline-block;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnPrimary:hover .arrow,
+.btnSecondary:hover .arrow,
+.featuredLink:hover .arrow,
+.ctaBtn:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ================================================
+   1 — HERO
+================================================ */
+.heroSection {
+  width: 100%;
+  background-color: var(--color-bg-primary);
+  padding: var(--section-py-lg) 0 var(--section-py) 0;
+}
+
+.heroContainer {
+  max-width: 1312px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: var(--spacing-48);
+  align-items: center;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroHeading {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  line-height: var(--lh-heading);
+  font-weight: 800;
+  letter-spacing: var(--ls-heading-tight);
+  color: var(--color-text-heading);
+  margin: 0 0 var(--gap-heading-body);
+}
+
+.heroSub {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-body-tight);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  margin: 0 0 var(--gap-heading-body);
+  max-width: 40ch;
+}
+
+.heroPara {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+  opacity: 0.9;
+  margin: 0 0 var(--gap-body-cta);
+  max-width: 52ch;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-20);
+  flex-wrap: wrap;
+}
+
+.heroImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.heroImage {
+  object-fit: contain;
+  object-position: center;
+}
+
+/* ================================================
+   2 — OVERVIEW (narrow, centered column)
+================================================ */
+.overviewBody {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+  opacity: 0.9;
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* ================================================
+   6 — FEATURED WORK (split layout, image left)
+================================================ */
+.featuredGrid {
+  max-width: 1312px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--spacing-48);
+  align-items: center;
+}
+
+.featuredImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--color-border-light);
+}
+
+.featuredImage {
+  object-fit: contain;
+  object-position: center;
+}
+
+.featuredText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.featuredCaption {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--spacing-24);
+}
+
+.captionIcon {
+  color: var(--color-brand-primary);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.featuredLink {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cta-primary-gap);
+  color: var(--color-brand-primary);
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.featuredLink:hover {
+  color: var(--color-brand-accent);
+  opacity: 0.92;
+}
+
+/* ================================================
+   7 — FINAL CTA (slate band)
+   Same visual as the shared SlateBandCta so this page's
+   final step feels identical to the rest of the site.
+================================================ */
+.ctaSection {
+  width: 100%;
+  background-color: #1e293b;
+  padding: var(--section-py) var(--spacing-24);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ctaContent {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ctaHeading {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: var(--ls-heading-tight);
+  color: #fff;
+  margin: 0 0 var(--gap-heading-body);
+  max-width: 22ch;
+}
+
+.ctaPara {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 var(--gap-body-cta);
+  max-width: 520px;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 44px;
+  min-width: 240px;
+  background-color: var(--color-brand-primary);
+  color: #fff;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.ctaBtn:hover {
+  background-color: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+}
+
+/* ================================================
+   Reduced motion — respect user preference
+================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .arrow,
+  .btnPrimary,
+  .btnSecondary,
+  .featuredLink,
+  .ctaBtn {
+    transition: none;
+  }
+}
+
+/* ================================================
+   RESPONSIVE
+================================================ */
+
+/* ── Tablet / small laptop ── */
+@media (max-width: 1200px) {
+  .container,
+  .narrowContainer,
+  .heroContainer,
+  .featuredGrid {
+    padding: 0 32px;
+  }
+
+  .sectionDefault,
+  .sectionAlt {
+    padding: var(--section-py-md) 0;
+  }
+
+  .heroSection {
+    padding: var(--section-py-lg-md) 0 var(--section-py-md) 0;
+  }
+
+  .ctaSection {
+    padding: var(--section-py-md) var(--spacing-24);
+  }
+
+  .heroContainer,
+  .featuredGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-32);
+  }
+
+  .checkGrid {
+    gap: var(--spacing-16) var(--spacing-24);
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .container,
+  .narrowContainer,
+  .heroContainer,
+  .featuredGrid {
+    padding: 0 20px;
+  }
+
+  .sectionDefault,
+  .sectionAlt {
+    padding: var(--section-py-sm) 0;
+  }
+
+  .heroSection {
+    padding: var(--section-py-md) 0 var(--section-py-sm) 0;
+  }
+
+  .ctaSection {
+    padding: var(--section-py-sm) 20px;
+  }
+
+  .heroContainer {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-32);
+  }
+
+  .heroHeading {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+
+  .heroSub,
+  .heroPara {
+    max-width: none;
+  }
+
+  .heroActions {
+    gap: var(--spacing-12);
+  }
+
+  .heroImageWrapper {
+    aspect-ratio: 16 / 10;
+  }
+
+  .sectionHeading {
+    max-width: none;
+  }
+
+  .blockHeader {
+    margin-bottom: var(--spacing-24);
+  }
+
+  .bulletList li {
+    font-size: var(--fs-body);
+  }
+
+  .bulletList {
+    gap: var(--spacing-12);
+  }
+
+  .checkGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-12);
+  }
+
+  .checkItem {
+    font-size: var(--fs-body);
+  }
+
+  .featuredGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-24);
+  }
+
+  .featuredImageWrapper {
+    aspect-ratio: 16 / 10;
+  }
+
+  .ctaHeading {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+}

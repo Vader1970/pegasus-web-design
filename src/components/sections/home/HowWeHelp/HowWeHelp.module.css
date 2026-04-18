@@ -191,6 +191,54 @@
   transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
 }
 
+/* Per-card "Learn more" link.
+   Sits underneath the body copy, pushed to the bottom of the card so
+   cards with different body lengths keep their links aligned.
+
+   The ::after pseudo expands the link's hit-area to cover the whole
+   card, making the entire card clickable while keeping a single
+   accessible link per card. */
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: var(--spacing-8);
+  color: var(--color-brand-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  align-self: flex-start;
+  transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+.cardLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.cardLinkArrow {
+  display: inline-block;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cardLink:hover .cardLinkArrow {
+  transform: translateX(3px);
+}
+
+/* Nudge the arrow when hovering anywhere on the card, not just the
+   visible "Learn more" text, so the whole card feels interactive. */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .cardLinkArrow {
+    transform: translateX(3px);
+  }
+}
+
 /* -------------------------------------------------
    Hover — smooth premium dark state
 -------------------------------------------------- */
@@ -219,6 +267,10 @@
     background-color: rgba(255, 255, 255, 0.08);
     color: var(--color-text-on-dark);
   }
+
+  .card:hover .cardLink {
+    color: var(--color-text-on-dark);
+  }
 }
 
 .card:focus-within {
@@ -234,7 +286,9 @@
   .cardTitle,
   .cardBody,
   .arrow,
-  .ctaLink {
+  .ctaLink,
+  .cardLink,
+  .cardLinkArrow {
     transition: none;
   }
 }
