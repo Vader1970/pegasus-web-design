@@ -1,10 +1,6 @@
 .section {
   width: 100%;
-  background: linear-gradient(
-    180deg,
-    var(--color-brand-soft, #f4f5fd) 0%,
-    #eceef8 100%
-  );
+  background-color: var(--color-bg-primary, #FFFFFF);
   padding: var(--section-py) 0;
   scroll-margin-top: 0px;
 }

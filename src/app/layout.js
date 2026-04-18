@@ -7,7 +7,7 @@ export const metadata = {
   title: 'Pegasus Web Design',
   description: 'Premium Web Design',
   icons: {
-    icon: '/images/pegasus-favicon.png',
+    icon: '/images/favicon.png',
   },
 };
 

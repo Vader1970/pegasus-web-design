@@ -1,7 +1,7 @@
 .section {
   scroll-margin-top: 0px;
   width: 100%;
-  background-color: var(--color-bg-secondary, #F1F3F7);
+  background-color: var(--color-bg-section-alt, #F7F8FA);
   padding: var(--section-py) 0;
 }
 
@@ -12,8 +12,11 @@
   padding: 0 64px;
 }
 
+/* -------------------
+   Section header
+--------------------*/
 .header {
-  margin-bottom: var(--spacing-32);
+  margin-bottom: var(--spacing-48);
 }
 
 .label {
@@ -44,21 +47,21 @@
   margin-top: var(--spacing-16);
 }
 
-.desktopBreak {
-  display: block;
-}
-
+/* -------------------
+   Steps grid
+   No dividers, generous row gap for breathing room.
+   Borrows the case-study rhythm, lighter for homepage.
+--------------------*/
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-48) var(--spacing-32);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  row-gap: var(--spacing-64);
+  column-gap: var(--spacing-40);
 }
 
 .step {
   display: flex;
   flex-direction: column;
-  padding-top: var(--spacing-24);
-  border-top: 1px solid var(--color-border-light);
 }
 
 .stepContent {
@@ -66,19 +69,26 @@
   flex-direction: column;
 }
 
+/* Large, soft, refined step number.
+   Brand-tinted and low-opacity so it sits behind the hierarchy. */
 .number {
-  display: inline-block;
-  font-size: clamp(1.1rem, 2vw, 1.25rem);
-  font-weight: 700;
+  display: block;
+  font-size: clamp(2.25rem, 3.5vw, 3rem);
+  font-weight: 800;
   color: var(--color-brand-primary);
+  opacity: 0.2;
+  line-height: 1;
+  letter-spacing: var(--ls-heading);
   margin-bottom: var(--spacing-12);
-  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
 }
 
 .title {
-  font-size: var(--fs-h4);
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
   font-weight: 700;
   color: var(--color-text-heading);
+  letter-spacing: var(--ls-heading);
+  line-height: 1.25;
   margin-bottom: var(--spacing-8);
 }
 
@@ -87,10 +97,13 @@
   line-height: var(--lh-body);
   color: var(--color-text-body);
   margin: 0;
-  max-width: none;
-  opacity: 0.85;
+  max-width: 36ch;
+  opacity: 0.78;
 }
 
+/* ------------------------------------------------
+   1024px — Tablet: 2-column grid
+------------------------------------------------ */
 @media (max-width: 1024px) {
   .section {
     padding: var(--section-py-md) 0;
@@ -101,16 +114,24 @@
   }
 
   .header {
-    margin-bottom: var(--spacing-32);
+    margin-bottom: var(--spacing-40);
   }
 
   .grid {
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: var(--spacing-32);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: var(--spacing-48);
     column-gap: var(--spacing-32);
+  }
+
+  .body {
+    max-width: none;
   }
 }
 
+/* ------------------------------------------------
+   640px — Mobile: clean vertical stack
+   Large numbers scale down but stay prominent.
+------------------------------------------------ */
 @media (max-width: 640px) {
   .section {
     padding: var(--section-py-sm) 0;
@@ -121,7 +142,7 @@
   }
 
   .header {
-    margin-bottom: var(--spacing-24);
+    margin-bottom: var(--spacing-32);
   }
 
   .heading {
@@ -129,44 +150,28 @@
     max-width: none;
   }
 
-  .desktopBreak {
-    display: inline;
-  }
-
   .grid {
     grid-template-columns: 1fr;
-    row-gap: 0;
-    margin-left: 8px;
-    /* Slightly indents the vertical line off the exact edge */
+    row-gap: var(--spacing-40);
+    column-gap: 0;
   }
 
   .step {
-    padding-top: 0;
-    padding-bottom: var(--spacing-32);
-    padding-left: var(--spacing-24);
-    border-top: none;
-    border-left: 1px solid var(--color-border-light);
-    position: relative;
+    padding: 0;
   }
-
-  /* Adds a subtle timeline marker to anchor each step */
-  .step::before {
-    content: '';
-    position: absolute;
-    left: -4px;
-    /* Centered visually precisely over the 1px border */
-    top: 10px;
-    /* Optically centered with the cap-height of the 1.1rem number text */
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background-color: var(--color-brand-primary);
-  }
-
-  /* The transparent override for last-child was explicitly deleted here */
 
   .number {
-    font-size: 1.1rem;
+    font-size: clamp(2rem, 9vw, 2.5rem);
     margin-bottom: var(--spacing-8);
+    opacity: 0.22;
+  }
+
+  .title {
+    font-size: 1.15rem;
+  }
+
+  .body {
+    font-size: var(--fs-body);
+    max-width: none;
   }
 }

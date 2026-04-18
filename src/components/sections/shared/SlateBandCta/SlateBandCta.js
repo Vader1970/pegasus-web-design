@@ -46,7 +46,7 @@ export default function SlateBandCta() {
           We design fast, high-converting websites for trades and service businesses, built to bring in real enquiries, not just look good.
         </p>
         <Link href="/#contact" className={`gsap-cs ${styles.ctaBtn}`}>
-          Get your free proposal <ArrowRight size={18} className={styles.arrow} />
+          Get your free consultation <ArrowRight size={18} className={styles.arrow} />
         </Link>
       </div>
     </section>

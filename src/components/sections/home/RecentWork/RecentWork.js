@@ -83,12 +83,12 @@ export default function RecentWork() {
       duration: 1,
       ease: "power2.out"
     }, "-=0.3")
-    .from(".gsap-work-featured-text", {
-      opacity: 0,
-      y: 16,
-      duration: 0.6,
-      ease: "power2.out"
-    }, "-=0.6");
+      .from(".gsap-work-featured-text", {
+        opacity: 0,
+        y: 16,
+        duration: 0.6,
+        ease: "power2.out"
+      }, "-=0.6");
 
     tl.from(".gsap-work-card", {
       opacity: 0,
@@ -113,7 +113,7 @@ export default function RecentWork() {
         {/* ──── Header ──── */}
         <div className={styles.header}>
           <span className={`gsap-work-header ${styles.label}`}>REAL PROJECTS</span>
-          <h2 className={`gsap-work-header ${styles.heading}`}>Real results from real businesses</h2>
+          <h2 className={`gsap-work-header ${styles.heading}`}>Real websites.<br />Real results.</h2>
           <p className={`gsap-work-header ${styles.intro}`}>
             Real websites and landing pages we&apos;ve built for service-based businesses, designed to bring in more enquiries, not just look good.
           </p>

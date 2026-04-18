@@ -50,21 +50,18 @@ export default function Hero() {
           </div>
 
           <h1 className={`gsap-hero-heading ${styles.heading}`}>
-          If your website doesn't reflect how good your business actually is, it's costing you work.
+            If your website doesn't reflect how good your business actually is, it's costing you work.
           </h1>
 
           <p className={`gsap-hero-text ${styles.paragraph}`}>
-          We design fast, modern websites that turn visitors into real enquiries.
+            We design fast, modern websites that turn visitors into real enquiries.
           </p>
 
           <div className={`gsap-hero-cta ${styles.ctaGroup}`}>
             <Link href="#contact" className={styles.ctaButton}>
-              Get your free proposal
+              Get your free consultation
               <ArrowRight size={20} className={styles.arrow} />
             </Link>
-            <p className={styles.smallText}>
-              Free. Written. Delivered within 48 hours.
-            </p>
             <p className={styles.microText}>
               No obligation. No pressure.
             </p>

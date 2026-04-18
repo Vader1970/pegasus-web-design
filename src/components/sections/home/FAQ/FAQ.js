@@ -54,19 +54,19 @@ export default function FAQ() {
       duration: 0.8,
       ease: "power3.out"
     })
-    .from(".gsap-faq-item", {
-      opacity: 0,
-      y: 20,
-      duration: 0.8,
-      stagger: 0.15,
-      ease: "power3.out"
-    }, "-=0.4")
-    .from(".gsap-faq-cta", {
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-      ease: "power3.out"
-    }, "-=0.4");
+      .from(".gsap-faq-item", {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out"
+      }, "-=0.4")
+      .from(".gsap-faq-cta", {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        ease: "power3.out"
+      }, "-=0.4");
   }, { scope: container });
 
   const toggleItem = (index) => {
@@ -79,29 +79,29 @@ export default function FAQ() {
         <div className={styles.content}>
           <span className={`gsap-faq-heading ${styles.label}`}>COMMON QUESTIONS</span>
           <h2 className={`gsap-faq-heading ${styles.heading}`}>Frequently asked questions</h2>
-          
+
           <div className={styles.accordion}>
             {faqs.map((faq, index) => {
               const isOpen = openIndex === index;
               return (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`gsap-faq-item ${styles.item} ${isOpen ? styles.open : ''}`}
                 >
-                  <button 
-                    className={styles.questionButton} 
+                  <button
+                    className={styles.questionButton}
                     onClick={() => toggleItem(index)}
                     aria-expanded={isOpen}
                   >
                     <span className={styles.questionText}>{faq.question}</span>
-                    <svg 
-                      className={styles.chevron} 
+                    <svg
+                      className={styles.chevron}
                       width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
-                  
+
                   <div className={styles.answerWrapper}>
                     <div className={styles.answerInner}>
                       <p className={styles.answerText}>{faq.answer}</p>
@@ -118,7 +118,7 @@ export default function FAQ() {
 
           <div className={`gsap-faq-cta ${styles.ctaWrap}`}>
             <Link href="#contact" className={ctaStyles.ctaButton}>
-              Get your free proposal{' '}
+              Get your free consultation{' '}
               <ArrowRight size={20} className={ctaStyles.arrow} />
             </Link>
           </div>

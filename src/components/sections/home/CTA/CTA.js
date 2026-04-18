@@ -35,11 +35,11 @@ export default function CTA() {
         <div className={styles.content}>
           <h2 className={`gsap-cta-text ${styles.heading}`}>Ready to start?</h2>
           <p className={`gsap-cta-text ${styles.paragraph}`}>
-            We’ll review your situation and send a written proposal within 48 hours - at no cost and with no obligation to proceed.
+            We'll take a look at where your business is at and get back to you to arrange a free consultation - no cost, no obligation to proceed.
           </p>
           <div className="gsap-cta-text">
             <Link href="#contact" className={styles.ctaButton}>
-              Get your free proposal <ArrowRight size={20} className={styles.arrow} />
+              Get your free consultation <ArrowRight size={20} className={styles.arrow} />
             </Link>
           </div>
         </div>

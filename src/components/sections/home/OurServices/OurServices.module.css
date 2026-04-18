@@ -1,0 +1,310 @@
+.section {
+  scroll-margin-top: 0;
+  width: 100%;
+  background-color: var(--color-bg-primary);
+  padding: var(--section-py) 0;
+}
+
+.inner {
+  width: 100%;
+}
+
+.container {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-40);
+  align-items: start;
+}
+
+.contentColumn {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brand-primary);
+  margin-bottom: 6px;
+}
+
+.heading {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading-loose);
+  font-weight: 800;
+  letter-spacing: var(--ls-heading);
+  color: var(--color-text-heading);
+  margin-bottom: var(--gap-heading-body);
+}
+
+.paragraph {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+  margin-bottom: var(--spacing-24);
+  max-width: var(--max-w-prose);
+}
+
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-brand-primary);
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+}
+
+.ctaLink:hover {
+  opacity: 0.88;
+  color: var(--color-brand-accent);
+}
+
+.cardsColumn {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Flow layout: each card occupies full width; spacing is margin (never negative) */
+.cardStack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.card {
+  margin: 0;
+  /* Opaque surface required so sticky stacked cards don’t show text from cards beneath */
+  background-color: var(--color-bg-primary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+  border-left: 3px solid var(--color-brand-primary);
+  box-shadow: var(--shadow-card);
+  padding: clamp(1.1rem, 1.5vw, 1.5rem) clamp(1.35rem, 2vw, 2rem);
+}
+
+.card + .card {
+  margin-top: var(--spacing-24);
+}
+
+.cardTitle {
+  font-size: clamp(1.18rem, 1.75vw, 1.4rem);
+  font-weight: 700;
+  color: var(--color-brand-primary);
+  margin: 0 0 var(--spacing-12);
+  letter-spacing: var(--ls-heading);
+  line-height: 1.2;
+}
+
+.cardBody {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+  margin: 0;
+  max-width: none;
+  opacity: 0.94;
+}
+
+/* Desktop: intro column stays put while cards scroll; sticky card stack on the right */
+@media (min-width: 901px) {
+  /* Matches layout Navbar spacer height (108px) so copy clears the fixed header */
+  .contentColumn {
+    position: sticky;
+    top: 108px;
+    align-self: start;
+  }
+
+  .card {
+    position: sticky;
+    align-self: start;
+    width: 100%;
+  }
+
+  .card:nth-child(1) {
+    top: 96px;
+    z-index: 1;
+  }
+
+  .card:nth-child(2) {
+    top: 120px;
+    z-index: 2;
+  }
+
+  .card:nth-child(3) {
+    top: 144px;
+    z-index: 3;
+  }
+
+  .card:nth-child(4) {
+    top: 168px;
+    z-index: 4;
+  }
+}
+
+/* Tablet: same sticky idea, slightly tighter stick lines so the column fits narrow widths */
+@media (max-width: 1024px) and (min-width: 901px) {
+  .card:nth-child(1) {
+    top: 80px;
+  }
+
+  .card:nth-child(2) {
+    top: 100px;
+  }
+
+  .card:nth-child(3) {
+    top: 120px;
+  }
+
+  .card:nth-child(4) {
+    top: 140px;
+  }
+}
+
+/* ------------------------------------------------
+   1024px
+------------------------------------------------ */
+@media (max-width: 1024px) {
+  .section {
+    padding: var(--section-py-md) 0;
+  }
+
+  .container {
+    grid-template-columns: 55fr 45fr;
+    gap: var(--spacing-32);
+    padding: 0 48px;
+  }
+
+  .contentColumn {
+    max-width: 100%;
+  }
+
+  .heading {
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    line-height: 1.1;
+    margin-bottom: var(--spacing-16);
+    max-width: none;
+  }
+
+  .paragraph {
+    font-size: var(--fs-body);
+    max-width: none;
+    margin-bottom: var(--spacing-24);
+  }
+
+  .ctaLink {
+    font-size: 1.05rem;
+  }
+}
+
+/* ------------------------------------------------
+   900px — mobile: no sticky, plain list
+------------------------------------------------ */
+@media (max-width: 900px) {
+  .section {
+    padding: var(--section-py-md) 0;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-32);
+    padding: 0 40px;
+    align-items: stretch;
+  }
+
+  .contentColumn {
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .heading {
+    font-size: clamp(1.65rem, 3.5vw, 2.2rem);
+    line-height: var(--lh-heading-loose);
+    margin-bottom: var(--gap-heading-body);
+  }
+
+  .paragraph {
+    font-size: var(--fs-body-lg);
+    max-width: none;
+    margin-bottom: var(--spacing-24);
+  }
+
+  .ctaLink {
+    font-size: clamp(1.05rem, 1.5vw, 1.375rem);
+  }
+
+  /* Same sticky stack as desktop, with tighter stick offsets for short viewports */
+  .card {
+    position: sticky;
+    align-self: start;
+    width: 100%;
+  }
+
+  .card:nth-child(1) {
+    top: 56px;
+    z-index: 1;
+  }
+
+  .card:nth-child(2) {
+    top: 72px;
+    z-index: 2;
+  }
+
+  .card:nth-child(3) {
+    top: 88px;
+    z-index: 3;
+  }
+
+  .card:nth-child(4) {
+    top: 104px;
+    z-index: 4;
+  }
+}
+
+/* ------------------------------------------------
+   640px
+------------------------------------------------ */
+@media (max-width: 640px) {
+  .section {
+    padding: var(--section-py-sm) 0;
+  }
+
+  .container {
+    padding: 0 20px;
+    gap: var(--spacing-32);
+  }
+
+  .heading {
+    font-size: clamp(1.5rem, 6.5vw, 2rem);
+  }
+
+  .paragraph {
+    font-size: var(--fs-body);
+    margin-bottom: var(--spacing-24);
+  }
+
+  .card {
+    padding: var(--spacing-16) var(--spacing-16);
+  }
+
+  .cardTitle {
+    font-size: 1.05rem;
+  }
+
+  .cardBody {
+    font-size: 0.95rem;
+  }
+
+  .ctaLink {
+    font-size: 1.05rem;
+  }
+}

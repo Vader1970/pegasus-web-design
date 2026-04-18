@@ -1,7 +1,7 @@
 .section {
   scroll-margin-top: 0px;
   width: 100%;
-  background-color: var(--color-bg-secondary, #F8F9FB);
+  background-color: var(--color-bg-section-alt, #F7F8FA);
   padding: var(--section-py) 0;
 }
 
