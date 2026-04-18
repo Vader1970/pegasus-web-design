@@ -79,7 +79,7 @@ export default function Contact() {
           <div className={styles.formColumn}>
             <div className={`gsap-contact-panel ${styles.formPanel}`}>
               <p className={styles.formIntro}>
-                Tell us a few details, we&apos;ll map out the best next steps for you.
+                Tell us a bit about your business and we&apos;ll be in touch to arrange your free consultation.
               </p>
 
               <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
@@ -126,7 +126,7 @@ export default function Contact() {
                   </div>
 
                   <p className={styles.supportLine}>
-                    We'll send your written proposal within 48 hours. No obligation.
+                    We&apos;ll be in touch to arrange your free consultation. No obligation.
                   </p>
 
                   <div className={styles.submitWrap}>

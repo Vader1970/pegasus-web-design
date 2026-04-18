@@ -6,8 +6,8 @@
 .section {
   scroll-margin-top: 0px;
   width: 100%;
-  background-color: var(--color-bg-secondary, #F1F3F7);
-  padding: var(--section-py) 0;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFC 100%);
+  padding: var(--section-py-lg) 0;
 }
 
 .container {
@@ -276,7 +276,7 @@
 /* ── Tablet ── */
 @media (max-width: 1200px) {
   .section {
-    padding: var(--section-py-md) 0;
+    padding: var(--section-py-lg-md) 0;
   }
 
   .container {

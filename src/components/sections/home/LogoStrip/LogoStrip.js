@@ -40,11 +40,11 @@ export default function LogoStrip() {
       stagger: 0.12,
       ease: "power2.out"
     })
-    .from(".gsap-logo-marquee", {
-      opacity: 0,
-      duration: 1,
-      ease: "power1.out"
-    }, "-=0.3");
+      .from(".gsap-logo-marquee", {
+        opacity: 0,
+        duration: 1,
+        ease: "power1.out"
+      }, "-=0.3");
   }, { scope: container });
 
   const renderLogos = () =>
@@ -65,11 +65,12 @@ export default function LogoStrip() {
       <div className={styles.container}>
 
         <div className={styles.header}>
+          <span className={`gsap-logo-header ${styles.label}`}>TRUSTED BY</span>
           <h2 className={`gsap-logo-header ${styles.heading}`}>
             Businesses we&apos;ve worked with
           </h2>
           <p className={`gsap-logo-header ${styles.subtext}`}>
-            A few of the businesses we&apos;ve helped with clearer, better-performing websites and landing pages.
+            A few of the service-based businesses we&apos;ve helped with clearer, better-performing websites or landing pages.
           </p>
         </div>
 

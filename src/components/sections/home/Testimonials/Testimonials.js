@@ -60,13 +60,13 @@ export default function Testimonials() {
       duration: 0.8,
       ease: "power3.out"
     })
-    .from(".gsap-test-col", {
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-      stagger: 0.15,
-      ease: "power3.out"
-    }, "-=0.4");
+      .from(".gsap-test-col", {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out"
+      }, "-=0.4");
   }, { scope: container });
 
   return (
@@ -79,40 +79,47 @@ export default function Testimonials() {
             Websites designed to bring in enquiries, not just look good.
           </p>
         </div>
-        
+
         <div className={styles.grid}>
           {testimonials.map((item, index) => (
             <div key={index} className={`gsap-test-col ${styles.column}`}>
-              
+
               <div className={styles.logoWrapper}>
-                <Image 
-                  src={item.logo} 
-                  alt={`${item.clientName} logo`} 
-                  fill 
+                <Image
+                  src={item.logo}
+                  alt={`${item.clientName} logo`}
+                  fill
                   sizes="(max-width: 768px) 100vw, (max-width: 992px) 50vw, 33vw"
-                  className={styles.logo} 
+                  className={styles.logo}
                 />
               </div>
-              
+
+              <span
+                className={styles.stars}
+                aria-label={`Rated 5 out of 5 by ${item.clientName}`}
+              >
+                ★★★★★
+              </span>
+
               <p className={styles.quote}>
                 {item.quote}
               </p>
-              
+
               <div className={styles.clientInfo}>
                 <h3 className={styles.clientName}>{item.clientName}</h3>
                 <span className={styles.clientDetails}>{item.clientDetails}</span>
               </div>
-              
+
               <hr className={styles.divider} />
-              
+
               <div className={styles.resultRow}>
                 <div className={styles.resultIconWrapper}>
-                  <Image 
-                    src={item.resultIcon} 
-                    alt={`${item.clientName} Result Icon`} 
-                    width={32} 
-                    height={32} 
-                    className={styles.resultIcon} 
+                  <Image
+                    src={item.resultIcon}
+                    alt={`${item.clientName} Result Icon`}
+                    width={32}
+                    height={32}
+                    className={styles.resultIcon}
                   />
                 </div>
                 <div className={styles.resultContent}>
@@ -128,7 +135,7 @@ export default function Testimonials() {
         <div className={`gsap-test-col ${styles.ctaBlock}`}>
           <h3 className={styles.ctaHeading}>Want results like this for your business?</h3>
           <Link href="/#contact" className={styles.ctaBtn}>
-            Get your free proposal <ArrowRight size={20} className={styles.arrow} />
+            Get your free consultation <ArrowRight size={20} className={styles.arrow} />
           </Link>
         </div>
       </div>

@@ -125,7 +125,7 @@ export default function Navbar() {
             <Link href="/" onClick={closeMenu}>
               <div className={styles.logoWrapper}>
                 <Image
-                  src="/images/shared/pegasus-logo-nav.png"
+                  src="/images/shared/nav-logo.png"
                   alt="Pegasus Web Design Logo"
                   fill
                   sizes="(max-width: 768px) 130px, 160px"
@@ -138,7 +138,7 @@ export default function Navbar() {
 
           {/* Center: Desktop Nav Links */}
           <nav className={styles.desktopNav}>
-            <Link href="/#services" className={styles.navLink} onClick={handleNavClick}>Services</Link>
+            <Link href="/#how-we-help" className={styles.navLink} onClick={handleNavClick}>Services</Link>
             <Link href="/work" className={styles.navLink} onClick={handleWorkNavClick}>Work</Link>
             <Link href="/#about" className={styles.navLink} onClick={handleNavClick}>About Us</Link>
             <Link href="/work/mac-auto-services" className={styles.navLink} onClick={handleWorkNavClick}>Case Study</Link>
@@ -147,7 +147,7 @@ export default function Navbar() {
           {/* Right: Desktop CTA */}
           <div className={styles.ctaWrapper}>
             <Link href="/#contact" className={styles.ctaButton} onClick={handleNavClick}>
-              Get your free proposal
+              Get your free consultation
               <ArrowRight size={20} className={styles.arrow} />
             </Link>
           </div>
@@ -168,7 +168,7 @@ export default function Navbar() {
         {/* Mobile: Fullscreen Menu Dropdown */}
         <div className={styles.mobileMenu} data-open={isOpen}>
           <nav className={styles.mobileNavLinks}>
-            <Link href="/#services" className={styles.mobileNavLink} onClick={handleNavClick}>Services</Link>
+            <Link href="/#how-we-help" className={styles.mobileNavLink} onClick={handleNavClick}>Services</Link>
             <Link href="/work" className={styles.mobileNavLink} onClick={handleWorkNavClick}>Work</Link>
             <Link href="/#about" className={styles.mobileNavLink} onClick={handleNavClick}>About US</Link>
             <Link href="/work/mac-auto-services" className={styles.mobileNavLink} onClick={handleWorkNavClick}>Case Study</Link>
@@ -176,7 +176,7 @@ export default function Navbar() {
 
           <div className={styles.mobileCtaWrapper}>
             <Link href="/#contact" className={styles.ctaButton} onClick={handleNavClick}>
-              Get your free proposal
+              Get your free consultation
               <ArrowRight size={20} className={styles.arrow} />
             </Link>
           </div>

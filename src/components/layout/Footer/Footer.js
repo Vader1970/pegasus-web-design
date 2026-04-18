@@ -53,7 +53,7 @@ export default function Footer() {
   };
 
   // Route navigation to /work should keep navbar visible for better first-view UX.
-  const handleWorkNavClick = () => {};
+  const handleWorkNavClick = () => { };
 
   return (
     <footer ref={container} className={styles.footer}>
@@ -62,18 +62,18 @@ export default function Footer() {
 
           <div className={styles.logoWrapper}>
             <Link href="/">
-            <Image
-              src="/images/shared/pegasus-logo.png"
-              alt="Pegasus Web Design Logo"
-              fill
-              sizes="(max-width: 768px) 160px, 200px"
-              className={styles.logo}
-            />
+              <Image
+                src="/images/shared/pegasus-logo-white.png"
+                alt="Pegasus Web Design Logo"
+                fill
+                sizes="(max-width: 768px) 160px, 200px"
+                className={styles.logo}
+              />
             </Link>
           </div>
 
           <nav className={styles.nav}>
-            <Link href="/#services" className={styles.link} onClick={handleNavClick}>Services</Link>
+            <Link href="/#how-we-help" className={styles.link} onClick={handleNavClick}>Services</Link>
             <Link href="/work" className={styles.link} onClick={handleWorkNavClick}>Work</Link>
             <Link href="/#about" className={styles.link} onClick={handleNavClick}>About Us</Link>
             <Link href="/work/mac-auto-services" className={styles.link} onClick={handleWorkNavClick}>Case Study</Link>

@@ -1,8 +1,8 @@
 .section {
   scroll-margin-top: 0px;
   width: 100%;
-  background-color: var(--color-bg-dark, #0F172A);
-  padding: var(--section-py) 0;
+  background-color: var(--color-bg-dark, #07132D);
+  padding: var(--section-py-lg) 0;
 }
 
 .container {
@@ -75,7 +75,7 @@
 /* Responsive Overrides */
 @media (max-width: 1200px) {
   .section {
-    padding: var(--section-py-md) 0;
+    padding: var(--section-py-lg-md) 0;
   }
   .container {
     padding: 0 32px;

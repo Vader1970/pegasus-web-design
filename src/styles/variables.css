@@ -6,6 +6,17 @@
   --color-bg-dark: #07132D;
   --color-bg-deep: #06112A;
 
+  /* Homepage alternating rhythm — applied to every other section
+     so sections no longer feel like identical stacked blocks on mobile. */
+  --color-bg-section-alt: #F7F8FA;
+
+  /* Subtle card surface tint — used for refined card backgrounds
+     (HowWeHelp bento), so cards feel lifted against a white section. */
+  --color-card-tint: #FBFCFE;
+
+  /* Softer, low-opacity border — premium card outlines without harsh edges */
+  --color-border-soft: rgba(17, 24, 39, 0.06);
+
   /* Brand colours */
   --color-brand-primary: #4F52C9;
   --color-brand-accent: #6370FF;
@@ -85,6 +96,11 @@
 
   /* Section vertical padding (mobile) */
   --section-py-sm: clamp(3.5rem, 5vw, 4.5rem);
+
+  /* Key "pause moment" sections — case study, About, CTA.
+     Larger desktop padding for hierarchy; still comfortable on mobile. */
+  --section-py-lg: clamp(5.5rem, 7vw, 7.5rem);       /* 88 → 120px */
+  --section-py-lg-md: clamp(4.5rem, 6vw, 5.5rem);    /* 72 →  88px */
 
   /* Card internal padding */
   --card-px: clamp(1.25rem, 2vw, 2rem);

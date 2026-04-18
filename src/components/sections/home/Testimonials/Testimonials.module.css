@@ -1,7 +1,7 @@
 .section {
   scroll-margin-top: 0px;
   width: 100%;
-  background-color: var(--color-bg-secondary, #FFFFFF);
+  background-color: var(--color-bg-section-alt, #F7F8FA);
   padding: var(--section-py) 0;
 }
 
@@ -66,12 +66,23 @@
   position: relative;
   width: 100%;
   height: 44px;
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-16);
 }
 
 .logo {
   object-fit: contain;
   object-position: left center;
+}
+
+/* Five-star rating — same visual as Hero .stars */
+.stars {
+  display: inline-block;
+  color: #FBBF24;
+  font-size: 15px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  line-height: 1;
+  margin-bottom: var(--spacing-16);
 }
 
 .quote {
@@ -246,7 +257,13 @@
 
   .logoWrapper {
     height: 36px;
-    margin-bottom: var(--spacing-24);
+    margin-bottom: var(--spacing-12);
+  }
+
+  .stars {
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: var(--spacing-12);
   }
 
   .column {

@@ -1,7 +1,7 @@
 .section {
   scroll-margin-top: 0px;
   width: 100%;
-  background-color: var(--color-bg-secondary, #F8F9FB);
+  background-color: var(--color-bg-section-alt, #F7F8FA);
   padding: var(--section-py) 0;
 }
 
@@ -93,28 +93,58 @@
   gap: var(--spacing-24);
 }
 
-/* The Cards */
+/* -------------------
+   Cards
+   Informational tone: subtle elevation on hover, never inverts.
+--------------------*/
 .card {
   background-color: var(--color-bg-primary);
   padding: var(--card-py) var(--card-px);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-soft);
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.3s ease;
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card:hover {
-  box-shadow: var(--shadow-card-hover);
+/* Hover only fires on devices that truly support hover,
+   so touch devices don't get stuck in an elevated state. */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(79, 82, 201, 0.18);
+  }
+
+  .card:hover .iconBadge {
+    background-color: rgba(79, 82, 201, 0.14);
+  }
 }
 
-.iconWrapper {
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .iconBadge {
+    transition: none;
+  }
+}
+
+/* Icon badge — same visual system as HowWeHelp so icons
+   feel part of one design language across the homepage. */
+.iconBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background-color: var(--color-brand-soft);
+  color: var(--color-brand-primary);
   margin-bottom: var(--spacing-20);
-}
-
-.icon {
-  object-fit: contain;
-  object-position: left;
+  transition: background-color 0.35s ease;
 }
 
 .cardTitle {
@@ -189,7 +219,7 @@
     padding: var(--spacing-24) var(--spacing-20);
   }
 
-  .iconWrapper {
+  .iconBadge {
     margin-bottom: var(--spacing-16);
   }
 }
@@ -244,7 +274,7 @@
     padding: var(--card-py) var(--card-px);
   }
 
-  .iconWrapper {
+  .iconBadge {
     margin-bottom: var(--spacing-20);
   }
 }
@@ -282,7 +312,7 @@
     padding: var(--spacing-20) var(--spacing-16);
   }
 
-  .iconWrapper {
+  .iconBadge {
     margin-bottom: var(--spacing-16);
   }
 
